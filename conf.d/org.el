@@ -7,6 +7,10 @@
       org-insert-heading-respect-content t
       deft-directory "~/notes")
 
+(defun kdz/org-capture-template (fname)
+  "Generate a path to the capture template named <FNAME>.org.tpl"
+  (concat doom-private-dir "capture-templates/" fname ".org.tpl"))
+
 (after! org
   (require 'ox-gfm nil t)
   (map! :map org-mode-map
@@ -33,14 +37,14 @@
                 "Jira Feature Ticket Note"
                 entry
                 (file "~/notes/tickets.org")
-                (file "~/.dotfiles/capture-templates/feature-ticket.org.tpl")))
+                (file (kdz/org-capture-template "feature-ticket"))))
 
   (add-to-list 'org-capture-templates
                '("b"
                 "Jira Bug Ticket Note"
                 entry
                 (file "~/notes/tickets.org")
-                (file "~/.dotfiles/capture-templates/bug-ticket.org.tpl")))
+                (file (kdz/org-capture-template "bug-ticket"))))
 
   (add-to-list 'org-capture-templates
                '("d"
