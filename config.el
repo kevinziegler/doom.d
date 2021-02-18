@@ -31,6 +31,7 @@
 ;; If you want to change the style of line numbers, change this to `relative' or
 ;; `nil' to disable it:
 (setq display-line-numbers-type t)
+(setq-default frame-title-format nil)
 
 ;; Set default window size
 (add-to-list 'default-frame-alist '(height . 50))
