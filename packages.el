@@ -57,3 +57,4 @@
 (package! visual-fill-column)
 (package! kaolin-themes)
 (package! magit-org-todos)
+(package! org-appear :recipe (:host github :repo "awth13/org-appear"))

@@ -60,3 +60,4 @@
                 "* TODO Discuss in next retro: %?")))
 
 (add-hook 'org-mode-hook #'kdz/writing-fill-column)
+(add-hook 'org-mode-hook 'org-appear-mode)
