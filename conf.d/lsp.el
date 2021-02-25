@@ -13,6 +13,14 @@
 (add-hook! lsp-mode #'lsp-enable-which-key-integration)
 
 (after! lsp-mode
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection '("terraform-ls" "serve"))
+    :major-modes '(terraform-mode)
+    :server-id 'terraform-ls))
+  (add-hook! 'terraform-mode-hook #'lsp-deferred))
+
+(after! lsp-mode
   (setq lsp-idle-delay 0.8))
 
 ;; LSP Performance Tweaks
