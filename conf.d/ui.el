@@ -15,7 +15,8 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
 ;;(setq doom-theme 'doom-oceanic-next)
-(setq doom-theme 'kaolin-galaxy)
+;;(setq doom-theme 'kaolin-galaxy)
+(setq doom-theme 'kaolin-aurora)
 (setq doom-themes-treemacs-theme 'kaolin)
 (setq doom-modeline-buffer-encoding nil)
 (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
