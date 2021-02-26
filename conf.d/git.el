@@ -6,6 +6,10 @@
   ("p" git-timemachine-show-previous-revision "Previous revision")
   ("n" git-timemachine-show-next-revision "Next revision"))
 
+(map! :leader
+      (:prefix "g"
+        :desc "Worktrees" "w" #'magit-worktree))
+
 (add-hook! git-timemachine-mode #'hydra-git-timemachine/body)
 (after! magit (magit-org-todos-autoinsert))
 (setq magit-git-executable "/usr/local/bin/git"

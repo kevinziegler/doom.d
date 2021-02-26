@@ -16,14 +16,6 @@
         :desc "Previous Error" "p" #'previous-error))
 
 (map! :leader
-      (:prefix "g"
-        :desc "Worktrees" "w" #'magit-worktree
-        (:prefix-map ("j" . "(Jump to) Links")
-                :desc "Current file" "j" #'git-link
-                :desc "Repository page" "r" #'git-link-homepage
-                :desc "Current commit" "c" #'git-link-commit)))
-
-(map! :leader
       (:prefix "o"
         :desc "Project Errors" "e" #'lsp-treemacs-errors-list))
 
