@@ -7,7 +7,7 @@
   ("n" git-timemachine-show-next-revision "Next revision"))
 
 (add-hook! git-timemachine-mode #'hydra-git-timemachine/body)
-
+(after! magit (magit-org-todos-autoinsert))
 (setq magit-git-executable "/usr/local/bin/git"
       magit-repository-directories
       '(("~/dev" . 2) ("~/.dotfiles" . 0)))
