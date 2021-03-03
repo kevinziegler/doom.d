@@ -3,13 +3,6 @@
       :desc "Change Major Mode" "M" #'counsel-major)
 
 (map! :leader
-      (:prefix-map ("a" . "Applications")
-        (:prefix-map ("o" . "Org")
-          :desc "Capture" "c" #'org-capture
-          :desc "Store Link" "l" #'org-store-link)
-        :desc "Deft" "n" #'deft))
-
-(map! :leader
       (:prefix ("e" . "Errors")
         :desc "Error List" "l" #'flycheck-list-errors
         :desc "Next Error" "n" #'next-error
