@@ -13,6 +13,12 @@
 
 (after! org
   (require 'ox-gfm nil t)
+
+  (add-hook 'org-mode-hook #'kdz/writing-fill-column)
+  (add-hook 'org-mode-hook 'org-appear-mode)
+
+  (setq org-ellipsis " [➥]")
+
   (map! :map org-mode-map
         :localleader
         :desc "Schedule" "S" #'org-schedule)
@@ -58,6 +64,3 @@
                 entry
                 (file "~/notes/general.org")
                 "* TODO Discuss in next retro: %?")))
-
-(add-hook 'org-mode-hook #'kdz/writing-fill-column)
-(add-hook 'org-mode-hook 'org-appear-mode)
