@@ -51,6 +51,7 @@
 ;; our package manager can't deal with; see raxod502/straight.el#279)
 ;(package! builtin-package :recipe (:branch "develop"))
 
+(package! ample-theme)
 (package! ox-gfm)
 (package! git-link)
 (package! org-jira)
