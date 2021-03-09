@@ -57,6 +57,5 @@
 (package! magit-org-todos)
 (package! org-appear :recipe (:host github :repo "awth13/org-appear"))
 (package! org-jira)
-(package! ox-gfm)
 (package! tron-legacy-theme)
 (package! visual-fill-column)
