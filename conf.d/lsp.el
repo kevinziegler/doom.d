@@ -22,10 +22,3 @@
 
 (after! lsp-mode
   (setq lsp-idle-delay 0.8))
-
-;; LSP Performance Tweaks
-;; (after! gcmh (setq gcmh-high-cons-threshold 100000000))
-;; (setq read-kprocess-output-max (* 1024 1024)) ;; 1mb
-
-;; (setq lsp-prefer-capf t)
-;; (setq lsp-idle-delay 0.500)
