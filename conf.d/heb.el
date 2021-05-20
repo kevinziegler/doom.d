@@ -2,6 +2,7 @@
       '("~/dev"
         "~/dev/das"
         "~/dev/das/deprecated"
+        "~/dev/odb"
         "~/dev/ohs"
         "~/dev/chil"))
 
