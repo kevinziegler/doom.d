@@ -5,6 +5,7 @@
       org-journal-dir "~/notes/journal/"
       org-default-notes-file "~/notes/notes.org"
       org-insert-heading-respect-content t
+      deft-recursive t
       deft-directory "~/notes")
 
 (defun kdz/org-capture-template (fname)
