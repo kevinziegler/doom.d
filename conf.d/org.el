@@ -12,14 +12,44 @@
   "Generate a path to the capture template named <FNAME>.org.tpl"
   (concat doom-private-dir "capture-templates/" fname ".org.tpl"))
 
+(defun kdz/prettify-material-icon-for (token icon)
+  "Use an all-the-icons-material icon for the given token in org-mode"
+  (push (cons token (all-the-icons-material icon)) prettify-symbols-alist))
+
+(defun kdz/prettify-org-material ()
+  "Set up prettify-org with all-the-icons symbols"
+  (kdz/prettify-material-icon-for "#+BEGIN_SRC" "code")
+  (kdz/prettify-material-icon-for "#+begin_src" "code")
+  (kdz/prettify-material-icon-for "#+END_SRC" "expand_less")
+  (kdz/prettify-material-icon-for "#+end_src" "expand_less")
+  (kdz/prettify-material-icon-for "#+RESULTS:" "receipt")
+
+  (kdz/prettify-material-icon-for "#+BEGIN_EXAMPLE" "description")
+  (kdz/prettify-material-icon-for "#+begin_example" "description")
+  (kdz/prettify-material-icon-for "#+END_EXAMPLE" "expand_less")
+  (kdz/prettify-material-icon-for "#+end_example" "expand_less")
+
+  (kdz/prettify-material-icon-for "#+BEGIN_QUOTE" "format_quote")
+  (kdz/prettify-material-icon-for "#+begin_quote" "format_quote")
+  (kdz/prettify-material-icon-for "#+END_QUOTE" "expand_less")
+  (kdz/prettify-material-icon-for "#+end_quote" "expand_less")
+
+  (kdz/prettify-material-icon-for "[ ]" "check_box_outline_blank")
+  (kdz/prettify-material-icon-for "[-]" "indeterminate_check_box")
+  (kdz/prettify-material-icon-for "[X]" "check_box")
+
+  (prettify-symbols-mode))
+
 (after! org
   (require 'ox-gfm nil t)
 
+  (add-hook 'org-mode-hook #'kdz/prettify-org-material)
   (add-hook 'org-mode-hook #'kdz/writing-fill-column)
   (add-hook 'org-mode-hook 'org-appear-mode)
 
-  (setq org-ellipsis " [➥]")
+  (setq org-ellipsis (all-the-icons-material "unfold_more"))
 
+  (map! :map org-mode-map :localleader "i" nil)
   (map! :map org-mode-map
         :localleader
         :desc "Schedule" "S" #'org-schedule)
@@ -32,7 +62,6 @@
         :desc "Move Subtree Up" "k" #'org-move-subtree-up
         :desc "Move Subtree Down" "j" #'org-move-subtree-down))
 
-  (map! :map org-mode-map :localleader "i" nil)
   (map! :map org-mode-map
         :localleader
         (:prefix ("i" . "Insert")
