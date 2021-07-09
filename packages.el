@@ -59,3 +59,4 @@
 (package! org-jira)
 (package! tron-legacy-theme)
 (package! visual-fill-column)
+(package! ob-http)

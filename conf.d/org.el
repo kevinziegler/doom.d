@@ -1,4 +1,6 @@
 ;;; $DOOMDIR/config-org.el -*- lexical-binding: t; -*-
+(require 'ob-restclient)
+(require 'ob-http)
 
 (setq org-directory "~/notes/"
       org-hide-emphasis-markers t
