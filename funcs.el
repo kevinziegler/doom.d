@@ -9,8 +9,9 @@
     (pop-to-buffer "*Messages*"))
 
 (defun kdz/set-zshrc-sh-shell ()
-  (when (string-match "zshrc$" buffer-file-name)
-    (sh-set-shell "zsh")))
+  (when buffer-file-name
+    (when (string-match "zshrc$" buffer-file-name)
+      (sh-set-shell "zsh"))))
 
 (defun http-basic-auth-token-b64 (host)
   "Find the first result for the supplied HOST in auth sources (or nil if no
