@@ -16,25 +16,26 @@
 
 (defun kdz/prettify-material-icon-for (token icon)
   "Use an all-the-icons-material icon for the given token in org-mode"
-  (push (cons token (all-the-icons-material icon)) prettify-symbols-alist))
+  (push (cons (upcase token) (all-the-icons-material icon)) prettify-symbols-alist)
+  (push (cons (downcase token) (all-the-icons-material icon)) prettify-symbols-alist))
 
 (defun kdz/prettify-org-material ()
   "Set up prettify-org with all-the-icons symbols"
   (kdz/prettify-material-icon-for "#+BEGIN_SRC" "code")
-  (kdz/prettify-material-icon-for "#+begin_src" "code")
   (kdz/prettify-material-icon-for "#+END_SRC" "expand_less")
-  (kdz/prettify-material-icon-for "#+end_src" "expand_less")
   (kdz/prettify-material-icon-for "#+RESULTS:" "receipt")
 
   (kdz/prettify-material-icon-for "#+BEGIN_EXAMPLE" "description")
-  (kdz/prettify-material-icon-for "#+begin_example" "description")
   (kdz/prettify-material-icon-for "#+END_EXAMPLE" "expand_less")
-  (kdz/prettify-material-icon-for "#+end_example" "expand_less")
 
   (kdz/prettify-material-icon-for "#+BEGIN_QUOTE" "format_quote")
-  (kdz/prettify-material-icon-for "#+begin_quote" "format_quote")
   (kdz/prettify-material-icon-for "#+END_QUOTE" "expand_less")
-  (kdz/prettify-material-icon-for "#+end_quote" "expand_less")
+
+  (kdz/prettify-material-icon-for "#+TITLE:" "title")
+  (kdz/prettify-material-icon-for "#+AUTHOR:" "person")
+  (kdz/prettify-material-icon-for "#+OPTIONS:" "settings")
+  (kdz/prettify-material-icon-for "#+NAME:" "info")
+  (kdz/prettify-material-icon-for "#+TODO:" "check_circle")
 
   (kdz/prettify-material-icon-for "[ ]" "check_box_outline_blank")
   (kdz/prettify-material-icon-for "[-]" "indeterminate_check_box")
