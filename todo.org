@@ -1,0 +1,36 @@
+#+TITLE: Doom Config TODOs
+
+* TODO Figure out how to get 'main' workspace to be persistent/always open
+* TODO Figure out how to make notes only open in main workspace
+* DONE See if popup defaults is better than all
+https://github.com/hlissner/doom-emacs/blob/develop/modules/ui/popup/README.org
+* DONE Set up org-mode to show format characters on mouseover
+https://github.com/awth13/org-appear
+* TODO See if this regexp feels more natural
+https://github.com/benma/visual-regexp-steroids.el
+* TODO Consider using mono-spaced fonts for indentation/whitespace in org mode?
+* TODO Add wq command for org-src-mode
+* TODO  'add' menu for org under SPC m a
+* TODO Set up dedicated notes workspace
+
+* Packages to consider adding to this configuration
+** To Evaluate
+  - https://github.com/federicotdn/verb
+  - https://github.com/myrjola/diminish.el
+  - https://github.com/alphapapa/org-web-tools
+  - https://github.com/alphapapa/org-protocol-capture-html
+  - https://github.com/alphapapa/org-sticky-header
+  - https://github.com/ahungry/org-jira
+  - https://github.com/stig/ox-jira.el
+** Rejected
+  - https://github.com/ryuslash/mode-icons :: Doesn't look particularly useful with doom's modeline
+  - https://github.com/skeeto/impatient-mode :: Would be handy for HTML work, but I can't see it fitting with my UI dev workflow
+** Implemented
+  - https://www.emacswiki.org/emacs/MiniMap (Already in Doom)
+  - https://github.com/ianpan870102/wilmersdorf-emacs-theme (Already in doom)
+  - https://github.com/ianpan870102/tron-legacy-emacs-theme
+  - https://github.com/jordonbiondo/ample-theme
+
+* Enable running with AWS roles enabled
+- Get AWS login creds from 1Password (MFA Token)
+- Set up AWS Session via aws-vault
