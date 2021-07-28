@@ -10,6 +10,7 @@
 (load! "funcs")
 (load! "conf.d/lsp")
 (load! "conf.d/lsp-java")
+(load! "conf.d/git")
 (load! "conf.d/heb")
 (load! "conf.d/keybinds")
 (load! "conf.d/org")
