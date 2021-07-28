@@ -41,8 +41,8 @@
        (popup            ; tame sudden yet inevitable temporary windows
         +defaults)       ; default popup rules
        ligatures         ; replace bits of code with pretty symbols
-       ;;tabs              ; an tab bar for Emacs
-       treemacs          ; a project drawer, like neotree but cooler
+       ;;tabs            ; an tab bar for Emacs
+       (treemacs +lsp)   ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
        ;vi-tilde-fringe   ; fringe tildes to mark beyond EOB
@@ -86,7 +86,7 @@
        ;;ansible
        (debugger +lsp)          ; FIXME stepping through code, to help you add bugs
        ;;direnv
-       docker
+       (docker +lsp)
        editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
