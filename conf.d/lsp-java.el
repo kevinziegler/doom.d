@@ -11,8 +11,3 @@
     (list (concat "-javaagent:" lombok-jar-path)))
   (when (boundp 'lsp-java-vmargs)
     (setq lsp-java-vmargs (append lsp-java-vmargs lsp-java-lombok-args))))
-
-(after! dap-java
-  (setq dap-java-doom-junit-runner
-    "eclipse.jdt.ls/server/test-runner/junit-platform-console-standalone.jar")
-  (setq dap-java-test-runner (concat doom-etc-dir dap-java-doom-junit-runner)))
