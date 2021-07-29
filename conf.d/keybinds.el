@@ -10,7 +10,8 @@
 
 (map! :leader
       (:prefix "o"
-        :desc "Project Errors" "e" #'lsp-treemacs-errors-list))
+        :desc "Project Errors" "e" #'lsp-treemacs-errors-list
+        :desc "Symbol Browser" "s" #'lsp-treemacs-symbols))
 
 (map! :leader
       (:prefix "b"
