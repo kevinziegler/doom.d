@@ -1,5 +1,5 @@
 (map! :leader
-      :desc "Command" "SPC" #'counsel-M-x
+      :desc "Command" "SPC" #'execute-extended-command
       :desc "Change Major Mode" "M" #'counsel-major)
 
 (map! :leader
