@@ -1,6 +1,4 @@
 ;;; $DOOMDIR/config-org.el -*- lexical-binding: t; -*-
-(require 'ob-restclient)
-(require 'ob-http)
 
 (setq org-directory "~/notes/"
       org-hide-emphasis-markers t
@@ -45,6 +43,8 @@
 
 (after! org
   (require 'ox-gfm nil t)
+  (require 'ob-restclient)
+  (require 'ob-http)
 
   (add-hook 'org-mode-hook #'kdz/prettify-org-material)
   (add-hook 'org-mode-hook #'kdz/writing-fill-column)
