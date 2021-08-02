@@ -59,6 +59,8 @@
 
   (setq org-ellipsis (all-the-icons-material "unfold_more"))
 
+  ;;(setq org-superstar-item-bullet-alist '("●" "‣" "‒"))
+
   (map! :map org-mode-map :localleader "i" nil)
   (map! :map org-mode-map
         :localleader
