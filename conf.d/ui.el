@@ -18,7 +18,8 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
 ;;(setq doom-theme 'doom-oceanic-next)
-(setq doom-theme 'kaolin-galaxy)
+(setq 'doom-monokai-machine)
+;;(setq doom-theme 'kaolin-galaxy)
 ;;(setq doom-theme 'kaolin-bubblegum)
 ;;(setq doom-theme 'doom-old-hope)
 ;;(setq doom-theme 'doom-1337)
