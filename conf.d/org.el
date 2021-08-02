@@ -41,6 +41,10 @@
 
   (prettify-symbols-mode))
 
+(defun kdz/org-buffer-margins ()
+  (setq left-margin-width 2)
+  (setq right-margin-width 2))
+
 (after! org
   (require 'ox-gfm nil t)
   (require 'ob-restclient)
@@ -48,6 +52,7 @@
 
   (add-hook 'org-mode-hook #'kdz/prettify-org-material)
   (add-hook 'org-mode-hook #'kdz/writing-fill-column)
+  (add-hook 'org-mode-hook #'kdz/org-buffer-margins)
   (add-hook 'org-mode-hook 'org-appear-mode)
 
   (setq org-ellipsis (all-the-icons-material "unfold_more"))
