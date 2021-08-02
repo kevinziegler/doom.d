@@ -49,11 +49,13 @@
   (require 'ox-gfm nil t)
   (require 'ob-restclient)
   (require 'ob-http)
+  (require 'org-pretty-table)
 
   (add-hook 'org-mode-hook #'kdz/prettify-org-material)
   (add-hook 'org-mode-hook #'kdz/writing-fill-column)
   (add-hook 'org-mode-hook #'kdz/org-buffer-margins)
   (add-hook 'org-mode-hook 'org-appear-mode)
+  (add-hook 'org-mode-hook 'org-pretty-table-mode)
 
   (setq org-ellipsis (all-the-icons-material "unfold_more"))
 
