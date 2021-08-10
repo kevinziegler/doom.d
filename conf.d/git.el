@@ -1,4 +1,6 @@
 (require 'hydra)
+(require 'f)
+
 (defhydra hydra-git-timemachine ()
   "Git Time Machine"
   ("b" git-timemachine-blame "Show git blame")
@@ -12,6 +14,7 @@
 
 (add-hook! git-timemachine-mode #'hydra-git-timemachine/body)
 (after! magit (magit-org-todos-autoinsert))
-(setq magit-git-executable "/usr/local/bin/git"
+(setq magit-git-executable
+      (f-join (file-name-as-directory (getenv "HOMEBREW_PREFIX")) "bin" "git")
       magit-repository-directories
       '(("~/dev" . 2) ("~/.dotfiles" . 0)))
