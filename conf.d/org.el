@@ -61,10 +61,10 @@
 
   ;;(setq org-superstar-item-bullet-alist '("●" "‣" "‒"))
 
-  (map! :map org-mode-map :localleader "i" nil)
   (map! :map org-mode-map
         :localleader
         :desc "Schedule" "S" #'org-schedule)
+
   (map! :map org-mode-map
         :localleader
         (:prefix ("s" . "Subtrees")
@@ -75,10 +75,12 @@
         :desc "Move Subtree Down" "j" #'org-move-subtree-down))
 
   (map! :map org-mode-map
-        :localleader
-        (:prefix ("i" . "Insert")
-        :desc "Insert Heading" "h" #'org-insert-heading
-        :desc "Insert Subheading" "s" #'org-insert-subheading))
+        :leader
+        (:prefix "i"
+         :desc "Heading" "h" #'org-insert-heading
+         :desc "Subheading" "s" #'org-insert-subheading
+         :desc "Link" "l" #'org-insert-link))
+
 
   (add-to-list 'org-capture-templates
                '("f"
