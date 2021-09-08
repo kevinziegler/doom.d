@@ -43,6 +43,7 @@
 
 (after! treemacs
   (setq treemacs-collapse-dirs 7)
+  (setq treemacs-width 45)
   (kaolin-treemacs-theme))
 
 (after! vterm (setq vterm-shell "/usr/local/bin/zsh"))
