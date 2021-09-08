@@ -16,7 +16,7 @@
 (map! :leader
       (:prefix "b"
         :desc "Messages" "m" #'switch-to-message-buffer
-        :desc "Copy Buffer" "y" #'copy-whole-buffer))
+        :desc "Copy Buffer" "y" #'doom/copy-buffer-contents))
 
 (evil-ex-define-cmd "W" 'evil-write)
 (evil-ex-define-cmd "Wq" 'evil-save-and-close)
