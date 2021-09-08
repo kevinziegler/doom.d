@@ -14,7 +14,6 @@
 
 (add-hook! git-timemachine-mode #'hydra-git-timemachine/body)
 (after! magit (magit-org-todos-autoinsert))
-(setq magit-git-executable
-      (f-join (file-name-as-directory (getenv "HOMEBREW_PREFIX")) "bin" "git")
-      magit-repository-directories
-      '(("~/dev" . 2) ("~/.dotfiles" . 0)))
+
+(setq magit-git-executable (brew-bin "git")
+      magit-repository-directories '(("~/dev" . 2) ("~/.dotfiles" . 0)))

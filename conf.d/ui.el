@@ -46,4 +46,4 @@
   (setq treemacs-width 45)
   (kaolin-treemacs-theme))
 
-(after! vterm (setq vterm-shell "/usr/local/bin/zsh"))
+(after! vterm (setq vterm-shell (brew-bin "zsh")))
