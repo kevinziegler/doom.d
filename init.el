@@ -101,7 +101,7 @@
        pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
-       ;; taskrunner
+       ;;taskrunner
        terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
@@ -141,22 +141,22 @@
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       (org              ; organize your plain life in plain text
-        +dragndrop       ; drag & drop files/images into org buffers
+       (org                ; organize your plain life in plain text
+        +dragndrop         ; drag & drop files/images into org buffers
         ;;+hugo            ; use Emacs for hugo blogging
-        ;;+jupyter        ; ipython/jupyter support for babel
-        +pandoc          ; export-with-pandoc support
+        ;;+jupyter         ; ipython/jupyter support for babel
+        +pandoc            ; export-with-pandoc support
         ;;+pomodoro        ; be fruitful with the tomato technique
         +pretty
-        +present)        ; using org-mode for presentations
+        +present)          ; using org-mode for presentations
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother
-       plantuml          ; diagrams for confusing people more
+       plantuml            ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
        (python +lsp +poetry +pyright)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
-       rest              ; Emacs as a REST client
+       rest                ; Emacs as a REST client
        ;;rst               ; ReST in peace
        ;;ruby              ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
@@ -166,8 +166,8 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       web               ; the tubes
-       yaml
+       web                 ; the tubes
+       (yaml +lsp)
 
        :email
        ;;(mu4e +gmail)
