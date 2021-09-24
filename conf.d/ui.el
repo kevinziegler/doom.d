@@ -44,6 +44,10 @@
 (add-to-list 'default-frame-alist '(width . 180))
 
 (after! kaolin-themes
+  (setq kaolin-themes-bold t)
+  (setq kaolin-themes-distinct-company-scrollbar t)
+  (setq kaolin-themes-italic t)
+  (setq kaolin-themes-treemacs-hl-line t)
   (setq kaolin-themes-italic-comments t)
   (setq kaolin-themes-underline-wave nil))
 
