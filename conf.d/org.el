@@ -56,6 +56,9 @@
   (add-hook 'org-mode-hook #'kdz/org-buffer-margins)
   (add-hook 'org-mode-hook 'org-appear-mode)
   (add-hook 'org-mode-hook 'org-pretty-table-mode)
+  (add-hook 'org-mode-hook (lambda ()
+                             (display-fill-column-indicator-mode nil)
+                             (setq-local fill-column 120)))
 
   (setq org-ellipsis (all-the-icons-material "unfold_more"))
 
