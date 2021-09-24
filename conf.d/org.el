@@ -12,32 +12,37 @@
   "Generate a path to the capture template named <FNAME>.org.tpl"
   (concat doom-private-dir "capture-templates/" fname ".org.tpl"))
 
-(defun kdz/prettify-material-icon-for (token icon)
-  "Use an all-the-icons-material icon for the given token in org-mode"
-  (push (cons (upcase token) (all-the-icons-material icon)) prettify-symbols-alist)
-  (push (cons (downcase token) (all-the-icons-material icon)) prettify-symbols-alist))
+(defun kdz/iconify-org-token (icon-fn icon token)
+  (push (cons (upcase token) (funcall icon-fn icon :face 'font-lock-keyword-face)) prettify-symbols-alist)
+  (push (cons (downcase token) (funcall icon-fn icon)) prettify-symbols-alist))
 
 (defun kdz/prettify-org-material ()
   "Set up prettify-org with all-the-icons symbols"
-  (kdz/prettify-material-icon-for "#+BEGIN_SRC" "code")
-  (kdz/prettify-material-icon-for "#+END_SRC" "expand_less")
-  (kdz/prettify-material-icon-for "#+RESULTS:" "receipt")
+  (kdz/iconify-org-token #'all-the-icons-material "code" "#+BEGIN_SRC")
+  (kdz/iconify-org-token #'all-the-icons-material "expand_less" "#+END_SRC")
+  (kdz/iconify-org-token #'all-the-icons-material "receipt" "#+RESULTS:")
 
-  (kdz/prettify-material-icon-for "#+BEGIN_EXAMPLE" "description")
-  (kdz/prettify-material-icon-for "#+END_EXAMPLE" "expand_less")
+  (kdz/iconify-org-token #'all-the-icons-material "description" "#+BEGIN_EXAMPLE")
+  (kdz/iconify-org-token #'all-the-icons-material "expand_less" "#+END_EXAMPLE")
 
-  (kdz/prettify-material-icon-for "#+BEGIN_QUOTE" "format_quote")
-  (kdz/prettify-material-icon-for "#+END_QUOTE" "expand_less")
+  (kdz/iconify-org-token #'all-the-icons-material "format_quote" "#+BEGIN_QUOTE")
+  (kdz/iconify-org-token #'all-the-icons-material "expand_less" "#+END_QUOTE")
 
-  (kdz/prettify-material-icon-for "#+TITLE:" "title")
-  (kdz/prettify-material-icon-for "#+AUTHOR:" "person")
-  (kdz/prettify-material-icon-for "#+OPTIONS:" "settings")
-  (kdz/prettify-material-icon-for "#+NAME:" "info")
-  (kdz/prettify-material-icon-for "#+TODO:" "check_circle")
+  (kdz/iconify-org-token #'all-the-icons-material "title" "#+TITLE:")
+  (kdz/iconify-org-token #'all-the-icons-material "person" "#+AUTHOR:")
+  (kdz/iconify-org-token #'all-the-icons-fileicon "config" "#+PROPERTY:")
+  (kdz/iconify-org-token #'all-the-icons-material "settings" "#+OPTIONS:")
+  (kdz/iconify-org-token #'all-the-icons-material "info" "#+NAME:")
+  (kdz/iconify-org-token #'all-the-icons-material "check_circle" "#+TODO:")
 
-  (kdz/prettify-material-icon-for "[ ]" "check_box_outline_blank")
-  (kdz/prettify-material-icon-for "[-]" "indeterminate_check_box")
-  (kdz/prettify-material-icon-for "[X]" "check_box")
+  (kdz/iconify-org-token #'all-the-icons-material "person" ":dbuser")
+  (kdz/iconify-org-token #'all-the-icons-material "security" ":dbpassword")
+  (kdz/iconify-org-token #'all-the-icons-octicon "database" ":database")
+  (kdz/iconify-org-token #'all-the-icons-octicon "server" ":dbhost")
+
+  (kdz/iconify-org-token #'all-the-icons-material "check_box_outline_blank" "[ ]")
+  (kdz/iconify-org-token #'all-the-icons-material "indeterminate_check_box" "[-]")
+  (kdz/iconify-org-token #'all-the-icons-material "check_box" "[X]")
 
   (prettify-symbols-mode))
 
