@@ -28,7 +28,11 @@
 (setq doom-themes-treemacs-theme 'kaolin)
 
 (setq doom-modeline-buffer-encoding nil)
-(setq doom-modeline-buffer-file-name-style 'truncate-with-project)
+(setq doom-modeline-buffer-file-name-style 'relative-to-project)
+(setq doom-modeline-major-mode-icon t)
+(setq doom-modeline-display-default-persp-name t)
+(setq doom-modeline-hud t)
+(setq doom-modeline-persp-name t)
 
 ;; If you want to change the style of line numbers, change this to `relative' or
 ;; `nil' to disable it:
