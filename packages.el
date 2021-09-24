@@ -61,3 +61,4 @@
 (package! visual-fill-column)
 (package! ob-http)
 (package! org-pretty-table :recipe (:host github :repo "Fuco1/org-pretty-table"))
+(package! protobuf-mode)
