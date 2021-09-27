@@ -10,9 +10,9 @@
 ;; (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 13)
 ;;       doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13)
 ;;       doom-big-font (font-spec :family "Fira Sans" :size 16))
-(setq doom-font (font-spec :family "Iosevka Nerd Font" :size 13)
-      doom-variable-pitch-font (font-spec :family "Iosevka" :size 13)
-      doom-big-font (font-spec :family "Iosevka" :size 16))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 12)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12)
+      doom-big-font (font-spec :family "JetBrains Mono" :size 16))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
