@@ -61,6 +61,10 @@
     :config
     (progn
       (treemacs-create-icon
+       :icon (format " %s " (all-the-icons-faicon "archive" :size 0.9))
+       :extensions (package)
+       :fallback 'same-as-icon)
+      (treemacs-create-icon
        :icon (format " %s " (all-the-icons-fileicon "jsonld" :size 0.9))
        :extensions ("json")
        :fallback 'same-as-icon)
@@ -73,17 +77,16 @@
        :extensions ("editorconfig" "envrc" "envrc.local")
        :fallback 'same-as-icon)
       (treemacs-create-icon
+       :icon (format "%s " (all-the-icons-faicon "archive"
+                                                 :size 0.9
+                                                 :v-adjust -0.1))
+       :extensions (namespace)
+       :fallback 'same-as-icon)
+      (treemacs-create-icon
        :icon (format "%s " (all-the-icons-material "class"
                                                    :size 0.9
                                                    :face 'font-lock-keyword-face))
        :extensions (class)
-       :fallback 'same-as-icon)
-
-      (treemacs-create-icon
-       :icon (format "%s " (all-the-icons-material "code"
-                                                   :size 0.9
-                                                   :face 'font-lock-keyword-face))
-       :extensions (def)
        :fallback 'same-as-icon)
       (treemacs-create-icon
        :icon (format "%s " (all-the-icons-material "code"
