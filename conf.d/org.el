@@ -13,8 +13,8 @@
   (concat doom-private-dir "capture-templates/" fname ".org.tpl"))
 
 (defun kdz/iconify-org-token (icon-fn icon token)
-  (push (cons (upcase token) (funcall icon-fn icon :face 'font-lock-keyword-face)) prettify-symbols-alist)
-  (push (cons (downcase token) (funcall icon-fn icon)) prettify-symbols-alist))
+  (push (cons (upcase token) (funcall icon-fn icon :v-adjust -0.5)) prettify-symbols-alist)
+  (push (cons (downcase token) (funcall icon-fn icon :v-adjust -0.5)) prettify-symbols-alist))
 
 (defun kdz/prettify-org-material ()
   "Set up prettify-org with all-the-icons symbols"
@@ -39,6 +39,7 @@
   (kdz/iconify-org-token #'all-the-icons-material "security" ":dbpassword")
   (kdz/iconify-org-token #'all-the-icons-octicon "database" ":database")
   (kdz/iconify-org-token #'all-the-icons-octicon "server" ":dbhost")
+  (kdz/iconify-org-token #'all-the-icons-material "folder" ":dir")
 
   (kdz/iconify-org-token #'all-the-icons-material "check_box_outline_blank" "[ ]")
   (kdz/iconify-org-token #'all-the-icons-material "indeterminate_check_box" "[-]")
