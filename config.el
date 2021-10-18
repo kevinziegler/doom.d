@@ -7,6 +7,8 @@
 (setq user-full-name "Kevin Ziegler"
       user-mail-address "ziegler.kevin@heb.com")
 
+(setq projectile-project-search-path '("~/dev"))
+
 (load! "funcs")
 (load! "conf.d/lsp")
 ;; (load! "conf.d/lsp-java")
