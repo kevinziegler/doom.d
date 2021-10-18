@@ -15,18 +15,13 @@
 (load! "conf.d/keybinds")
 (load! "conf.d/org")
 (load! "conf.d/ui")
+(load! "conf.d/treemacs")
 
 ;; Open TSX files in Typescript TSX Mode
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
 
 ;; Use system-installed plantuml executable
 (after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
-
-(setq +treemacs-git-mode 'deferred)
-(after! treemacs
-  (setq treemacs-follow-mode t)
-  (setq treemacs-recenter-after-file-follow t)
-  (setq treemacs-project-follow-cleanup t))
 
 ;; Open `.zshrc` in shell-script-mode with the ZSH dialect
 (add-hook 'sh-mode-hook #'kdz/set-zshrc-sh-shell)
