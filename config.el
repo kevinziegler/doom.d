@@ -25,3 +25,7 @@
 
 ;; Open `.zshrc` in shell-script-mode with the ZSH dialect
 (add-hook 'sh-mode-hook #'kdz/set-zshrc-sh-shell)
+(after! vertico
+  (setq orderless-matching-styles '(orderless-prefixes
+                                    orderless-flex
+                                    orderless-regexp)))
