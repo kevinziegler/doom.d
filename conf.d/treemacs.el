@@ -14,7 +14,7 @@
     :config
     (progn
       (treemacs-create-icon
-       :icon (format " %s " (all-the-icons-faicon "archive" :size 0.9))
+       :icon (format " %s " (all-the-icons-material "archive" :size 0.9))
        :extensions (package)
        :fallback 'same-as-icon)
       (treemacs-create-icon
@@ -30,7 +30,7 @@
        :extensions ("editorconfig" "envrc" "envrc.local")
        :fallback 'same-as-icon)
       (treemacs-create-icon
-       :icon (format "%s " (all-the-icons-faicon "archive"
+       :icon (format "%s " (all-the-icons-material "widgets"
                                                  :size 0.9
                                                  :v-adjust -0.1))
        :extensions (namespace)
