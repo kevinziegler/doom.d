@@ -40,8 +40,8 @@
 (setq-default frame-title-format "Emacs")
 
 ;; Set default window size
-(add-to-list 'default-frame-alist '(height . 50))
-(add-to-list 'default-frame-alist '(width . 180))
+(add-to-list 'default-frame-alist '(height . 70))
+(add-to-list 'default-frame-alist '(width . 240))
 
 (after! kaolin-themes
   (setq kaolin-themes-bold t)
