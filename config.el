@@ -27,6 +27,8 @@
 
 ;; Open `.zshrc` in shell-script-mode with the ZSH dialect
 (add-hook 'sh-mode-hook #'kdz/set-zshrc-sh-shell)
+
+(setq enable-local-variables t)
 (after! vertico
   (setq orderless-matching-styles '(orderless-prefixes
                                     orderless-flex
