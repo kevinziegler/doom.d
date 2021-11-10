@@ -29,6 +29,7 @@
 (add-hook 'sh-mode-hook #'kdz/set-zshrc-sh-shell)
 
 (setq enable-local-variables t)
+(global-display-fill-column-indicator-mode)
 (after! vertico
   (setq orderless-matching-styles '(orderless-prefixes
                                     orderless-flex
