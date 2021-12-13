@@ -73,9 +73,11 @@
   (kdz/iconify-org-token #'all-the-icons-material "expand_less" "#+END_QUOTE")
 
   (kdz/iconify-org-token #'all-the-icons-material "title" "#+TITLE:")
+  (kdz/iconify-org-token #'all-the-icons-octicon "calendar" "#+DATE:")
   (kdz/iconify-org-token #'all-the-icons-material "person" "#+AUTHOR:")
   (kdz/iconify-org-token #'all-the-icons-fileicon "config" "#+PROPERTY:")
   (kdz/iconify-org-token #'all-the-icons-material "settings" "#+OPTIONS:")
+  (kdz/iconify-org-token #'all-the-icons-faicon "tags" "#+FILETAGS:")
   (kdz/iconify-org-token #'all-the-icons-material "info" "#+NAME:")
   (kdz/iconify-org-token #'all-the-icons-material "check_circle" "#+TODO:")
 
