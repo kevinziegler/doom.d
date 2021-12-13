@@ -97,6 +97,12 @@
   (setq left-margin-width 2)
   (setq right-margin-width 2))
 
+(defun kdz/org-insert-heading-up (arg)
+  (interactive "p")
+  (save-excursion
+    (outline-up-heading arg)
+    (org-insert-heading-after-current)))
+
 (after! org
   (require 'ox-gfm nil t)
   (require 'ob-restclient)
@@ -133,6 +139,7 @@
         :leader
         (:prefix "i"
          :desc "Heading" "h" #'org-insert-heading
+         :desc "Parent Heading" "H" #'kdz/org-insert-heading-up
          :desc "Subheading" "s" #'org-insert-subheading
          :desc "Link" "l" #'org-insert-link))
 
