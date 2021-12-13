@@ -2,7 +2,6 @@
 
 (setq org-directory "~/notes/"
       org-hide-emphasis-markers t
-      org-journal-dir "~/notes/journal/"
       org-default-notes-file "~/notes/notes.org"
       org-roam-directory "~/notes/roam"
       org-insert-heading-respect-content t
