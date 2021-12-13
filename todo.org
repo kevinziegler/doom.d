@@ -12,6 +12,31 @@ https://github.com/benma/visual-regexp-steroids.el
 * TODO Add wq command for org-src-mode
 * TODO  'add' menu for org under SPC m a
 * TODO Set up dedicated notes workspace
+* TODO Make toggle functions for lsp-treemacs-symbols/errors
+* TODO Improve Git link keymaps
+
+|------------------------+----------------+----------------------------|
+| keybinding             | current        | new                        |
+|------------------------+----------------+----------------------------|
+| SPC:g:y                | link to remote | prefix-link-commands       |
+| prefix-link-commands:y |                | link with branch           |
+| prefix-link-commands:b |                | link to branch root        |
+| prefix-link-commands:s |                | link with sha              |
+| prefix-link-commands:m |                | link from master           |
+| prefix-link-commands:l |                | prefix-link-line           |
+| prefix-line-link:y     |                | link with line no & branch |
+| prefix-line-link:s     |                | link with line no & sha    |
+| prefix-line-link:m     |                | link with line no & branch |
+|------------------------+----------------+----------------------------|
+
+* TODO Move "theme" selection into a git-ignored config file
+- Main conf should only load this file if it exists
+- Goal is to cut down on commits for "I got bored with $CURRENT_THEME"
+- Other configs that should follow this pattern?
+* TODO Org-Capture template for 1-1 topics
+- Org-Roam based?
+* TODO Setup merge-conflict resolution
+- Figure out the magic I had back in Spacemacs, port/rebuild that here.
 
 * Packages to consider adding to this configuration
 ** To Evaluate
@@ -22,6 +47,12 @@ https://github.com/benma/visual-regexp-steroids.el
   - https://github.com/alphapapa/org-sticky-header
   - https://github.com/ahungry/org-jira
   - https://github.com/stig/ox-jira.el
+  - https://github.com/raghavgautam/osx-lib/blob/master/osx-lib.el
+  - https://github.com/sulami/literate-calc-mode.el
+  - https://github.com/k-talo/volatile-highlights.el
+  - https://github.com/Artawower/blamer.el
+  - https://framagit.org/steckerhalter/discover-my-major
+
 ** Rejected
   - https://github.com/ryuslash/mode-icons :: Doesn't look particularly useful with doom's modeline
   - https://github.com/skeeto/impatient-mode :: Would be handy for HTML work, but I can't see it fitting with my UI dev workflow
@@ -34,3 +65,6 @@ https://github.com/benma/visual-regexp-steroids.el
 * Enable running with AWS roles enabled
 - Get AWS login creds from 1Password (MFA Token)
 - Set up AWS Session via aws-vault
+
+* Use Postman files from Emacs
+- [[https://github.com/flashcode/impostman][Impostman package]]
