@@ -58,7 +58,6 @@
 (package! org-appear :recipe (:host github :repo "awth13/org-appear"))
 (package! org-jira)
 (package! tron-legacy-theme)
-(package! visual-fill-column)
 (package! ob-http)
 (package! org-pretty-table :recipe (:host github :repo "Fuco1/org-pretty-table"))
 (package! protobuf-mode)
