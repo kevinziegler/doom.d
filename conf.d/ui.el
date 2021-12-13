@@ -27,12 +27,12 @@
 ;;(setq doom-theme 'doom-henna)
 (setq doom-themes-treemacs-theme 'kaolin)
 
-(setq doom-modeline-buffer-encoding nil)
-(setq doom-modeline-buffer-file-name-style 'relative-to-project)
-(setq doom-modeline-major-mode-icon t)
-(setq doom-modeline-display-default-persp-name t)
-(setq doom-modeline-hud t)
-(setq doom-modeline-persp-name t)
+(setq doom-modeline-buffer-encoding nil
+      doom-modeline-buffer-file-name-style 'relative-to-project
+      doom-modeline-display-default-persp-name t
+      doom-modeline-hud t
+      doom-modeline-persp-name t
+      doom-modeline-major-mode-icon t)
 
 ;; If you want to change the style of line numbers, change this to `relative' or
 ;; `nil' to disable it:
@@ -44,13 +44,10 @@
 (add-to-list 'default-frame-alist '(width . 235))
 
 (after! kaolin-themes
-  (setq kaolin-themes-bold t)
-  (setq kaolin-themes-distinct-company-scrollbar t)
-  (setq kaolin-themes-italic t)
-  (setq kaolin-themes-treemacs-hl-line t)
-  (setq kaolin-themes-italic-comments t)
-  (setq kaolin-themes-underline-wave nil))
-
-
+  (setq kaolin-themes-bold t
+        kaolin-themes-distinct-company-scrollbar t
+        kaolin-themes-italic t
+        kaolin-themes-italic-comments t
+        kaolin-themes-underline-wave nil))
 
 (after! vterm (setq vterm-shell (brew-bin "zsh")))
