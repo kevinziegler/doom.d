@@ -18,6 +18,7 @@
 (load! "conf.d/org")
 (load! "conf.d/ui")
 (load! "conf.d/treemacs")
+(load! "conf.d/local" nil t)
 
 ;; Open TSX files in Typescript TSX Mode
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))

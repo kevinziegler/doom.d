@@ -10,22 +10,16 @@
 ;; (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 13)
 ;;       doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13)
 ;;       doom-big-font (font-spec :family "Fira Sans" :size 16))
-(setq doom-font (font-spec :family "JetBrains Mono" :size 12)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12)
-      doom-big-font (font-spec :family "JetBrains Mono" :size 16))
-
+;;
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
-;;(setq doom-theme 'doom-oceanic-next)
-;;(setq doom-theme 'doom-monokai-machine)
-(setq doom-theme 'kaolin-dark)
-;;(setq doom-theme 'kaolin-galaxy)
-;;(setq doom-theme 'kaolin-bubblegum)
-;;(setq doom-theme 'doom-old-hope)
-;; (setq doom-theme 'doom-1337)
-;;(setq doom-theme 'doom-henna)
-(setq doom-themes-treemacs-theme 'kaolin)
+(setq doom-font (font-spec :family "JetBrains Mono" :size 12)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12)
+      doom-big-font (font-spec :family "JetBrains Mono" :size 12)
+      ;; doom-theme 'doom-one ;; NOTE Set by local.el
+      doom-themes-treemacs-theme 'kaolin)
+
 
 (setq doom-modeline-buffer-encoding nil
       doom-modeline-buffer-file-name-style 'relative-to-project
