@@ -45,3 +45,5 @@
         kaolin-themes-underline-wave nil))
 
 (after! vterm (setq vterm-shell (brew-bin "zsh")))
+
+(global-display-fill-column-indicator-mode)

@@ -5,9 +5,8 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Kevin Ziegler"
-      user-mail-address "ziegler.kevin@heb.com")
-
-(setq projectile-project-search-path '("~/dev"))
+      projectile-project-search-path '("~/dev")
+      enable-local-variables t)
 
 (load! "funcs")
 (load! "conf.d/lsp")
@@ -23,14 +22,13 @@
 ;; Open TSX files in Typescript TSX Mode
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
 
-;; Use system-installed plantuml executable
-(after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
-
 ;; Open `.zshrc` in shell-script-mode with the ZSH dialect
 (add-hook 'sh-mode-hook #'kdz/set-zshrc-sh-shell)
 
-(setq enable-local-variables t)
-(global-display-fill-column-indicator-mode)
+;; Use system-installed plantuml executable
+(after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
+
+;; Set ordering styles for vertico
 (after! vertico
   (setq orderless-matching-styles '(orderless-prefixes
                                     orderless-flex
