@@ -6,8 +6,6 @@
       (:prefix-map ("x" . "Text Manipulation")
         :desc "Upcase region" "U" #'upcase-region
         :desc "Downcase region" "u" #'downcase-region
-        (:prefix-map ("c" . "Commenting")
-          :desc "(Un)comment Lines" "l" #'evilnc-comment-or-uncomment-lines)
         (:prefix-map ("y" . "Copy as Format")
           :desc "Copy for Slack" "s" #'copy-as-format-slack
           :desc "Copy for Jira"  "j" #'copy-as-format-jira
