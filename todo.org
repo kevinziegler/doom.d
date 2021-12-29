@@ -80,3 +80,6 @@ https://tecosaur.github.io/emacs-config/config.html
 
 * Look at pretty tags here
 https://tecosaur.github.io/emacs-config/config.html#symbols
+
+* Org-Super-Agenda
+https://github.com/alphapapa/org-super-agenda
