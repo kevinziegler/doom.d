@@ -68,3 +68,15 @@ https://github.com/benma/visual-regexp-steroids.el
 
 * Use Postman files from Emacs
 - [[https://github.com/flashcode/impostman][Impostman package]]
+
+* Consider using org-transclusion
+https://tecosaur.github.io/emacs-config/config.html#transclusion
+
+* org-chef (for personal use - collecting recipes)
+https://tecosaur.github.io/emacs-config/config.html#cooking-recipes
+
+* Set up zen/writing modes as per this config
+https://tecosaur.github.io/emacs-config/config.html
+
+* Look at pretty tags here
+https://tecosaur.github.io/emacs-config/config.html#symbols

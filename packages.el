@@ -62,3 +62,18 @@
 (package! org-pretty-table :recipe (:host github :repo "Fuco1/org-pretty-table"))
 (package! protobuf-mode)
 (package! ob-mermaid)
+(package! magit-delta :recipe (:host github :repo "dandavison/magit-delta") :pin "56cdffd37727")
+(package! etrace :recipe (:host github :repo "aspiers/etrace"))
+
+(package! info-colors :pin "47ee73cc19b1")
+(package! page-break-lines :recipe (:host github :repo "purcell/page-break-lines"))
+
+(package! org-ol-tree :recipe (:host github :repo "Townk/org-ol-tree")
+  :pin "207c748aa5fe")
+
+(package! ox-gfm :pin "99f93011b069e02b37c9660b8fcb45dab086a07f")
+
+(package! org-roam-ui
+  :recipe (:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out"))
+  :pin "cd1aefd56f648d32a25aae672ac1ab90893c0133")
+(package! websocket :pin "fda4455333309545c0787a79d73c19ddbeb57980") ; dependency of `org-roam-ui'

@@ -14,11 +14,19 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
+;; (setq doom-font (font-spec :family "JetBrains Mono" :size 12)
+;;       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12)
+;;       doom-big-font (font-spec :family "JetBrains Mono" :size 12)
+;;       ;; doom-theme 'doom-one ;; NOTE Set by local.el
+;;       )
+
 (setq doom-font (font-spec :family "JetBrains Mono" :size 12)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12)
-      doom-big-font (font-spec :family "JetBrains Mono" :size 12)
-      ;; doom-theme 'doom-one ;; NOTE Set by local.el
-      doom-themes-treemacs-theme 'kaolin)
+      doom-big-font (font-spec :family "JetBrains Mono" :size 14)
+      doom-variable-pitch-font (font-spec :family "Overpass" :size 12)
+      doom-unicode-font (font-spec :family "JuliaMono")
+      doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light))
+
+(setq doom-themes-treemacs-theme 'kaolin)
 
 
 (setq doom-modeline-buffer-encoding nil
@@ -31,7 +39,19 @@
 ;; If you want to change the style of line numbers, change this to `relative' or
 ;; `nil' to disable it:
 (setq display-line-numbers-type t)
-(setq-default frame-title-format "Emacs")
+
+(setq frame-title-format
+      '(""
+        (:eval
+         (if (s-contains-p org-roam-directory (or buffer-file-name ""))
+             (replace-regexp-in-string
+              ".*/[0-9]*-?" "☰ "
+              (subst-char-in-string ?_ ?  buffer-file-name))
+           "%b"))
+        (:eval
+         (let ((project-name (projectile-project-name)))
+           (unless (string= "-" project-name)
+             (format (if (buffer-modified-p)  " ◉ %s" "  ●  %s") project-name))))))
 
 ;; Set default window size
 (add-to-list 'default-frame-alist '(height . 60))
@@ -47,3 +67,10 @@
 (after! vterm (setq vterm-shell (brew-bin "zsh")))
 
 (global-display-fill-column-indicator-mode)
+
+(after! consult
+  (set-face-attribute 'consult-file nil :inherit 'consult-buffer)
+  (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) ";"))
+
+(after! magit
+  (magit-delta-mode +1))
