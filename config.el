@@ -14,23 +14,17 @@
       truncate-string-ellipsis "…"
       password-cache-expiry nil
       global-subword-mode 1
-      enable-local-variables t)
-
-(setq undo-limit 80000000
-      evil-want-fine-undo t)
-
-(setq evil-vsplit-window-right t
+      undo-limit 80000000
+      enable-local-variables t
+      company-show-quick-access  t ;; Show numbers by completions; accessible via M-<number>
+      which-key-idle-delay 0.1 ;; Reduce time to show which-key popup
+      evil-want-fine-undo t
+      evil-kill-on-visual-paste nil
+      evil-vsplit-window-right t
       evil-split-window-below t)
 
-(setq which-key-idle-delay 0.1)
-
-(setq evil-kill-on-visual-paste nil)
-
-;; TODO Create custom function to launch projectile-find-file if we're in a
-;;      project?
-;; (defadvice! prompt-for-buffer (&rest _)
-;;   :after '(evil-window-split evil-window-vsplit)
-;;   (consult-buffer))
+;; Silence compiler warnings as they can be pretty disruptive
+(setq comp-async-report-warnings-errors nil)
 
 (map! :map evil-window-map
       "SPC" #'rotate-layout
