@@ -200,18 +200,6 @@
 
 (after! org
   ;; TODO Check these against existing org-config
-  (use-package! org-pretty-table
-    :commands (org-pretty-table-mode global-org-pretty-table-mode))
-  (use-package! org-appear
-    :hook (org-mode . org-appear-mode)
-    :config
-    (setq org-appear-autoemphasis t
-        org-appear-autosubmarkers t
-        org-appear-autolinks nil)
-    ;; for proper first-time setup, `org-appear--set-elements'
-    ;; needs to be run after other hooks have acted.
-    (run-at-time nil nil #'org-appear--set-elements))
-
   (use-package! org-ol-tree :commands org-ol-tree)
   (map! :map org-mode-map
         :after org

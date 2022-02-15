@@ -59,7 +59,6 @@
 (package! org-jira)
 (package! tron-legacy-theme)
 (package! ob-http)
-(package! org-pretty-table :recipe (:host github :repo "Fuco1/org-pretty-table"))
 (package! protobuf-mode)
 (package! ob-mermaid)
 (package! magit-delta :recipe (:host github :repo "dandavison/magit-delta") :pin "56cdffd37727")
