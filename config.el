@@ -63,7 +63,6 @@
 ;; Set ordering styles for vertico
 (after! vertico
   (setq orderless-matching-styles '(orderless-prefixes
-                                    orderless-flex
                                     orderless-regexp)))
 
 
