@@ -28,71 +28,6 @@
   (push (cons (upcase token) (funcall icon-fn icon :v-adjust -0.5 :height 1.2)) prettify-symbols-alist)
   (push (cons (downcase token) (funcall icon-fn icon :v-adjust -0.5 :height 1.2)) prettify-symbols-alist))
 
-(defun kdz/prettify-org-material-2 ()
-  "Set up prettify-org with all-the-icons symbols"
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "code" "#+BEGIN_SRC")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "expand_less" "#+END_SRC")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "receipt" "#+RESULTS:")
-
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "description" "#+BEGIN_EXAMPLE")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "expand_less" "#+END_EXAMPLE")
-
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "format_quote" "#+BEGIN_QUOTE")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "expand_less" "#+END_QUOTE")
-
-  ;; (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "title" "#+TITLE:")
-  (kdz/iconify-org-token-2 #'all-the-icons-octicon #'all-the-icons-octicon-family "calendar" "#+DATE:")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "person" "#+AUTHOR:")
-  (kdz/iconify-org-token-2 #'all-the-icons-fileicon #'all-the-icons-fileicon-family "config" "#+PROPERTY:")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "settings" "#+OPTIONS:")
-  (kdz/iconify-org-token-2 #'all-the-icons-faicon #'all-the-icons-faicon-family "tags" "#+FILETAGS:")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "info" "#+NAME:")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "check_circle" "#+TODO:")
-
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "person" ":dbuser")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "security" ":dbpassword")
-  (kdz/iconify-org-token-2 #'all-the-icons-octicon #'all-the-icons-octicon-family "database" ":database")
-  (kdz/iconify-org-token-2 #'all-the-icons-octicon #'all-the-icons-octicon-family "server" ":dbhost")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "folder" ":dir")
-
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "check_box_outline_blank" "[ ]")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "indeterminate_check_box" "[-]")
-  (kdz/iconify-org-token-2 #'all-the-icons-material #'all-the-icons-material-family "check_box" "[X]")
-
-  (prettify-symbols-mode))
-(defun kdz/prettify-org-material ()
-  "Set up prettify-org with all-the-icons symbols"
-  (kdz/iconify-org-token #'all-the-icons-material "code" "#+BEGIN_SRC")
-  (kdz/iconify-org-token #'all-the-icons-material "expand_less" "#+END_SRC")
-  (kdz/iconify-org-token #'all-the-icons-material "receipt" "#+RESULTS:")
-
-  (kdz/iconify-org-token #'all-the-icons-material "description" "#+BEGIN_EXAMPLE")
-  (kdz/iconify-org-token #'all-the-icons-material "expand_less" "#+END_EXAMPLE")
-
-  (kdz/iconify-org-token #'all-the-icons-material "format_quote" "#+BEGIN_QUOTE")
-  (kdz/iconify-org-token #'all-the-icons-material "expand_less" "#+END_QUOTE")
-
-  (kdz/iconify-org-token #'all-the-icons-material "title" "#+TITLE:")
-  (kdz/iconify-org-token #'all-the-icons-octicon "calendar" "#+DATE:")
-  (kdz/iconify-org-token #'all-the-icons-material "person" "#+AUTHOR:")
-  (kdz/iconify-org-token #'all-the-icons-fileicon "config" "#+PROPERTY:")
-  (kdz/iconify-org-token #'all-the-icons-material "settings" "#+OPTIONS:")
-  (kdz/iconify-org-token #'all-the-icons-faicon "tags" "#+FILETAGS:")
-  (kdz/iconify-org-token #'all-the-icons-material "info" "#+NAME:")
-  (kdz/iconify-org-token #'all-the-icons-material "check_circle" "#+TODO:")
-
-  (kdz/iconify-org-token #'all-the-icons-material "person" ":dbuser")
-  (kdz/iconify-org-token #'all-the-icons-material "security" ":dbpassword")
-  (kdz/iconify-org-token #'all-the-icons-octicon "database" ":database")
-  (kdz/iconify-org-token #'all-the-icons-octicon "server" ":dbhost")
-  (kdz/iconify-org-token #'all-the-icons-material "folder" ":dir")
-
-  (kdz/iconify-org-token #'all-the-icons-material "check_box_outline_blank" "[ ]")
-  (kdz/iconify-org-token #'all-the-icons-material "indeterminate_check_box" "[-]")
-  (kdz/iconify-org-token #'all-the-icons-material "check_box" "[X]")
-
-  (prettify-symbols-mode))
-
 (defun kdz/org-buffer-margins ()
   (setq left-margin-width 2)
   (setq right-margin-width 2))
@@ -109,7 +44,6 @@
   (require 'ob-http)
   (require 'org-pretty-table)
 
-  (add-hook 'org-mode-hook #'kdz/prettify-org-material)
   (add-hook 'org-mode-hook #'kdz/writing-fill-column)
   (add-hook 'org-mode-hook #'kdz/org-buffer-margins)
   (add-hook 'org-mode-hook 'org-appear-mode)
