@@ -61,7 +61,7 @@
 (package! ob-http)
 (package! protobuf-mode)
 (package! ob-mermaid)
-(package! magit-delta :recipe (:host github :repo "dandavison/magit-delta") :pin "56cdffd37727")
+(package! magit-delta :recipe (:host github :repo "dandavison/magit-delta"))
 (package! etrace :recipe (:host github :repo "aspiers/etrace"))
 
 (package! info-colors :pin "47ee73cc19b1")
