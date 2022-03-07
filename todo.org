@@ -83,3 +83,39 @@ https://tecosaur.github.io/emacs-config/config.html#symbols
 
 * Org-Super-Agenda
 https://github.com/alphapapa/org-super-agenda
+
+** Groups to consider
+- Retro discussion topics
+- 1-1 discussion topics (broken down by person)
+- Action items (TODOs not tracked in Jira)
+
+* Set up Sprint/Iteration capture template
+- Landing page for notes on sprint progress
+- Outline for sprint ceremonies
+- Land questions/discovered information in that sprint
+- Track new work identified during that sprint
+
+** Additional capture templates for per-sprint notes
+- e.g. Create a retro topic for the upcoming retro
+- Capture ticket that needs definition
+- Capture a question that came up as part of a sprint
+- Capture tech-debt work
+  + Give context to when I discover an issue
+  + Tag items as ~tech-debt~ for consolidated view outside of per-sprint file
+
+** Roll-over open TODO items from previous sprint
+- e.g. Action items from retro
+
+* Org Mode Snippet for setting up DB connection in org-babel scripts
+- input host/user/db
+** How to manage passwords?
+- netrc?
+- pgpass?
+
+* Capture template for this TODO file
+
+* Setup deadgrep/give it a test drive
+https://github.com/Wilfred/deadgrep
+
+* Improve roam capture popup
+- Full screen if on dashboard/scratch
