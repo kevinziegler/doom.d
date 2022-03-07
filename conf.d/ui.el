@@ -20,11 +20,11 @@
 ;;       ;; doom-theme 'doom-one ;; NOTE Set by local.el
 ;;       )
 
-(setq doom-font (font-spec :family "JetBrains Mono" :size 12)
-      doom-big-font (font-spec :family "JetBrains Mono" :size 14)
-      doom-variable-pitch-font (font-spec :family "Overpass" :size 12)
+(setq doom-font (font-spec :family "Fira Code" :size 12)
+      doom-big-font (font-spec :family "Fira Code" :size 14)
+      doom-variable-pitch-font (font-spec :family "Overpass" :size 13)
       doom-unicode-font (font-spec :family "JuliaMono")
-      doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light))
+      doom-serif-font (font-spec :family "Overpass" :weight 'light :size 13))
 
 (setq doom-themes-treemacs-theme 'kaolin)
 
@@ -74,3 +74,16 @@
 
 (after! magit
   (magit-delta-mode +1))
+
+(after! org
+  (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'prepend)
+  (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'prepend)
+  (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'prepend)
+  (set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$" :side 'right :width 80 :select t))
+
+(require 'vertico-posframe)
+(vertico-posframe-mode 1)
+
+(setq vertico-posframe-parameters
+      '((left-fringe . 8)
+        (right-fringe . 8)))
