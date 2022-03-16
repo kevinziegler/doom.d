@@ -47,6 +47,7 @@
 (load! "conf.d/git")
 (load! "conf.d/markdown")
 (load! "conf.d/org")
+(load! "conf.d/org/capture-templates")
 (load! "conf.d/ui")
 (load! "conf.d/treemacs")
 (load! "conf.d/smerge")
