@@ -1,12 +1,12 @@
 (defun kdz/writing-fill-column ()
   (setq-local display-fill-column-indicator nil)
-  (setq-local fill-column 100)
-  (mixed-pitch-mode)
-  (visual-fill-column-mode))
+  ;;(setq-local fill-column 100)
+  ;;(visual-fill-column-mode)
+  (mixed-pitch-mode))
 
 (defun switch-to-message-buffer ()
-    (interactive)
-    (pop-to-buffer "*Messages*"))
+  (interactive)
+  (pop-to-buffer "*Messages*"))
 
 (defun kdz/set-zshrc-sh-shell ()
   (when buffer-file-name
