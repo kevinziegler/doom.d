@@ -138,9 +138,8 @@
         ;; Not sure on this one - should check back later and see if it's useful
         org-catch-invisible-edits t
         org-list-allow-alphabetical t
-        org-fontify-quote-and-verse-blocks t)
-
-  (setq org-list-demote-modify-bullet
+        org-fontify-quote-and-verse-blocks t
+        org-list-demote-modify-bullet
         '(("+" . "-") ("-" . "+") ("*" . "+") ("1." . "a.")))
 
   (map! :map org-mode-map
