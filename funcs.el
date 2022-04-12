@@ -30,3 +30,18 @@
 (defun brew-bin (bin)
   "Given a BIN, generate the path for this bin assuming the homebrew prefix"
   (f-join (brew-prefix) "bin" bin))
+
+;; (defun kdz/sops-extract--command (encrypted-file secret-path)
+;;   (let*
+;;       ((extract-path (concat "\\['" secret-path "'\\]"))
+;;        (sops-args (list "sops" "-d" "--extract" extract-path encrypted-file)))
+;;     (string-join sops-args " ")))
+
+;; (defun kdz/sops-extract (encrypted-file secret-path)
+;;   "Use SOPS to extract the value a SECRET-PATH from ENCRYPTED-FILE"
+;;   (shell-command-to-string
+;;    (kdz/sops-extract--command encrypted-file secret-path)))
+
+;; (define-minor-mode kdz/colorized-ansi-output-mode
+;;   :lighter " kdz/colorized-ansi-output-mode"
+;;   (ansi-color-apply-on-region))
