@@ -8,22 +8,6 @@
       deft-recursive t
       deft-directory "~/notes")
 
-(defun kdz/iconify-org-token-2 (icon-fn icon-family icon token)
-  (push (cons (upcase token)
-              (propertize
-               (funcall icon-fn icon)
-               'face `(:family ,(funcall icon-family) :height 1.2)))
-              prettify-symbols-alist)
-  (push (cons (downcase token)
-              (propertize
-               (funcall icon-fn icon)
-               'face `(:family ,(funcall icon-family) :height 1.2)))
-        prettify-symbols-alist))
-
-(defun kdz/iconify-org-token (icon-fn icon token)
-  (push (cons (upcase token) (funcall icon-fn icon :v-adjust -0.5 :height 1.2)) prettify-symbols-alist)
-  (push (cons (downcase token) (funcall icon-fn icon :v-adjust -0.5 :height 1.2)) prettify-symbols-alist))
-
 (defun kdz/org-buffer-margins ()
   (setq left-margin-width 2)
   (setq right-margin-width 2))
