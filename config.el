@@ -128,7 +128,7 @@
     '(outline-9 :weight semi-bold))
 
   (custom-set-faces!
-    '(org-document-title :height 2.0))
+    '(org-document-title :height 1.5))
 
   (appendq! +ligatures-extra-symbols
             `(:checkbox      ""
