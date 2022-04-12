@@ -25,6 +25,10 @@
 (evil-ex-define-cmd "Wq" 'evil-save-and-close)
 (evil-ex-define-cmd "WQ" 'evil-save-and-close)
 
+(map! :leader
+      (:prefix "w"
+       :desc "Swap Window" "a" #'ace-swap-window))
+
 ;; String inflection - extra keymaps
 (use-package! string-inflection
   :commands (string-inflection-all-cycle
