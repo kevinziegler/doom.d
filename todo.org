@@ -119,3 +119,15 @@ https://github.com/Wilfred/deadgrep
 
 * Improve roam capture popup
 - Full screen if on dashboard/scratch
+
+* Sprint management via Org Notes
+
+** Use Cases
+*** Current Sprint
+**** Capture a stop/start/continue/props item for retro discussion
+**** Capture an action item coming out of retro discussions
+**** Make note of something to demo at the end of the sprint
+*** Next Sprint
+**** Note a ticket/TODO item to address as part of planning for the next sprint
+**** Rollover of action items from previous sprints
+**** Track a TODO item for the next sprint
