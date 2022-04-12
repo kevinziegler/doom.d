@@ -80,3 +80,5 @@
 (package! vertico-posframe)
 (package! topspace)
 (package! mermaid-mode)
+
+(package! org-super-agenda)
