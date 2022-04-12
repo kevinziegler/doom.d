@@ -142,8 +142,8 @@
         org-list-demote-modify-bullet
         '(("+" . "-") ("-" . "+") ("*" . "+") ("1." . "a.")))
 
-  (map! :map org-mode-map
-        :nie "M-SPC M-SPC" (cmd! (insert "\u200B")))
+  ;; (map! :map org-mode-map
+  ;;       :nie "M-SPC M-SPC" (cmd! (insert "\u200B")))
 
   (map! :map org-mode-map
         :localleader
