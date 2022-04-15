@@ -82,3 +82,4 @@
 (package! mermaid-mode)
 
 (package! org-super-agenda)
+(package! good-scroll)

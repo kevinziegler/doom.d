@@ -87,3 +87,8 @@
 (setq vertico-posframe-parameters
       '((left-fringe . 8)
         (right-fringe . 8)))
+
+;; NOTE This can be replaced with `pixel-scroll-precision-mode' in Emacs 29
+(use-package! good-scroll
+  :config
+  (good-scroll-mode 1))
