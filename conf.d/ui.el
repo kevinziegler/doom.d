@@ -70,7 +70,7 @@
 
 (after! consult
   (set-face-attribute 'consult-file nil :inherit 'consult-buffer)
-  (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) ";"))
+  (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) "; "))
 
 (after! magit
   (magit-delta-mode +1))
@@ -80,9 +80,6 @@
   (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'prepend)
   (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'prepend)
   (set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$" :side 'right :width 80 :select t))
-
-(require 'vertico-posframe)
-(vertico-posframe-mode 1)
 
 (setq vertico-posframe-parameters
       '((left-fringe . 8)
