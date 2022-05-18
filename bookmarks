@@ -1,0 +1,30 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("Git Ignore (Global)"
+ (filename . "~/.dotfiles/tools/git/gitignore_global")
+ (front-context-string . "*~\n\\.DS_Store\n*.")
+ (rear-context-string)
+ (position . 1))
+("Git Configuration"
+ (filename . "~/.dotfiles/tools/git/gitconfig")
+ (front-context-string . "[user]\n  name = ")
+ (rear-context-string)
+ (position . 1))
+("Git Configuration (Machine-Local)"
+ (filename . "~/.gitconfig.local")
+ (front-context-string . "il=\"kevin@bestow")
+ (rear-context-string)
+ (position . 13))
+("ZSH Configuration (Machine-Local)"
+ (filename . "~/.local.zsh")
+ (front-context-string . "export GOPRIVATE")
+ (rear-context-string)
+ (position . 1))
+("ZSH Configuration"
+ (filename . "~/.dotfiles/tools/zsh/zshrc.zsh")
+ (front-context-string . "\nif [ -z \"$HOMEB")
+ (rear-context-string)
+ (position . 1))
+)
