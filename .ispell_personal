@@ -9,6 +9,7 @@ backend
 deliverables
 denormalize
 denormalized
+idempotentcy
 json
 localhost
 newrelic
