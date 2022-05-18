@@ -114,6 +114,8 @@
              (with-silent-modifications
                (ansi-color-apply-on-region (point-min) (point-max) t))))
 
+;; (bookmark-load (concat doom-private-dir "bookmarks"))
+
 (after! org
   ;; TODO Check these against existing org-config
 
