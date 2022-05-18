@@ -131,3 +131,10 @@ https://github.com/Wilfred/deadgrep
 **** Note a ticket/TODO item to address as part of planning for the next sprint
 **** Rollover of action items from previous sprints
 **** Track a TODO item for the next sprint
+
+* Set up Hard-coded Bookmarks for common Config Files
+- gitconfig (global and machine-local)
+- zsh config (global and machine local)
+- Global gitignore
+- Doom TODOs (This file)
+- Dotfiles TODOs
