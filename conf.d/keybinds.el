@@ -21,6 +21,10 @@
         :desc "Messages" "m" #'switch-to-message-buffer
         :desc "Copy Buffer" "y" #'doom/copy-buffer-contents))
 
+(map! :leader
+      (:prefix "c"
+       :desc "Show Documentation" "h" #'lsp-ui-doc-show))
+
 (evil-ex-define-cmd "W" 'evil-write)
 (evil-ex-define-cmd "Wq" 'evil-save-and-close)
 (evil-ex-define-cmd "WQ" 'evil-save-and-close)
