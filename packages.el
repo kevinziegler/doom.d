@@ -87,3 +87,5 @@
 ;;      does not install such a binary.  This can be fixed by linking 'openscad'
 ;;      in '$HOME/.bin' to the installed 'OpenSCAD.app'
 (package! scad-preview)
+
+(package! bookmark+)

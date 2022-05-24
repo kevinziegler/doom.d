@@ -40,6 +40,7 @@
       "C-<right>"      #'+evil/window-move-right)
 
 (load! "funcs")
+(load! "conf.d/bookmarks")
 (load! "conf.d/emoji")
 (load! "conf.d/lsp")
 ;; (load! "conf.d/lsp-java")
@@ -82,6 +83,8 @@
 
 (setq-default history-length 1000
               prescient-history-length 1000)
+
+(setq bookmark-version-control t)
 
 (setq projectile-ignored-projects
       '("~/" "/tmp" "~/.emacs.d/.local/straight/repos/"))
