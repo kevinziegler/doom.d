@@ -40,7 +40,7 @@
       "C-<right>"      #'+evil/window-move-right)
 
 (load! "funcs")
-(load! "conf.d/bookmarks")
+;;(load! "conf.d/bookmarks")
 (load! "conf.d/emoji")
 (load! "conf.d/lsp")
 ;; (load! "conf.d/lsp-java")
