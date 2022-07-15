@@ -1,6 +1,24 @@
 (setq doom-leader-alt-key "M-SPC")
 (setq doom-localleader-alt-key "M-SPC m")
 
+(defun kdz/toggle-buffer-window (buffer-name activate-fn)
+  (let ((window (get-buffer-window buffer-name)))
+  (if window
+      (delete-window window)
+    (funcall activate-fn))))
+
+(defun kdz/toggle-lsp-symbols ()
+  (interactive)
+  (kdz/toggle-buffer-window
+   lsp-treemacs-symbols-buffer-name
+   'lsp-treemacs-symbols))
+
+(defun kdz/toggle-lsp-errors-list ()
+  (interactive)
+  (kdz/toggle-buffer-window
+   lsp-treemacs-errors-buffer-name
+   'lsp-treemacs-errors-list))
+
 (map! :leader
       :desc "Command" "SPC" #'execute-extended-command
       :desc "Change Major Mode" "M" #'counsel-major)
@@ -13,8 +31,8 @@
 
 (map! :leader
       (:prefix "o"
-        :desc "Project Errors" "e" #'lsp-treemacs-errors-list
-        :desc "Symbol Browser" "s" #'lsp-treemacs-symbols))
+        :desc "Project Errors" "e" #'kdz/toggle-lsp-errors-list
+        :desc "Symbol Browser" "s" #'kdz/toggle-lsp-symbols))
 
 (map! :leader
       (:prefix "b"
