@@ -172,6 +172,7 @@
               :end           ""
               :begin_src     ""
               :end_src       ""
+              :filetags      ""
               :priority_a   ,(propertize "  " 'face 'all-the-icons-red)
               :priority_b   ,(propertize "" 'face 'all-the-icons-orange)
               :priority_c   ,(propertize " ■ " 'face 'all-the-icons-yellow)
@@ -214,10 +215,10 @@
     :results       "#+RESULTS:"
     :property      ":PROPERTIES:"
     :end           ":END:"
+    :filetags      "#+filetags:"
     :priority_a    "[#A]"
     :priority_b    "[#B]"
     :priority_c    "[#C]"
     :priority_d    "[#D]"
     :priority_e    "[#E]")
   (plist-put +ligatures-extra-symbols :name "⁍"))
-  ;; NOTE End of hijacked ORG config blob
