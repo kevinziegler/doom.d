@@ -12,7 +12,6 @@ https://github.com/benma/visual-regexp-steroids.el
 * TODO Add wq command for org-src-mode
 * TODO  'add' menu for org under SPC m a
 * TODO Set up dedicated notes workspace
-* TODO Make toggle functions for lsp-treemacs-symbols/errors
 * TODO Improve Git link keymaps
 
 |------------------------+----------------+----------------------------|
@@ -33,8 +32,6 @@ https://github.com/benma/visual-regexp-steroids.el
 - Main conf should only load this file if it exists
 - Goal is to cut down on commits for "I got bored with $CURRENT_THEME"
 - Other configs that should follow this pattern?
-* TODO Org-Capture template for 1-1 topics
-- Org-Roam based?
 * TODO Setup merge-conflict resolution
 - Figure out the magic I had back in Spacemacs, port/rebuild that here.
 
@@ -138,3 +135,15 @@ https://github.com/Wilfred/deadgrep
 - Global gitignore
 - Doom TODOs (This file)
 - Dotfiles TODOs
+
+* Capture Templates
+** Create a new 1-1 notes file (i.e. for a new person)
+** Create a new 1-1 discussion topic
+** Project Notes
+** Recipe
+- =recipe=, =personal= Filetags
+- Ingredients
+- Process
+- Source link
+** Blog Topics
+** Random Thought
