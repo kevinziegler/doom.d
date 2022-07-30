@@ -79,7 +79,7 @@
   (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'prepend)
   (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'prepend)
   (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'prepend)
-  (set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$" :side 'right :width 80 :select t))
+  (set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$" :side 'bottom :height 0.5 :select t :quit nil))
 
 (setq vertico-posframe-parameters
       '((left-fringe . 8)
