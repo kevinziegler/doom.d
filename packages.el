@@ -89,3 +89,7 @@
 (package! scad-preview)
 
 (package! bookmark+)
+
+(package! jupyter)
+
+;;(package! ob-grpc :recipe (:host github :repo "shsms/ob-grpc"))

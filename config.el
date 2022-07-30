@@ -222,3 +222,5 @@
     :priority_d    "[#D]"
     :priority_e    "[#E]")
   (plist-put +ligatures-extra-symbols :name "⁍"))
+
+(setq ein:polymode t)

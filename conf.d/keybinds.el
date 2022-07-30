@@ -32,7 +32,8 @@
 (map! :leader
       (:prefix "o"
         :desc "Project Errors" "e" #'kdz/toggle-lsp-errors-list
-        :desc "Symbol Browser" "s" #'kdz/toggle-lsp-symbols))
+        :desc "Symbol Browser" "s" #'kdz/toggle-lsp-symbols
+        :desc "Connect to Jupyter Notebook" "s" #'ein:notebooklist-login))
 
 (map! :leader
       (:prefix "b"
