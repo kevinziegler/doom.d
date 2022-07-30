@@ -1,11 +1,13 @@
-personal_ws-1.1 en 21
+personal_ws-1.1 en 24
 Configurator
 Integrations
 Kubernetes
 Minikube
 Postgres
 Socure
+analytics
 backend
+clickids
 deliverables
 denormalize
 denormalized
