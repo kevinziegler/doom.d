@@ -22,6 +22,8 @@
          (password (funcall (plist-get credentials :secret))))
     (base64-encode-string (concat user ":" password))))
 
+;; FIXME Use (call-process) as in kdz/asdf-which to avoid creating a throwaway
+;; buffer that holds the shell output
 (defun brew-prefix ()
   (if (eq (shell-command "which brew") 0)
       (string-trim (shell-command-to-string "brew --prefix"))
@@ -30,18 +32,3 @@
 (defun brew-bin (bin)
   "Given a BIN, generate the path for this bin assuming the homebrew prefix"
   (f-join (brew-prefix) "bin" bin))
-
-;; (defun kdz/sops-extract--command (encrypted-file secret-path)
-;;   (let*
-;;       ((extract-path (concat "\\['" secret-path "'\\]"))
-;;        (sops-args (list "sops" "-d" "--extract" extract-path encrypted-file)))
-;;     (string-join sops-args " ")))
-
-;; (defun kdz/sops-extract (encrypted-file secret-path)
-;;   "Use SOPS to extract the value a SECRET-PATH from ENCRYPTED-FILE"
-;;   (shell-command-to-string
-;;    (kdz/sops-extract--command encrypted-file secret-path)))
-
-;; (define-minor-mode kdz/colorized-ansi-output-mode
-;;   :lighter " kdz/colorized-ansi-output-mode"
-;;   (ansi-color-apply-on-region))
