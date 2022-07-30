@@ -136,7 +136,7 @@
   (setq org-ellipsis (all-the-icons-material "unfold_more")
         org-use-property-inheritance t
         ;; Not sure on this one - should check back later and see if it's useful
-        org-catch-invisible-edits t
+        org-fold-catch-invisible-edits t
         org-list-allow-alphabetical t
         org-fontify-quote-and-verse-blocks t
         org-list-demote-modify-bullet
