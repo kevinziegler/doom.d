@@ -23,7 +23,7 @@
        ;; (helm +fuzzy +childframe) ;; +childframe +fuzzy)              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;(ivy +fuzzy +childframe +icons)                ; a search engine for love and life
-       (vertico +icons +childframe)
+       (vertico +icons)
 
        :ui
        deft              ; notational velocity for Emacs
