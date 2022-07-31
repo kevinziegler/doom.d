@@ -1,4 +1,4 @@
-#+TITLE: Doom Config TODOs
+#+title: Doom Config TODOs
 
 * TODO Figure out how to get 'main' workspace to be persistent/always open
 * TODO Figure out how to make notes only open in main workspace
