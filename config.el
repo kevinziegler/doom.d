@@ -49,6 +49,8 @@
 (load! "conf.d/markdown")
 (load! "conf.d/org")
 (load! "conf.d/org/capture-templates")
+(load! "conf.d/org/faces")
+(load! "conf.d/org/ligatures")
 (load! "conf.d/ui")
 (load! "conf.d/treemacs")
 (load! "conf.d/smerge")
@@ -118,109 +120,5 @@
                (ansi-color-apply-on-region (point-min) (point-max) t))))
 
 ;; (bookmark-load (concat doom-private-dir "bookmarks"))
-
-(after! org
-  ;; TODO Check these against existing org-config
-
-  (custom-set-faces!
-    '(outline-1 :weight extra-bold :height 1.25)
-    '(outline-2 :weight bold :height 1.15)
-    '(outline-3 :weight bold :height 1.12)
-    '(outline-4 :weight semi-bold :height 1.09)
-    '(outline-5 :weight semi-bold :height 1.06)
-    '(outline-6 :weight semi-bold :height 1.03)
-    '(outline-8 :weight semi-bold)
-    '(outline-9 :weight semi-bold))
-
-  (custom-set-faces!
-    '(org-document-title :height 1.5))
-
-  (appendq! +ligatures-extra-symbols
-            `(:checkbox      ""
-              :pending       ""
-              :checkedbox    ""
-              :list_property "∷"
-              :em_dash       "—"
-              :ellipses      "…"
-              :arrow_right   "→"
-              :arrow_left    "←"
-              :title         ""
-              :subtitle      ""
-              :author        ""
-              :date          ""
-              :property      ""
-              :options       "⌥"
-              :startup       "⏻"
-              :macro         ""
-              :html_head     "🅷"
-              :html          "🅗"
-              :latex_class   "🄻"
-              :latex_header  "🅻"
-              :beamer_header "🅑"
-              :latex         "🅛"
-              :attr_latex    "🄛"
-              :attr_html     "🄗"
-              :attr_org      "⒪"
-              :begin_quote   "❝"
-              :end_quote     "❞"
-              :caption       "☰"
-              :header        "›"
-              :results       ""
-              :begin_export  ""
-              :end_export    ""
-              :properties    ""
-              :end           ""
-              :begin_src     ""
-              :end_src       ""
-              :filetags      ""
-              :priority_a   ,(propertize "  " 'face 'all-the-icons-red)
-              :priority_b   ,(propertize "" 'face 'all-the-icons-orange)
-              :priority_c   ,(propertize " ■ " 'face 'all-the-icons-yellow)
-              :priority_d   ,(propertize "  " 'face 'all-the-icons-green)
-              :priority_e   ,(propertize "  " 'face 'all-the-icons-blue)))
-  (set-ligatures! 'org-mode
-    :merge t
-    :checkbox      "[ ]"
-    :pending       "[-]"
-    :checkedbox    "[X]"
-    :list_property "::"
-    :em_dash       "---"
-    :ellipsis      "..."
-    :arrow_right   "->"
-    :arrow_left    "<-"
-    :title         "#+title:"
-    :subtitle      "#+subtitle:"
-    :author        "#+author:"
-    :date          "#+date:"
-    :property      "#+property:"
-    :options       "#+options:"
-    :startup       "#+startup:"
-    :macro         "#+macro:"
-    :html_head     "#+html_head:"
-    :html          "#+html:"
-    :latex_class   "#+latex_class:"
-    :latex_header  "#+latex_header:"
-    :beamer_header "#+beamer_header:"
-    :latex         "#+latex:"
-    :attr_latex    "#+attr_latex:"
-    :attr_html     "#+attr_html:"
-    :attr_org      "#+attr_org:"
-    :begin_quote   "#+begin_quote"
-    :end_quote     "#+end_quote"
-    :caption       "#+caption:"
-    :header        "#+header:"
-    :begin_export  "#+begin_export"
-    :end_export    "#+end_export"
-    :begin_src     "#+begin_src"
-    :results       "#+RESULTS:"
-    :property      ":PROPERTIES:"
-    :end           ":END:"
-    :filetags      "#+filetags:"
-    :priority_a    "[#A]"
-    :priority_b    "[#B]"
-    :priority_c    "[#C]"
-    :priority_d    "[#D]"
-    :priority_e    "[#E]")
-  (plist-put +ligatures-extra-symbols :name "⁍"))
 
 (setq ein:polymode t)
