@@ -1,7 +1,7 @@
 #+title: Doom Config TODOs
 
 * TODO Figure out how to get 'main' workspace to be persistent/always open
-* TODO Figure out how to make notes only open in main workspace
+* TODO Set up dedicated notes workspace
 * DONE See if popup defaults is better than all
 https://github.com/hlissner/doom-emacs/blob/develop/modules/ui/popup/README.org
 * DONE Set up org-mode to show format characters on mouseover
@@ -10,10 +10,9 @@ https://github.com/awth13/org-appear
 https://github.com/benma/visual-regexp-steroids.el
 * TODO Consider using mono-spaced fonts for indentation/whitespace in org mode?
 * TODO Add wq command for org-src-mode
+* TODO Insert table in org mode with SPC->i->t
 * TODO  'add' menu for org under SPC m a
-* TODO Set up dedicated notes workspace
 * TODO Improve Git link keymaps
-
 |------------------------+----------------+----------------------------|
 | keybinding             | current        | new                        |
 |------------------------+----------------+----------------------------|
@@ -28,10 +27,6 @@ https://github.com/benma/visual-regexp-steroids.el
 | prefix-line-link:m     |                | link with line no & branch |
 |------------------------+----------------+----------------------------|
 
-* TODO Move "theme" selection into a git-ignored config file
-- Main conf should only load this file if it exists
-- Goal is to cut down on commits for "I got bored with $CURRENT_THEME"
-- Other configs that should follow this pattern?
 * TODO Setup merge-conflict resolution
 - Figure out the magic I had back in Spacemacs, port/rebuild that here.
 
@@ -147,3 +142,26 @@ https://github.com/Wilfred/deadgrep
 - Source link
 ** Blog Topics
 ** Random Thought
+
+* Org Template Files
+** Notebooks
+*** Database Connection/Queries
+- Host/port
+- DB Name
+- Dialect (psql, mysql, etc)
+*** HTTP Query Collection
+- Host/port
+- Global headers
+** Recipes
+- Ingredients
+- Steps
+- Source
+*** Alternatively, look into integrating org-chef
+** Context-Specific TODO
+*** Dotfiles TODO
+*** Doom config TODO (i.e. this file)
+
+* Org Agenda Views
+** Database/SQL Query Notebooks
+** HTTP Query Collections
+** Upcoming 1-1s (next 7 days?)
