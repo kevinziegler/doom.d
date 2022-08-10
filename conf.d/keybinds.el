@@ -19,51 +19,29 @@
    lsp-treemacs-errors-buffer-name
    'lsp-treemacs-errors-list))
 
-(map! :leader
-      :desc "Command" "SPC" #'execute-extended-command
-      :desc "Change Major Mode" "M" #'counsel-major)
+;; Enabling scrolling via the trackpad
+(setq mouse-wheel-tilt-scroll t)
+;; Make the direction sane on an apple trackpad
+(setq mouse-wheel-flip-direction t)
 
 (map! :leader
+      :desc "Command" "SPC" #'execute-extended-command
       (:prefix ("e" . "Errors")
         :desc "Error List" "l" #'flycheck-list-errors
         :desc "Next Error" "n" #'next-error
-        :desc "Previous Error" "p" #'previous-error))
-
-(map! :leader
+        :desc "Previous Error" "p" #'previous-error)
       (:prefix "o"
         :desc "Project Errors" "e" #'kdz/toggle-lsp-errors-list
         :desc "Symbol Browser" "s" #'kdz/toggle-lsp-symbols
-        :desc "Connect to Jupyter Notebook" "s" #'ein:notebooklist-login))
-
-(map! :leader
+        :desc "Connect to Jupyter Notebook" "s" #'ein:notebooklist-login)
       (:prefix "b"
         :desc "Messages" "m" #'switch-to-message-buffer
-        :desc "Copy Buffer" "y" #'doom/copy-buffer-contents))
-
-(map! :leader
+        :desc "Copy Buffer" "y" #'doom/copy-buffer-contents)
       (:prefix "c"
-       :desc "Show Documentation" "h" #'lsp-ui-doc-show))
-
-(evil-ex-define-cmd "W" 'evil-write)
-(evil-ex-define-cmd "Wq" 'evil-save-and-close)
-(evil-ex-define-cmd "WQ" 'evil-save-and-close)
-
-(map! :leader
+       :desc "Show Documentation" "h" #'lsp-ui-doc-show)
       (:prefix "w"
-       :desc "Swap Window" "a" #'ace-swap-window))
-
-;; String inflection - extra keymaps
-(use-package! string-inflection
-  :commands (string-inflection-all-cycle
-             string-inflection-toggle
-             string-inflection-camelcase
-             string-inflection-lower-camelcase
-             string-inflection-kebab-case
-             string-inflection-underscore
-             string-inflection-capital-underscore
-             string-inflection-upcase)
-  :init
-  (map! :leader :prefix ("c~" . "Naming Conventions")
+       :desc "Swap Window" "a" #'ace-swap-window)
+      (:prefix ("c~" . "naming convention")
         :desc "cycle" "~" #'string-inflection-all-cycle
         :desc "toggle" "t" #'string-inflection-toggle
         :desc "CamelCase" "c" #'string-inflection-camelcase
@@ -71,13 +49,17 @@
         :desc "kebab-case" "k" #'string-inflection-kebab-case
         :desc "under_score" "_" #'string-inflection-underscore
         :desc "Upper_Score" "u" #'string-inflection-capital-underscore
-        :desc "UP_CASE" "U" #'string-inflection-upcase)
+        :desc "UP_CASE" "U" #'string-inflection-upcase))
 
-  (after! evil
+(evil-ex-define-cmd "W" 'evil-write)
+(evil-ex-define-cmd "Wq" 'evil-save-and-close)
+(evil-ex-define-cmd "WQ" 'evil-save-and-close)
+
+(after! evil
     (evil-define-operator evil-operator-string-inflection (beg end _type)
       "Define a new evil operator that cycles symbol casing."
       :move-point nil
       (interactive "<R>")
       (string-inflection-all-cycle)
       (setq evil-repeat-info '([?g ?~])))
-    (define-key evil-normal-state-map (kbd "g~") 'evil-operator-string-inflection)))
+    (define-key evil-normal-state-map (kbd "g~") 'evil-operator-string-inflection))
