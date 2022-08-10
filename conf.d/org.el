@@ -145,29 +145,6 @@
   ;; (map! :map org-mode-map
   ;;       :nie "M-SPC M-SPC" (cmd! (insert "\u200B")))
 
-  (map! :map org-mode-map
-        :localleader
-        :desc "Schedule" "S" #'org-schedule)
-
-  (map! :map org-mode-map
-        :localleader
-        (:prefix ("s" . "Subtrees")
-        :desc "Cut subtree" "d" #'org-cut-subtree
-        :desc "Promote subtree" "h" #'org-promote-subtree
-        :desc "Demote subtree" "l" #'org-demote-subtree
-        :desc "Move Subtree Up" "k" #'org-move-subtree-up
-        :desc "Move Subtree Down" "j" #'org-move-subtree-down))
-
-  (map! :map org-mode-map
-        :leader
-        (:prefix "b"
-         :desc "New empty ORG buffer" "o" #'evil-buffer-org-new)
-        (:prefix "i"
-         :desc "Heading" "h" #'org-insert-heading
-         :desc "Parent Heading" "H" #'kdz/org-insert-heading-up
-         :desc "Subheading" "s" #'org-insert-subheading
-         :desc "Link" "l" #'org-insert-link))
-
   ;; Improve org-roam buffer names in modelike
   (defadvice! doom-modeline--buffer-file-name-roam-aware-a (orig-fun)
     :around #'doom-modeline-buffer-file-name ; takes no args
@@ -195,12 +172,6 @@
         (push '(:async) (caddr result)))
       result))
 
-  (use-package! org-ol-tree :commands org-ol-tree)
-  (map! :map org-mode-map
-        :after org
-        :localleader
-        :desc "Outline" "O" #'org-ol-tree)
-
   (use-package! ob-http :commands org-babel-execute:http)
 
   (evil-define-command evil-buffer-org-new (count file)
@@ -215,13 +186,6 @@
         (with-current-buffer buffer
           (org-mode)))))
 
-  (use-package! org-ol-tree :commands org-ol-tree)
-  (map! :map org-mode-map
-        :after org
-        :localleader
-        :desc "Outline" "O" #'org-ol-tree)
-
-  (use-package! ob-http :commands org-babel-execute:http)
 
   (after! ox
     (add-to-list

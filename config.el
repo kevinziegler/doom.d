@@ -54,9 +54,10 @@
 (load! "conf.d/org/capture-templates")
 (load! "conf.d/org/faces")
 (load! "conf.d/org/ligatures")
-(load! "conf.d/smerge")
-(load! "conf.d/treemacs")
+(load! "conf.d/org/keybinds")
 (load! "conf.d/ui")
+(load! "conf.d/treemacs")
+(load! "conf.d/smerge")
 
 (load! "conf.d/local" nil t)
 

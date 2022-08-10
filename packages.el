@@ -92,5 +92,6 @@
 
 (package! jupyter)
 
+(package! org-ol-tree)
 (package! string-inflection)
 ;;(package! ob-grpc :recipe (:host github :repo "shsms/ob-grpc"))
