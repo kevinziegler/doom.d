@@ -5,7 +5,8 @@
 (after! lsp-mode
   (setq lsp-headerline-breadcrumb-enable t)
   (setq lsp-headerline-breadcrumb-segments '(symbols))
-  (setq lsp-idle-delay 0.8))
+  (setq lsp-idle-delay 0.8)
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\__pycache__\\'"))
 
 (setq lsp-pyright-multi-root nil)
 
