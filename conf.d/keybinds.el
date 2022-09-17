@@ -63,7 +63,7 @@
              string-inflection-capital-underscore
              string-inflection-upcase)
   :init
-  (map! :leader :prefix ("c~" . "naming convention")
+  (map! :leader :prefix ("c~" . "Naming Conventions")
         :desc "cycle" "~" #'string-inflection-all-cycle
         :desc "toggle" "t" #'string-inflection-toggle
         :desc "CamelCase" "c" #'string-inflection-camelcase
