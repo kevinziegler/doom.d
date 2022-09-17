@@ -40,6 +40,7 @@
               :begin_src     ""
               :end_src       ""
               :filetags      ""
+              :todo_states   "  "
               :priority_a   ,(propertize "  " 'face 'all-the-icons-red)
               :priority_b   ,(propertize "" 'face 'all-the-icons-orange)
               :priority_c   ,(propertize " ■ " 'face 'all-the-icons-yellow)
@@ -79,6 +80,7 @@
     :begin_export  "#+begin_export"
     :end_export    "#+end_export"
     :begin_src     "#+begin_src"
+    :todo_states   "#+todo:"
     :results       "#+RESULTS:"
     :property      ":PROPERTIES:"
     :end           ":END:"
