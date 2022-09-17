@@ -41,17 +41,9 @@
 (setq display-line-numbers-type t)
 
 (setq frame-title-format
-      '(""
-        (:eval
-         (if (s-contains-p org-roam-directory (or buffer-file-name ""))
-             (replace-regexp-in-string
-              ".*/[0-9]*-?" "☰ "
-              (subst-char-in-string ?_ ?  buffer-file-name))
-           "%b"))
-        (:eval
-         (let ((project-name (projectile-project-name)))
-           (unless (string= "-" project-name)
-             (format (if (buffer-modified-p)  " ◉ %s" "  ●  %s") project-name))))))
+      '((:eval (kdz/frame-title-segment (kdz/frame-title-save-state) t))
+        (:eval (kdz/frame-title-segment (kdz/frame-title-buffer-name)))
+        (:eval (kdz/frame-title-segment (kdz/frame-title-project-name)))))
 
 ;; Set default window size
 (add-to-list 'default-frame-alist '(height . 60))

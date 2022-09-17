@@ -39,21 +39,25 @@
       "C-<up>"         #'+evil/window-move-up
       "C-<right>"      #'+evil/window-move-right)
 
-(load! "funcs")
+
+(mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))
+      (directory-files (expand-file-name "lib" doom-private-dir) nil "\\.el$"))
+
 ;;(load! "conf.d/bookmarks")
 (load! "conf.d/emoji")
+(load! "conf.d/git")
 (load! "conf.d/lsp")
 ;; (load! "conf.d/lsp-java")
 (load! "conf.d/keybinds")
-(load! "conf.d/git")
 (load! "conf.d/markdown")
 (load! "conf.d/org")
 (load! "conf.d/org/capture-templates")
 (load! "conf.d/org/faces")
 (load! "conf.d/org/ligatures")
-(load! "conf.d/ui")
-(load! "conf.d/treemacs")
 (load! "conf.d/smerge")
+(load! "conf.d/treemacs")
+(load! "conf.d/ui")
+
 (load! "conf.d/local" nil t)
 
 ;; Open TSX files in Typescript TSX Mode
