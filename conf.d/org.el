@@ -257,9 +257,9 @@
         (:tangle . "no")
         (:comments . "link"))))
 
-(org-add-link-type "gh" #'kdz/org-github-link)
-(org-add-link-type "gl" #'kdz/org-gitlab-link)
-(org-add-link-type "jira" #'kdz/org-jira-link)
+;; (org-add-link-type "gh" #'kdz/org-github-link)
+;; (org-add-link-type "gl" #'kdz/org-gitlab-link)
+;; (org-add-link-type "jira" #'kdz/org-jira-link)
 
 ;; Smart Parens config for org-mode
 (sp-local-pair '(org-mode) "<<" ">>" :actions '(insert))
