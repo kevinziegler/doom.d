@@ -1,6 +1,6 @@
 (defun kdz/org-capture-template (fname)
   "Generate a path to the capture template named <FNAME>.org.tpl"
-  (concat doom-private-dir "capture-templates/" fname ".org.tpl"))
+  (concat doom-user-dir "capture-templates/" fname ".org.tpl"))
 
 (after! org
   (add-to-list 'org-capture-templates

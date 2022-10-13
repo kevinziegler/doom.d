@@ -41,7 +41,7 @@
 
 
 (mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))
-      (directory-files (expand-file-name "lib" doom-private-dir) nil "\\.el$"))
+      (directory-files (expand-file-name "lib" doom-user-dir) nil "\\.el$"))
 
 ;;(load! "conf.d/bookmarks")
 (load! "conf.d/emoji")
@@ -97,9 +97,8 @@
       '("~/" "/tmp" "~/.emacs.d/.local/straight/repos/"))
 
 (setq ispell-dictionary "en"
-      ispell-personal-dictionary (expand-file-name ".ispell_personal" doom-private-dir))
-
-(use-package! etrace :after elp)
+      ispell-personal-dictionary (expand-file-name ".ispell_personal"
+                                                   doom-user-dir))
 
 (use-package! info-colors
   :commands (info-colors-fontify-node))
