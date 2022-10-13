@@ -39,7 +39,7 @@
                                     (format "Untitled (%s)" (buffer-name))))))
 
 (defun kdz/frame-title-buffer-name ()
-  (cond ((kdz/is-special-buffer))
+  (cond ((kdz/is-special-buffer) nil)
         ((kdz/is-org-buffer) (format "☰ %s" (kdz/org-buffer-display-name)))
         (t "%b")))
 
