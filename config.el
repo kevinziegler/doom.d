@@ -50,6 +50,7 @@
 ;; (load! "conf.d/lsp-java")
 (load! "conf.d/keybinds")
 (load! "conf.d/markdown")
+(load! "conf.d/modes")
 (load! "conf.d/org")
 (load! "conf.d/org/capture-templates")
 (load! "conf.d/org/faces")
@@ -60,12 +61,6 @@
 (load! "conf.d/smerge")
 
 (load! "conf.d/local" nil t)
-
-;; Open TSX files in Typescript TSX Mode
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
-
-;; Open `.zshrc` in shell-script-mode with the ZSH dialect
-(add-hook 'sh-mode-hook #'kdz/set-zshrc-sh-shell)
 
 ;; Use system-installed plantuml executable
 (after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
