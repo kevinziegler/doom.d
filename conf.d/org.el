@@ -14,13 +14,10 @@
     (outline-up-heading arg)
     (org-insert-heading-after-current)))
 
-(use-package! ox-gfm :after ox)
 (add-transient-hook! #'org-babel-execute-src-block (require 'ob-async))
 
 (after! org
   (require 'ox-gfm nil t)
-  (require 'ob-restclient)
-  (require 'ob-http)
   (require 'org-expiry)
 
   (defvar org-babel-auto-async-languages '()
@@ -77,7 +74,6 @@
         (push '(:async) (caddr result)))
       result))
 
-  (use-package! ob-http :commands org-babel-execute:http)
 
   (evil-define-command evil-buffer-org-new (count file)
     "Creates a new ORG buffer replacing the current window, optionally

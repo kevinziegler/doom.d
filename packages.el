@@ -91,6 +91,7 @@
 (package! bookmark+)
 (package! jupyter)
 (package! ox-clip)
+(package! ox-gfm)
 (package! org-ol-tree)
 (package! dirvish)
 (package! string-inflection)
