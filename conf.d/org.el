@@ -22,14 +22,25 @@
 
   (setq org-ellipsis (all-the-icons-material "unfold_more")
         valign-fancy-bar t
+        org-hide-leading-stars t
         org-use-property-inheritance t
         ;; Not sure on this one - should check back later and see if it's useful
         org-fold-catch-invisible-edits t
         org-list-allow-alphabetical t
         org-fontify-quote-and-verse-blocks t
         doom-themes-org-fontify-special-tags nil
-        org-list-demote-modify-bullet
-        '(("+" . "-") ("-" . "+") ("*" . "+") ("1." . "a.")))
+        org-tag-alist '((:startgroup . nil)
+                        ("@work" . ?w)
+                        ("@personal" . ?p)
+                        (:endgroup . nil))
+        org-babel-default-header-args '((:session . "none")
+                                        (:results . "replace")
+                                        (:exports . "code")
+                                        (:cache . "no")
+                                        (:noweb . "no")
+                                        (:hlines . "no")
+                                        (:tangle . "no")
+                                        (:comments . "link")))
 
   ;; (map! :map org-mode-map
   ;;       :nie "M-SPC M-SPC" (cmd! (insert "\u200B")))
@@ -64,34 +75,10 @@
     :around #'org-superstar-mode
     (ignore-errors (apply orig-fn args)))
 
-  (after! org-superstar
-    (setq org-superstar-headline-bullets-list '("◉" "○")
-          org-superstar-prettify-item-bullets t ))
   (after! ox
     (add-to-list
      'org-export-filter-final-output-functions
      #'+org-export-remove-zero-width-space t)))
-
-    (setq org-ellipsis "  "
-        org-hide-leading-stars t
-        org-priority-highest ?A
-        org-priority-lowest ?E
-        org-priority-faces
-        '((?A . 'all-the-icons-red)
-          (?B . 'all-the-icons-orange)
-          (?C . 'all-the-icons-yellow)
-          (?D . 'all-the-icons-green)
-          (?E . 'all-the-icons-blue)))
-
-  (setq org-babel-default-header-args
-      '((:session . "none")
-        (:results . "replace")
-        (:exports . "code")
-        (:cache . "no")
-        (:noweb . "no")
-        (:hlines . "no")
-        (:tangle . "no")
-        (:comments . "link"))))
 
 ;; (org-add-link-type "gh" #'kdz/org-github-link)
 ;; (org-add-link-type "gl" #'kdz/org-gitlab-link)
@@ -99,7 +86,3 @@
 
 ;; Smart Parens config for org-mode
 (sp-local-pair '(org-mode) "<<" ">>" :actions '(insert))
-(setq org-tag-alist '((:startgroup . nil)
-                      ("@work" . ?w)
-                      ("@personal" . ?p)
-                      (:endgroup . nil)))
