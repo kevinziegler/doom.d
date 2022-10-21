@@ -21,7 +21,7 @@ command was called, go to its unstaged changes section."
                     (error (cl-return (magit-status-goto-initial-section-1))))))))
 
 (defun kdz/writing-fill-column ()
-  (setq-local display-fill-column-indicator nil)
+  (setq-local display-fill-column-indicator -1)
   ;;(setq-local fill-column 100)
   ;;(visual-fill-column-mode)
   (mixed-pitch-mode))
