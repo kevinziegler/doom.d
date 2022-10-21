@@ -196,7 +196,4 @@
 
        :os
        macos
-       tty
-
-       :private
-       text-extras)
+       tty)
