@@ -21,6 +21,7 @@
   (require 'ox-gfm nil t)
   (require 'ob-restclient)
   (require 'ob-http)
+  (require 'org-expiry)
 
   (defvar org-prettify-inline-results t
     "Whether to use (ab)use prettify-symbols-mode on {{{results(...)}}}.
