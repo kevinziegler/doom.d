@@ -19,6 +19,12 @@
   (interactive)
   (pop-to-buffer "*Messages*"))
 
+(defun kdz/org-insert-heading-up (arg)
+  (interactive "p")
+  (save-excursion
+    (outline-up-heading arg)
+    (org-insert-heading-after-current)))
+
 (evil-define-command evil-buffer-org-new (count file)
   "Creates a new ORG buffer replacing the current window, optionally
      editing a certain FILE"
@@ -30,3 +36,4 @@
       (set-window-buffer nil buffer)
       (with-current-buffer buffer
         (org-mode)))))
+

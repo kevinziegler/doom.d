@@ -8,12 +8,6 @@
       deft-recursive t
       deft-directory "~/notes")
 
-(defun kdz/org-insert-heading-up (arg)
-  (interactive "p")
-  (save-excursion
-    (outline-up-heading arg)
-    (org-insert-heading-after-current)))
-
 (after! org
   (require 'ox-gfm nil t)
   (require 'org-expiry)
