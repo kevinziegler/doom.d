@@ -9,5 +9,4 @@
   (add-hook 'org-mode-hook #'org-appear-mode)
   (add-hook 'org-mode-hook #'org-modern-mode)
   (add-hook 'org-mode-hook (lambda () (display-fill-column-indicator-mode -1)))
-  (add-hook 'org-font-lock-set-keywords-hook #'org-fontify-inline-src-blocks-enable)
   (add-hook 'org-mode-hook #'valign-mode))
