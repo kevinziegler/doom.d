@@ -8,10 +8,6 @@
       deft-recursive t
       deft-directory "~/notes")
 
-(defun kdz/org-buffer-margins ()
-  (setq left-margin-width 2)
-  (setq right-margin-width 2))
-
 (defun kdz/org-insert-heading-up (arg)
   (interactive "p")
   (save-excursion
@@ -116,22 +112,6 @@
     (setq org-font-lock-extra-keywords
           (append org-font-lock-extra-keywords '((org-fontify-inline-src-blocks)))))
 
-  (add-hook 'org-mode-hook #'kdz/writing-fill-column)
-  (add-hook 'org-mode-hook #'kdz/org-buffer-margins)
-  (add-hook 'org-mode-hook #'+org-pretty-mode)
-  (add-hook 'org-mode-hook #'org-appear-mode)
-  (add-hook 'org-mode-hook (lambda () (display-fill-column-indicator-mode -1)))
-
-  (add-hook 'org-font-lock-set-keywords-hook #'org-fontify-inline-src-blocks-enable)
-  ;; (use-package! org-appear
-  ;;   :hook (org-mode . org-appear-mode)
-  ;;   :config
-  ;;   (setq org-appear-autoemphasis t
-  ;;       org-appear-autosubmarkers t
-  ;;       org-appear-autolinks t)
-  ;;   ;; for proper first-time setup, `org-appear--set-elements'
-  ;;   ;; needs to be run after other hooks have acted.
-  ;;   (run-at-time nil nil #'org-appear--set-elements))
 
   (setq org-ellipsis (all-the-icons-material "unfold_more")
         org-use-property-inheritance t
