@@ -72,8 +72,7 @@
 
 ;; Set ordering styles for vertico
 (after! vertico
-  (setq orderless-matching-styles '(orderless-prefixes
-                                    orderless-regexp)))
+  (setq orderless-matching-styles '(orderless-prefixes orderless-regexp)))
 
 ;; Use Ispell for completion in text/markdown modes
 ;; (set-company-backend!
@@ -97,28 +96,22 @@
       ispell-personal-dictionary (expand-file-name ".ispell_personal"
                                                    doom-user-dir))
 
-(use-package! info-colors
-  :commands (info-colors-fontify-node))
+;; (use-package! etrace :after elp)
 
 (add-hook 'Info-selection-hook 'info-colors-fontify-node)
 
-(use-package! page-break-lines
-  :commands page-break-lines-mode
-  :init
-  (autoload 'turn-on-page-break-lines-mode "page-break-lines")
-  :config
-  (setq page-break-lines-max-width fill-column)
-  (map! :prefix "g"
-        :desc "Prev page break" :nv "[" #'backward-page
-        :desc "Next page break" :nv "]" #'forward-page))
+(setq page-break-lines-max-width fill-column)
+(map! :prefix "g"
+      :desc "Prev page break" :nv "[" #'backward-page
+      :desc "Next page break" :nv "]" #'forward-page)
 
 ;; Show ANSI color codes in text-mode
 ;; TODO See how this plays with magit process buffers?
-(after! text-mode
-  (add-hook! 'text-mode-hook
-             ;; Apply ANSI color codes
-             (with-silent-modifications
-               (ansi-color-apply-on-region (point-min) (point-max) t))))
+;; (after! text-mode
+;;   (add-hook! 'text-mode-hook
+;;              ;; Apply ANSI color codes
+;;              (with-silent-modifications
+;;                (ansi-color-apply-on-region (point-min) (point-max) t))))
 
 ;; (bookmark-load (concat doom-private-dir "bookmarks"))
 
