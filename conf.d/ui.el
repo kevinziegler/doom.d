@@ -24,17 +24,14 @@
       doom-big-font (font-spec :family "Fira Code" :size 14)
       doom-variable-pitch-font (font-spec :family "Overpass" :size 13)
       doom-unicode-font (font-spec :family "JuliaMono")
-      doom-serif-font (font-spec :family "Overpass" :weight 'light :size 13))
-
-(setq doom-themes-treemacs-theme 'kaolin)
-
-
-(setq doom-modeline-buffer-encoding nil
+      doom-serif-font (font-spec :family "Overpass" :weight 'light :size 13)
+      doom-modeline-buffer-encoding nil
       doom-modeline-buffer-file-name-style 'relative-to-project
       doom-modeline-display-default-persp-name t
       doom-modeline-hud t
       doom-modeline-persp-name t
-      doom-modeline-major-mode-icon t)
+      doom-modeline-major-mode-icon t
+      doom-themes-treemacs-theme 'kaolin)
 
 ;; If you want to change the style of line numbers, change this to `relative' or
 ;; `nil' to disable it:
@@ -60,24 +57,34 @@
 
 (global-display-fill-column-indicator-mode)
 
-(after! consult
-  (set-face-attribute 'consult-file nil :inherit 'consult-buffer)
-  (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) "; "))
+;; (after! consult
+;;   (set-face-attribute 'consult-file nil :inherit 'consult-buffer)
+;;   (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) "; "))
 
-(after! magit
-  (magit-delta-mode +1))
+(after! magit (magit-delta-mode +1))
 
 (after! org
   (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'prepend)
   (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'prepend)
   (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'prepend)
-  (set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$" :side 'bottom :height 0.5 :select t :quit nil))
+  (set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$"
+    :side 'bottom
+    :height 0.5
+    :select t
+    :quit nil))
 
 (setq vertico-posframe-parameters
       '((left-fringe . 8)
         (right-fringe . 8)))
 
-;; NOTE This can be replaced with `pixel-scroll-precision-mode' in Emacs 29
-(use-package! good-scroll
-  :config
-  (good-scroll-mode 1))
+;; NOTE Replace this with `pixel-scroll-precision-mode' in Emacs 29
+;; (good-scroll-mode 1)
+
+(defun make-capture-frame ()
+     "Create a new frame and run org-capture."
+     (interactive)
+     (make-frame '((name . "capture")))
+     (select-frame-by-name "capture")
+     (delete-other-windows)
+     (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
+       (org-capture)))
