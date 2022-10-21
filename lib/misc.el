@@ -26,10 +26,6 @@ command was called, go to its unstaged changes section."
   ;;(visual-fill-column-mode)
   (mixed-pitch-mode))
 
-(defun switch-to-message-buffer ()
-  (interactive)
-  (pop-to-buffer "*Messages*"))
-
 (defun kdz/set-zshrc-sh-shell ()
   (when buffer-file-name
     (when (string-match "zshrc$" buffer-file-name)
