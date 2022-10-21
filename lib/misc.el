@@ -54,3 +54,17 @@ command was called, go to its unstaged changes section."
 (defun brew-bin (bin)
   "Given a BIN, generate the path for this bin assuming the homebrew prefix"
   (f-join (brew-prefix) "bin" bin))
+
+(defun string-as-tag (input-string)
+  (string-inflection-underscore-function (string-replace " " "_" input-string)))
+
+(defun titleize-tag (tag-string)
+  (string-replace "_"
+                  " "
+                  (string-inflection-capital-underscore-function tag-string)))
+
+(defun user-company-tag ()
+  (when (boundp 'user-company) (string-as-tag user-company)))
+
+(defun user-team-tag ()
+  (when (boundp 'user-team) (string-as-tag user-team)))
