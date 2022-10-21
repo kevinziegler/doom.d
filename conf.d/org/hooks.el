@@ -9,4 +9,5 @@
   (add-hook 'org-mode-hook #'org-appear-mode)
   (add-hook 'org-mode-hook #'org-modern-mode)
   (add-hook 'org-mode-hook (lambda () (display-fill-column-indicator-mode -1)))
-  (add-hook 'org-mode-hook #'valign-mode))
+  (add-hook 'org-mode-hook #'valign-mode)
+  (add-transient-hook! #'org-babel-execute-src-block (require 'ob-async)))

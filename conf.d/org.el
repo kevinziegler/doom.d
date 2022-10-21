@@ -14,8 +14,6 @@
     (outline-up-heading arg)
     (org-insert-heading-after-current)))
 
-(add-transient-hook! #'org-babel-execute-src-block (require 'ob-async))
-
 (after! org
   (require 'ox-gfm nil t)
   (require 'org-expiry)
@@ -27,13 +25,6 @@
     "Remove zero width spaces from TEXT."
     (unless (org-export-derived-backend-p 'org)
       (replace-regexp-in-string "\u200B" "" text)))
-
-  (defun locally-defer-font-lock ()
-    "Set jit-lock defer and stealth, when buffer is over a certain size."
-    (when (> (buffer-size) 50000)
-      (setq-local jit-lock-defer-time 0.05
-                  jit-lock-stealth-time 1)))
-
 
   (setq org-ellipsis (all-the-icons-material "unfold_more")
         valign-fancy-bar t
@@ -60,7 +51,7 @@
       (funcall orig-fun)))
 
   (defadvice! org-babel-get-src-block-info-eager-async-a (orig-fn &optional light datum)
-    "Eagarly add an :async parameter to the src information, unless it seems problematic.
+    "Eagarly add an :async param to the src info, unless it seems problematic.
   This only acts o languages in `org-babel-auto-async-languages'.
   Not added when either:
   + session is not \"none\"
@@ -74,24 +65,6 @@
         (push '(:async) (caddr result)))
       result))
 
-
-  (evil-define-command evil-buffer-org-new (count file)
-    "Creates a new ORG buffer replacing the current window, optionally
-     editing a certain FILE"
-    :repeat nil
-    (interactive "P<f>")
-    (if file
-        (evil-edit file)
-      (let ((buffer (generate-new-buffer "*new org*")))
-        (set-window-buffer nil buffer)
-        (with-current-buffer buffer
-          (org-mode)))))
-
-  (after! ox
-    (add-to-list
-     'org-export-filter-final-output-functions
-     #'+org-export-remove-zero-width-space t))
-
   (defadvice! shut-up-org-problematic-hooks (orig-fn &rest args)
     :around #'org-fancy-priorities-mode
     :around #'org-superstar-mode
@@ -100,6 +73,10 @@
   (after! org-superstar
     (setq org-superstar-headline-bullets-list '("◉" "○")
           org-superstar-prettify-item-bullets t ))
+  (after! ox
+    (add-to-list
+     'org-export-filter-final-output-functions
+     #'+org-export-remove-zero-width-space t)))
 
     (setq org-ellipsis "  "
         org-hide-leading-stars t
