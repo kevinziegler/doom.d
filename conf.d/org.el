@@ -113,13 +113,14 @@
     (setq org-font-lock-extra-keywords
           (append org-font-lock-extra-keywords '((org-fontify-inline-src-blocks)))))
 
-
   (setq org-ellipsis (all-the-icons-material "unfold_more")
+        valign-fancy-bar t
         org-use-property-inheritance t
         ;; Not sure on this one - should check back later and see if it's useful
         org-fold-catch-invisible-edits t
         org-list-allow-alphabetical t
         org-fontify-quote-and-verse-blocks t
+        doom-themes-org-fontify-special-tags nil
         org-list-demote-modify-bullet
         '(("+" . "-") ("-" . "+") ("*" . "+") ("1." . "a.")))
 
@@ -135,8 +136,6 @@
          "🢔(\\1-\\2-\\3) "
          (subst-char-in-string ?_ ?  buffer-file-name))
       (funcall orig-fun)))
-
-  (setq doom-themes-org-fontify-special-tags nil)
 
   (defadvice! org-babel-get-src-block-info-eager-async-a (orig-fn &optional light datum)
     "Eagarly add an :async parameter to the src information, unless it seems problematic.
@@ -167,7 +166,6 @@
         (with-current-buffer buffer
           (org-mode)))))
 
-
   (after! ox
     (add-to-list
      'org-export-filter-final-output-functions
@@ -177,6 +175,7 @@
     :around #'org-fancy-priorities-mode
     :around #'org-superstar-mode
     (ignore-errors (apply orig-fn args)))
+
   (after! org-superstar
     (setq org-superstar-headline-bullets-list '("◉" "○")
           org-superstar-prettify-item-bullets t ))
@@ -208,3 +207,7 @@
 
 ;; Smart Parens config for org-mode
 (sp-local-pair '(org-mode) "<<" ">>" :actions '(insert))
+(setq org-tag-alist '((:startgroup . nil)
+                      ("@work" . ?w)
+                      ("@personal" . ?p)
+                      (:endgroup . nil)))
