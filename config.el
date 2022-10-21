@@ -18,6 +18,7 @@
       enable-local-variables t
       company-show-quick-access  t ;; Show numbers by completions; accessible via M-<number>
       which-key-idle-delay 0.1 ;; Reduce time to show which-key popup
+      which-key-idle-secondary-delay 0.05
       evil-want-fine-undo t
       evil-kill-on-visual-paste nil
       evil-vsplit-window-right t
