@@ -55,13 +55,13 @@
 (package! git-link)
 (package! kaolin-themes)
 (package! magit-org-todos)
-(package! org-appear :recipe (:host github :repo "awth13/org-appear"))
+(package! org-appear)
 (package! org-jira)
 (package! tron-legacy-theme)
 (package! ob-http)
 (package! protobuf-mode)
 (package! ob-mermaid)
-(package! magit-delta :recipe (:host github :repo "dandavison/magit-delta"))
+(package! magit-delta)
 (package! etrace :recipe (:host github :repo "aspiers/etrace"))
 
 (package! info-colors :pin "47ee73cc19b1")
@@ -77,11 +77,11 @@
   :pin "cd1aefd56f648d32a25aae672ac1ab90893c0133")
 (package! websocket :pin "fda4455333309545c0787a79d73c19ddbeb57980") ; dependency of `org-roam-ui'
 
-(package! topspace)
+;; (package! topspace)
 (package! mermaid-mode)
 
-(package! org-super-agenda)
-(package! good-scroll)
+;; (package! org-super-agenda)
+;; (package! good-scroll)
 
 ;; NOTE This needs an 'openscad' binary in emac's path, but the Homebrew cask
 ;;      does not install such a binary.  This can be fixed by linking 'openscad'
@@ -89,9 +89,30 @@
 (package! scad-preview)
 
 (package! bookmark+)
-
 (package! jupyter)
-
+(package! ox-clip)
 (package! org-ol-tree)
+(package! dirvish)
 (package! string-inflection)
+(package! valign)
+(package! org-pandoc-import
+  :recipe (:host github
+           :repo "tecosaur/org-pandoc-import"
+           :files ("*.el" "filters" "preprocessors")))
+
+;; (package! good-scroll)
 ;;(package! ob-grpc :recipe (:host github :repo "shsms/ob-grpc"))
+
+(package! info-colors)
+(package! page-break-lines)
+(package! org-mac-link)
+(package! org-jira)
+(package! which-key-posframe)
+(package! bazel)
+(package! doct)
+(package! jq-mode)
+(package! org-sticky-header)
+(package! org-modern)
+(package! copy-as-format)
+(package! uuidgen)
+(package! lorem-ipsum)
