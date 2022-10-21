@@ -1,7 +1,5 @@
 ;;; config-lsp.el -*- lexical-binding: t; -*-
 
-(add-hook! lsp-mode #'lsp-enable-which-key-integration)
-
 (after! lsp-mode
   (setq lsp-headerline-breadcrumb-enable t)
   (setq lsp-headerline-breadcrumb-segments '(symbols))
@@ -25,4 +23,3 @@
 ;; issues where the pyright server process picks up the wrong python version
 ;; because it runs the ASDF shim in a directory that isn't the project root
 (advice-add 'lsp-pyright-locate-python :around #'kdz/pyright-prefer-asdf-python)
-
