@@ -31,7 +31,8 @@
       doom-modeline-hud t
       doom-modeline-persp-name t
       doom-modeline-major-mode-icon t
-      doom-themes-treemacs-theme 'kaolin)
+      doom-themes-treemacs-theme 'kaolin
+      fancy-splash-image (expand-file-name "modern-sexy-v2_128.png" doom-user-dir))
 
 ;; If you want to change the style of line numbers, change this to `relative' or
 ;; `nil' to disable it:
