@@ -89,3 +89,22 @@
      (delete-other-windows)
      (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
        (org-capture)))
+
+(defvar kdz--notes-persp-name "Notes")
+
+(defun kdz/notes-to-first-persp ()
+  "Move the 'notes' perspective to the first position"
+  (setq persp-names-cache
+        (cons kdz--notes-persp-name
+              (delete kdz--notes-persp-name persp-names-cache))))
+
+(after! persp-mode
+  (persp-def-auto-persp kdz--notes-persp-name
+                        :mode 'org-mode
+                        :file-name (file-truename org-directory)
+                        :hooks '(kdz/notes-to-first-persp)
+                        :switch 'frame)
+  (persp-def-auto-persp "Doom Documentation"
+                        :mode 'org-mode
+                        :file-name (expand-file-name doom-emacs-dir)
+                        :switch 'frame))
