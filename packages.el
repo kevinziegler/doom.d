@@ -51,69 +51,94 @@
 ;; our package manager can't deal with; see raxod502/straight.el#279)
 ;(package! builtin-package :recipe (:branch "develop"))
 
-(package! ample-theme)
+(package! bazel)
+(package! bookmark+)
+(package! copy-as-format)
+(package! dirvish)
+(package! doct)
 (package! git-link)
-(package! kaolin-themes)
-(package! magit-org-todos)
-(package! org-appear)
-(package! org-jira)
-(package! tron-legacy-theme)
-(package! ob-http)
-(package! protobuf-mode)
-(package! ob-mermaid)
+;; (package! good-scroll) ;; Disabled because it clearly has performance issues
+(package! info-colors)
+(package! jq-mode)
+(package! jupyter)
+(package! lorem-ipsum)
 (package! magit-delta)
-(package! etrace :recipe (:host github :repo "aspiers/etrace"))
-
-(package! info-colors :pin "47ee73cc19b1")
-(package! page-break-lines :recipe (:host github :repo "purcell/page-break-lines"))
-
-(package! org-ol-tree :recipe (:host github :repo "Townk/org-ol-tree")
-  :pin "207c748aa5fe")
-
-(package! ox-gfm :pin "99f93011b069e02b37c9660b8fcb45dab086a07f")
-
-(package! org-roam-ui
-  :recipe (:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out"))
-  :pin "cd1aefd56f648d32a25aae672ac1ab90893c0133")
-(package! websocket :pin "fda4455333309545c0787a79d73c19ddbeb57980") ; dependency of `org-roam-ui'
-
-;; (package! topspace)
+(package! magit-org-todos)
 (package! mermaid-mode)
-
-;; (package! org-super-agenda)
-;; (package! good-scroll)
+(package! page-break-lines)
+(package! protobuf-mode)
+(package! string-inflection)
+;; (package! topspace)
+(package! uuidgen)
+(package! valign)
+(package! websocket) ; dependency of `org-roam-ui'
+(package! which-key-posframe)
 
 ;; NOTE This needs an 'openscad' binary in emac's path, but the Homebrew cask
 ;;      does not install such a binary.  This can be fixed by linking 'openscad'
 ;;      in '$HOME/.bin' to the installed 'OpenSCAD.app'
 (package! scad-preview)
 
-(package! bookmark+)
-(package! jupyter)
+(package! markdown-xwidget
+  :recipe (:host github
+           :repo "cfclrk/markdown-xwidget"
+           :files (:defaults "resources")))
+
+;; Extra org-mode packages (MELPA)
+(package! ob-http)
+(package! ob-mermaid)
+(package! org-appear)
+(package! org-jira)
+(package! org-jira)
+(package! org-mac-link)
+(package! org-modern)
+(package! org-ol-tree)
+(package! org-sticky-header)
+;; (package! org-super-agenda)
 (package! ox-clip)
 (package! ox-gfm)
-(package! org-ol-tree)
-(package! dirvish)
-(package! string-inflection)
-(package! valign)
+
+;; Extra org-mode packages (Github)
+
+;; (package! ob-grpc :recipe (:host github :repo "shsms/ob-grpc"))
+(package! org-ol-tree :recipe (:host github :repo "Townk/org-ol-tree"))
+
 (package! org-pandoc-import
   :recipe (:host github
            :repo "tecosaur/org-pandoc-import"
            :files ("*.el" "filters" "preprocessors")))
 
-;; (package! good-scroll)
-;;(package! ob-grpc :recipe (:host github :repo "shsms/ob-grpc"))
+(package! org-roam-ui
+  :recipe (:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
 
-(package! info-colors)
-(package! page-break-lines)
-(package! org-mac-link)
-(package! org-jira)
-(package! which-key-posframe)
-(package! bazel)
-(package! doct)
-(package! jq-mode)
-(package! org-sticky-header)
-(package! org-modern)
-(package! copy-as-format)
-(package! uuidgen)
-(package! lorem-ipsum)
+;; Themes.  Lots of themes.
+(package! afternoon-theme)
+(package! apropospriate-theme)
+(package! arc-dark-theme)
+(package! busybee-theme)
+(package! clues-theme)
+(package! darkmine-theme)
+(package! darktooth-theme)
+(package! flatland-theme)
+(package! flatui-theme)
+(package! gotham-theme)
+(package! immaterial-theme)
+(package! kaolin-themes)
+(package! kooten-theme)
+(package! madhat2r-theme)
+(package! material-theme)
+(package! mbo70s-theme)
+(package! noctilux-theme)
+(package! obsidian-theme)
+(package! omtose-phellack-theme)
+(package! overcast-theme)
+(package! planet-theme)
+(package! reykjavik-theme)
+(package! slime-theme)
+(package! smyx-theme)
+(package! soft-charcoal-theme)
+(package! subatomic256-theme)
+(package! sublime-themes)
+(package! tao-theme)
+(package! tron-legacy-theme)
+(package! twilight-theme)
