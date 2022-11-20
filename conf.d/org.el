@@ -29,6 +29,10 @@
         org-list-allow-alphabetical t
         org-fontify-quote-and-verse-blocks t
         doom-themes-org-fontify-special-tags nil
+        org-list-demote-modify-bullet '(("+" . "-")
+                                        ("-" . "+")
+                                        ("*" . "-")
+                                        ("1." . "a."))
         org-tag-alist '((:startgroup . nil)
                         ("@work" . ?w)
                         ("@personal" . ?p)
