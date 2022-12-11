@@ -34,8 +34,15 @@
 
 (after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
 (after! python (set-ligatures! 'python-mode nil))
-(after! vertico
-  (setq orderless-matching-styles '(orderless-prefixes orderless-regexp)))
+(after! vertico (setq orderless-matching-styles '(orderless-prefixes
+                                                  orderless-regexp)))
+
+(add-to-list 'auto-mode-alist '("/Tiltfile.*\\'" . bazel-starlark-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
+(add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
+
+(add-hook 'sh-mode-hook #'kdz/set-zshrc-sh-shell)
+(add-hook 'Info-selection-hook 'info-colors-fontify-node)
 
 (mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))
       (directory-files (expand-file-name "lib" doom-user-dir) nil "\\.el$"))
@@ -46,7 +53,6 @@
 (load! "conf.d/lsp")
 (load! "conf.d/keybinds")
 (load! "conf.d/markdown")
-(load! "conf.d/modes")
 (load! "conf.d/org")
 (load! "conf.d/org/capture-templates")
 (load! "conf.d/org/faces")
