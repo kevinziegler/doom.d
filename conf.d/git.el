@@ -13,7 +13,10 @@
         :desc "Worktrees" "w" #'magit-worktree))
 
 (add-hook! git-timemachine-mode #'hydra-git-timemachine/body)
-(after! magit (magit-org-todos-autoinsert))
+
+(after! magit
+  (magit-org-todos-autoinsert)
+  (magit-delta-mode +1))
 
 (setq magit-git-executable (brew-bin "git")
       magit-repository-directories '(("~/dev" . 2) ("~/.dotfiles" . 0)))

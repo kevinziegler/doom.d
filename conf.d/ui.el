@@ -58,11 +58,6 @@
 ;;   (set-face-attribute 'consult-file nil :inherit 'consult-buffer)
 ;;   (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) "; "))
 
-(after! magit (magit-delta-mode +1))
-
-
-
-
 (defvar kdz--notes-persp-name "Notes")
 
 (defun kdz/notes-to-first-persp ()
