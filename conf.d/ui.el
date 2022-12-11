@@ -61,7 +61,7 @@
 (defvar kdz--notes-persp-name "Notes")
 
 (defun kdz/notes-to-first-persp ()
-  "Move the 'notes' perspective to the first position"
+  "Move the notes perspective to the first position"
   (setq persp-names-cache
         (cons kdz--notes-persp-name
               (delete kdz--notes-persp-name persp-names-cache))))
