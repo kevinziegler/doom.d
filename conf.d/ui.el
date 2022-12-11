@@ -32,13 +32,9 @@
       doom-modeline-persp-name t
       doom-modeline-major-mode-icon t
       doom-themes-treemacs-theme 'kaolin
-      fancy-splash-image (expand-file-name "modern-sexy-v2_128.png" doom-user-dir))
-
-;; If you want to change the style of line numbers, change this to `relative' or
-;; `nil' to disable it:
-(setq display-line-numbers-type t)
-
-(setq frame-title-format
+      fancy-splash-image (expand-file-name "modern-sexy-v2_128.png" doom-user-dir)
+      display-line-numbers-type t
+      frame-title-format
       '((:eval (kdz/frame-title-segment (kdz/frame-title-save-state) t))
         (:eval (kdz/frame-title-segment (kdz/frame-title-buffer-name)))
         (:eval (kdz/frame-title-segment (kdz/frame-title-project-name)))))
@@ -65,12 +61,6 @@
 (after! magit (magit-delta-mode +1))
 
 
-(setq vertico-posframe-parameters
-      '((left-fringe . 8)
-        (right-fringe . 8)))
-
-;; NOTE Replace this with `pixel-scroll-precision-mode' in Emacs 29
-;; (good-scroll-mode 1)
 
 
 (defvar kdz--notes-persp-name "Notes")

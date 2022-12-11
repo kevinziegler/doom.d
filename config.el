@@ -16,18 +16,22 @@
       global-subword-mode 1
       undo-limit 80000000
       enable-local-variables t
-      company-show-quick-access  t ;; Show numbers by completions; accessible via M-<number>
-      which-key-idle-delay 0.1 ;; Reduce time to show which-key popup
+      ;; Show numbers by completions; accessible via M-<number>
+      company-show-quick-access  t
+      ;; Reduce time to show which-key popup
+      which-key-idle-delay 0.1
       which-key-idle-secondary-delay 0.05
       evil-want-fine-undo t
       evil-kill-on-visual-paste nil
       evil-vsplit-window-right t
-      evil-split-window-below t)
-
-;; Silence compiler warnings as they can be pretty disruptive
-(setq comp-async-report-warnings-errors nil)
-
-
+      evil-split-window-below t
+      ;; Silence compiler warnings as they can be pretty disruptive
+      comp-async-report-warnings-errors nil
+      page-break-lines-max-width fill-column
+      bookmark-version-control t
+      projectile-ignored-projects '("~/" "/tmp" "~/.emacs.d/.local/straight/repos/")
+      ispell-dictionary "en"
+      ispell-personal-dictionary (expand-file-name ".ispell_personal" doom-user-dir))
 
 (mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))
       (directory-files (expand-file-name "lib" doom-user-dir) nil "\\.el$"))
@@ -75,20 +79,7 @@
 (setq-default history-length 1000
               prescient-history-length 1000)
 
-(setq bookmark-version-control t)
-
-(setq projectile-ignored-projects
-      '("~/" "/tmp" "~/.emacs.d/.local/straight/repos/"))
-
-(setq ispell-dictionary "en"
-      ispell-personal-dictionary (expand-file-name ".ispell_personal"
-                                                   doom-user-dir))
-
 ;; (use-package! etrace :after elp)
-
-(add-hook 'Info-selection-hook 'info-colors-fontify-node)
-
-(setq page-break-lines-max-width fill-column)
 
 ;; Show ANSI color codes in text-mode
 ;; TODO See how this plays with magit process buffers?
@@ -99,9 +90,6 @@
 ;;                (ansi-color-apply-on-region (point-min) (point-max) t))))
 
 ;; (bookmark-load (concat doom-private-dir "bookmarks"))
-
-(setq ein:polymode t)
-
 ;; TODO Set popup rules for Markdown Xwidget to use right/50% split for the
 ;;      preview buffer
 ;; TODO Figure out "format-all-errors" when running preview mode
