@@ -43,6 +43,10 @@
 (add-to-list 'default-frame-alist '(height . 60))
 (add-to-list 'default-frame-alist '(width . 235))
 
+(when (boundp 'EMACS29+)
+      (add-to-list 'default-frame-alist '(undecorated-round . t))
+      (add-to-list 'default-frame-alist '(internal-border-width . 10)))
+
 (after! kaolin-themes
   (setq kaolin-themes-bold t
         kaolin-themes-distinct-company-scrollbar t
