@@ -48,6 +48,10 @@
        :desc "Upper_Score" "u" #'string-inflection-capital-underscore
        :desc "UP_CASE" "U" #'string-inflection-upcase))
 
+(map! :prefix "g"
+      :desc "Prev page break" :nv "[" #'backward-page
+      :desc "Next page break" :nv "]" #'forward-page)
+
 (after! evil
     (evil-define-operator evil-operator-string-inflection (beg end _type)
       "Define a new evil operator that cycles symbol casing."
@@ -65,12 +69,10 @@
 
     (map! :map evil-window-map
           "SPC" #'rotate-layout
-          ;; Navigation
           "<left>"     #'evil-window-left
           "<down>"     #'evil-window-down
           "<up>"       #'evil-window-up
           "<right>"    #'evil-window-right
-          ;; Swapping windows
           "C-<left>"   #'+evil/window-move-left
           "C-<down>"   #'+evil/window-move-down
           "C-<up>"     #'+evil/window-move-up

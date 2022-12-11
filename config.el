@@ -27,18 +27,6 @@
 ;; Silence compiler warnings as they can be pretty disruptive
 (setq comp-async-report-warnings-errors nil)
 
-(map! :map evil-window-map
-      "SPC" #'rotate-layout
-      ;; Navigation
-      "<left>"     #'evil-window-left
-      "<down>"     #'evil-window-down
-      "<up>"       #'evil-window-up
-      "<right>"    #'evil-window-right
-      ;; Swapping windows
-      "C-<left>"       #'+evil/window-move-left
-      "C-<down>"       #'+evil/window-move-down
-      "C-<up>"         #'+evil/window-move-up
-      "C-<right>"      #'+evil/window-move-right)
 
 
 (mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))
@@ -101,9 +89,6 @@
 (add-hook 'Info-selection-hook 'info-colors-fontify-node)
 
 (setq page-break-lines-max-width fill-column)
-(map! :prefix "g"
-      :desc "Prev page break" :nv "[" #'backward-page
-      :desc "Next page break" :nv "]" #'forward-page)
 
 ;; Show ANSI color codes in text-mode
 ;; TODO See how this plays with magit process buffers?
