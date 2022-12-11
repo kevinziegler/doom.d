@@ -1,9 +1,5 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; refresh' after modifying this file!
 
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets.
 (setq user-full-name "Kevin Ziegler"
       projectile-project-search-path '("~/dev")
       delete-by-moving-to-trash t
@@ -33,6 +29,14 @@
       ispell-dictionary "en"
       ispell-personal-dictionary (expand-file-name ".ispell_personal" doom-user-dir))
 
+(setq-default history-length 1000
+              prescient-history-length 1000)
+
+(after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
+(after! python (set-ligatures! 'python-mode nil))
+(after! vertico
+  (setq orderless-matching-styles '(orderless-prefixes orderless-regexp)))
+
 (mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))
       (directory-files (expand-file-name "lib" doom-user-dir) nil "\\.el$"))
 
@@ -40,7 +44,6 @@
 (load! "conf.d/emoji")
 (load! "conf.d/git")
 (load! "conf.d/lsp")
-;; (load! "conf.d/lsp-java")
 (load! "conf.d/keybinds")
 (load! "conf.d/markdown")
 (load! "conf.d/modes")
@@ -53,18 +56,7 @@
 (load! "conf.d/ui")
 (load! "conf.d/treemacs")
 (load! "conf.d/smerge")
-
 (load! "conf.d/local" nil t)
-
-;; Use system-installed plantuml executable
-(after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
-
-;; Don't use special ligatures in python mode
-(after! python (set-ligatures! 'python-mode nil))
-
-;; Set ordering styles for vertico
-(after! vertico
-  (setq orderless-matching-styles '(orderless-prefixes orderless-regexp)))
 
 ;; Use Ispell for completion in text/markdown modes
 ;; (set-company-backend!
@@ -75,11 +67,6 @@
 ;;     company-ispell
 ;;     company-files
 ;;     company-yasnippet))
-
-(setq-default history-length 1000
-              prescient-history-length 1000)
-
-;; (use-package! etrace :after elp)
 
 ;; Show ANSI color codes in text-mode
 ;; TODO See how this plays with magit process buffers?
