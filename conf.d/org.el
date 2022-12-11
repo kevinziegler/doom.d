@@ -46,6 +46,11 @@
                                         (:tangle . "no")
                                         (:comments . "link")))
 
+  (set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$"
+    :side 'bottom
+    :height 0.5
+    :select t
+    :quit nil)
   ;; (map! :map org-mode-map
   ;;       :nie "M-SPC M-SPC" (cmd! (insert "\u200B")))
 

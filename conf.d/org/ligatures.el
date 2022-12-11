@@ -1,7 +1,5 @@
 
 (after! org
-  ;; TODO Check these against existing org-config
-
   (appendq! +ligatures-extra-symbols
             `(:checkbox      ""
               :pending       ""

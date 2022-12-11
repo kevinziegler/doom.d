@@ -64,15 +64,6 @@
 
 (after! magit (magit-delta-mode +1))
 
-(after! org
-  (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'prepend)
-  (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'prepend)
-  (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'prepend)
-  (set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$"
-    :side 'bottom
-    :height 0.5
-    :select t
-    :quit nil))
 
 (setq vertico-posframe-parameters
       '((left-fringe . 8)
@@ -81,14 +72,6 @@
 ;; NOTE Replace this with `pixel-scroll-precision-mode' in Emacs 29
 ;; (good-scroll-mode 1)
 
-(defun make-capture-frame ()
-     "Create a new frame and run org-capture."
-     (interactive)
-     (make-frame '((name . "capture")))
-     (select-frame-by-name "capture")
-     (delete-other-windows)
-     (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
-       (org-capture)))
 
 (defvar kdz--notes-persp-name "Notes")
 
