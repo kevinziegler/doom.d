@@ -27,18 +27,21 @@
                  :keys "o"
                  :file "~/notes/one-on-one-discussions.org"
                  :prepend t
+                 :icon  ("person" :set "material" :color "blue")
                  :function (lambda ()
                              (let ((org-goto-interface 'outline-path-completion)
                                    (org-goto-max-level 1))
                                (org-goto)))
                  :children (("Discussion Topic"
                              :keys "t"
+                             :icon ("comment" :set "material" :color "blue")
                              :template ("* DISCUSS %?"
                                         ":properties:"
                                         ":created: %t"
                                         ":end:"))))
                 ("Retro Discussions"
                  :keys "r"
+                 :icon ("history" :set "material" :color "blue")
                  :file "~/notes/retros.org"
                  :template ("* %{retro-category}: %?"
                             ":properties:"
@@ -53,32 +56,40 @@
                              :template "* SHOUTOUT %^{Person(s)}: %^{Shoutout For}\n%t")))
                 ("To-do Items"
                  :keys "t"
+                 :icon ("checklist" :set "octicon" :color "blue")
                  :children (("Personal To-do"
                              :keys "p"
+                             :icon ("checklist" :set "octicon" :color "green")
                              :file "~/notes/personal/todos.org"
                              :template "* TODO %?\n%t\nDEADLINE: %^{Due on}t")
                             ("Personal To-do (Deadline)"
                              :keys "P"
+                             :icon ("checklist" :set "octicon" :color "red")
                              :file "~/notes/personal/todos.org"
                              :template "* TODO %?")
                             ("Work To-do"
                              :keys "w"
+                             :icon ("checklist" :set "octicon" :color "blue")
                              :file "~/notes/work-todos.org"
                              :template "* TODO %?")
                             ("Work To-do (Deadline)"
                              :keys "W"
+                             :icon ("checklist" :set "octicon" :color "red")
                              :file "~/notes/work-todos.org"
                              :template "* TODO %?\n%t\nDEADLINE %^{Due on}t")
                             ("Create Ticket"
                              :keys "t"
+                             :icon ("ticket" :set "faicon" :color "yellow")
                              :file "~/notes/work-todos.org"
                              :template "* TODO Create Ticket: %?\n%t")
                             ("Team lead To-do"
                              :keys "l"
+                             :icon ("checklist" :set "octicon" :color "yellow")
                              :file "~/notes/work-todos.org"
                              :template "* TODO %? :lead_work:\n")
                             ("Team lead To-do (Deadline)"
                              :keys "l"
+                             :icon ("checklist" :set "octicon" :color "red")
                              :file "~/notes/work-todos.org"
                              :template "* TODO %? :lead_work:\n%t\nDEADLINE %^{Due on}t")))
 

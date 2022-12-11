@@ -59,6 +59,7 @@
 (load! "conf.d/org/hooks")
 (load! "conf.d/org/keybinds")
 (load! "conf.d/org/ligatures")
+(load! "conf.d/org/pretty-capture")
 (load! "conf.d/ui")
 (load! "conf.d/treemacs")
 (load! "conf.d/smerge")
