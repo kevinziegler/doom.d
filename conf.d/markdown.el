@@ -7,3 +7,12 @@
   '(markdown-header-face-4 :height 1.00 :weight bold       :inherit markdown-header-face)
   '(markdown-header-face-5 :height 0.90 :weight bold       :inherit markdown-header-face)
   '(markdown-header-face-6 :height 0.75 :weight extra-bold :inherit markdown-header-face))
+
+;; TODO Set popup rules for Markdown Xwidget to use right/50% split for the
+;;      preview buffer
+;; TODO Figure out "format-all-errors" when running preview mode
+(after! markdown-xwidget
+  (setq markdown-xwidget-command "pandoc"
+        markdown-xwidget-github-theme "light"
+        markdown-xwidget-mermaid-theme "default"
+        markdown-xwidget-code-block-theme "default"))
