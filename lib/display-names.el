@@ -4,7 +4,7 @@
 
 (defvar kdz-special-buffer-pattern
   "^[[:space:]]*\\*.+\\*$"
-  "Pattern for matching 'special' buffers that shouldn't display as files")
+  "Pattern for matching `special' buffers that shouldn't display as files")
 
 (defmacro kdz/with-buffer-or-current (&optional buffer &rest body)
   `(let ((buffer-actual (or ,buffer (current-buffer))))
