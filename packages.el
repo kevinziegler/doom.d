@@ -65,6 +65,7 @@
 (package! magit-delta)
 (package! magit-org-todos)
 (package! mermaid-mode)
+(package! modern-fringes)
 (package! page-break-lines)
 (package! protobuf-mode)
 (package! string-inflection)
