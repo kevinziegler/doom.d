@@ -20,8 +20,8 @@
 ;;       ;; doom-theme 'doom-one ;; NOTE Set by local.el
 ;;       )
 
-(setq doom-font (font-spec :family "Fira Code" :size 12)
-      doom-big-font (font-spec :family "Fira Code" :size 14)
+(setq doom-font (font-spec :family "Iosevka Fixed" :size 12.5)
+      doom-big-font (font-spec :family "Iosevka Fixed" :size 14)
       doom-variable-pitch-font (font-spec :family "Overpass" :size 13)
       doom-unicode-font (font-spec :family "JuliaMono")
       doom-serif-font (font-spec :family "Overpass" :weight 'light :size 13)
@@ -38,6 +38,8 @@
       '((:eval (kdz/frame-title-segment (kdz/frame-title-save-state) t))
         (:eval (kdz/frame-title-segment (kdz/frame-title-buffer-name)))
         (:eval (kdz/frame-title-segment (kdz/frame-title-project-name)))))
+
+(setq vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8)))
 
 ;; Set default window size
 (add-to-list 'default-frame-alist '(height . 60))
@@ -61,6 +63,10 @@
 
 (after! consult
   (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) "# "))
+
+(set-face-attribute 'minibuffer-prompt nil :height 1.3 :family doom-variable-pitch-font)
+
+(after! doom-modeline (size-indication-mode nil))
 
 (defvar kdz--notes-persp-name "Notes")
 
@@ -101,6 +107,7 @@
 
 (setq vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
       vertico-posframe-poshandler #'kdz/posframe-poshandler-frame-bottom-center-offset)
+
 (set-popup-rule! "^\\*format-all-errors\\*"
   :side 'bottom
   :height 5
@@ -116,16 +123,19 @@
   :modeline t)
 
 (set-popup-rule! "\\*Messages\\*" :height 0.3 :quit nil)
+
 (after! which-key-posframe
   (which-key-posframe-mode 1)
   (setq which-key-posframe-poshandler
         #'kdz/posframe-poshandler-frame-bottom-center-offset))
+
 (add-hook 'text-mode-hook (lambda ()
                             (setq-local fill-column 120)
                             (visual-fill-column-mode t)
                             (mixed-pitch-mode t)
                             (display-fill-column-indicator-mode -1)
                             (display-line-numbers-mode -1)))
+
 (advice-add #'vertico--format-candidate :around
             (lambda (orig cand prefix suffix index _start)
               (setq cand (funcall orig cand prefix suffix index _start))
