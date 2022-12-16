@@ -116,6 +116,12 @@
   :modeline t)
 
 (set-popup-rule! "\\*Messages\\*" :height 0.3 :quit nil)
+(add-hook 'text-mode-hook (lambda ()
+                            (setq-local fill-column 120)
+                            (visual-fill-column-mode t)
+                            (mixed-pitch-mode t)
+                            (display-fill-column-indicator-mode -1)
+                            (display-line-numbers-mode -1)))
 (advice-add #'vertico--format-candidate :around
             (lambda (orig cand prefix suffix index _start)
               (setq cand (funcall orig cand prefix suffix index _start))
