@@ -41,7 +41,6 @@
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
 
-(add-hook 'sh-mode-hook #'kdz/set-zshrc-sh-shell)
 (add-hook 'Info-selection-hook 'info-colors-fontify-node)
 
 (mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))

@@ -27,6 +27,7 @@
         ;; Not sure on this one - should check back later and see if it's useful
         org-fold-catch-invisible-edits t
         org-list-allow-alphabetical t
+        org-modern-hide-stars t
         org-fontify-quote-and-verse-blocks t
         doom-themes-org-fontify-special-tags nil
         org-list-demote-modify-bullet '(("+" . "-")
@@ -83,6 +84,8 @@
     :around #'org-fancy-priorities-mode
     :around #'org-superstar-mode
     (ignore-errors (apply orig-fn args)))
+
+  (global-org-modern-mode)
 
   (after! ox
     (add-to-list

@@ -20,12 +20,6 @@ command was called, go to its unstaged changes section."
                       (magit-section-forward)
                     (error (cl-return (magit-status-goto-initial-section-1))))))))
 
-(defun kdz/writing-fill-column ()
-  (setq-local display-fill-column-indicator -1)
-  ;;(setq-local fill-column 100)
-  ;;(visual-fill-column-mode)
-  (mixed-pitch-mode))
-
 (defun kdz/set-zshrc-sh-shell ()
   (when buffer-file-name
     (when (string-match "zshrc$" buffer-file-name)

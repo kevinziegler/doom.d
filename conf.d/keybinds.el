@@ -3,9 +3,6 @@
 ;; Make the direction sane on an apple trackpad
 (setq mouse-wheel-flip-direction t)
 
-;; Until I fix my keyboard layout, this makes 'meta' keys work as expected
-(setq ns-right-option-modifier 'meta)
-
 (map! :leader
       :desc "Command" "SPC" #'execute-extended-command
 

@@ -59,9 +59,8 @@
 (global-display-fill-column-indicator-mode)
 (modern-fringes-mode t)
 
-;; (after! consult
-;;   (set-face-attribute 'consult-file nil :inherit 'consult-buffer)
-;;   (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) "; "))
+(after! consult
+  (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) "# "))
 
 (defvar kdz--notes-persp-name "Notes")
 
@@ -74,8 +73,7 @@
 (after! persp-mode
   (persp-def-auto-persp kdz--notes-persp-name
                         :mode 'org-mode
-                        :file-name (file-truename org-directory)
-                        :hooks '(kdz/notes-to-first-persp)
+                        :file-name (regexp-quote (file-truename org-directory))
                         :switch 'frame)
   (persp-def-auto-persp "Doom Documentation"
                         :mode 'org-mode
