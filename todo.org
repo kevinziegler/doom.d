@@ -1,4 +1,4 @@
-#+title: Doom Config TODOs
+#+title: Doom Configuration TODOs
 
 * TODO Figure out how to get 'main' workspace to be persistent/always open
 * TODO Set up dedicated notes workspace
@@ -9,7 +9,7 @@ https://github.com/awth13/org-appear
 * TODO See if this regexp feels more natural
 https://github.com/benma/visual-regexp-steroids.el
 * TODO Consider using mono-spaced fonts for indentation/whitespace in org mode?
-* TODO Add wq command for org-src-mode
+* TODO Add `wq' command for org-src-mode
 * TODO Insert table in org mode with SPC->i->t
 * TODO  'add' menu for org under SPC m a
 * TODO Improve Git link keymaps
@@ -27,9 +27,6 @@ https://github.com/benma/visual-regexp-steroids.el
 | prefix-line-link:m     |                | link with line no & branch |
 |------------------------+----------------+----------------------------|
 
-* TODO Setup merge-conflict resolution
-- Figure out the magic I had back in Spacemacs, port/rebuild that here.
-
 * Packages to consider adding to this configuration
 ** To Evaluate
   - https://github.com/federicotdn/verb
@@ -44,6 +41,12 @@ https://github.com/benma/visual-regexp-steroids.el
   - https://github.com/k-talo/volatile-highlights.el
   - https://github.com/Artawower/blamer.el
   - https://framagit.org/steckerhalter/discover-my-major
+  - https://github.com/rexim/org-cliplink
+  - https://github.com/unhammer/org-rich-yank
+  - [[https://github.com/ahungry/org-jira][ahungry/org-jira: Bring Jira and OrgMode together]]
+  - https://melpa.org/#/org-download
+  - https://github.com/gizmomogwai/org-kanban
+  - https://github.com/minad/org-modern
 
 ** Rejected
   - https://github.com/ryuslash/mode-icons :: Doesn't look particularly useful with doom's modeline
@@ -52,6 +55,7 @@ https://github.com/benma/visual-regexp-steroids.el
   - https://www.emacswiki.org/emacs/MiniMap (Already in Doom)
   - https://github.com/ianpan870102/wilmersdorf-emacs-theme (Already in doom)
   - https://github.com/ianpan870102/tron-legacy-emacs-theme
+  - https://github.com/casouri/valign
   - https://github.com/jordonbiondo/ample-theme
 
 * Enable running with AWS roles enabled
@@ -67,9 +71,8 @@ https://tecosaur.github.io/emacs-config/config.html#transclusion
 * org-chef (for personal use - collecting recipes)
 https://tecosaur.github.io/emacs-config/config.html#cooking-recipes
 
-* Set up zen/writing modes as per this config
+* Set up zen/writing modes as per this configuration
 https://tecosaur.github.io/emacs-config/config.html
-
 * Look at pretty tags here
 https://tecosaur.github.io/emacs-config/config.html#symbols
 
@@ -80,6 +83,7 @@ https://github.com/alphapapa/org-super-agenda
 - Retro discussion topics
 - 1-1 discussion topics (broken down by person)
 - Action items (TODOs not tracked in Jira)
+- Team Sprint Ceremonies
 
 * Set up Sprint/Iteration capture template
 - Landing page for notes on sprint progress
@@ -124,24 +128,30 @@ https://github.com/Wilfred/deadgrep
 **** Rollover of action items from previous sprints
 **** Track a TODO item for the next sprint
 
-* Set up Hard-coded Bookmarks for common Config Files
+* Set up Hard-coded Bookmarks for common Configuration Files
 - gitconfig (global and machine-local)
-- zsh config (global and machine local)
+- zsh configuration (global and machine local)
 - Global gitignore
 - Doom TODOs (This file)
 - Dotfiles TODOs
+- Authinfo files
 
 * Capture Templates
 ** Create a new 1-1 notes file (i.e. for a new person)
 ** Create a new 1-1 discussion topic
 ** Project Notes
 ** Recipe
-- =recipe=, =personal= Filetags
+- =recipe=, =personal= File-level tags
 - Ingredients
 - Process
 - Source link
 ** Blog Topics
 ** Random Thought
+
+* Workflow to capture things for "Next" meetings
+- Next or upcoming stand-up/1-1/retro/grooming/etc
+- Auto-create heading if it doesn't exist
+- Use case for org-roam-dailies? (For Stand-ups, etc)
 
 * Org Template Files
 ** Notebooks
@@ -152,6 +162,8 @@ https://github.com/Wilfred/deadgrep
 *** HTTP Query Collection
 - Host/port
 - Global headers
+- Should this be organized as a single large file, or one file per "notebook"
+- What is even the scope of a notebook?
 ** Recipes
 - Ingredients
 - Steps
@@ -159,9 +171,92 @@ https://github.com/Wilfred/deadgrep
 *** Alternatively, look into integrating org-chef
 ** Context-Specific TODO
 *** Dotfiles TODO
-*** Doom config TODO (i.e. this file)
+*** Doom configuration TODO (i.e. this file)
+** Enhanced Jira Ticket Note
+- Pull ticket data from Jira API
+- CLI tool to set up correct =authinfo.gpg= entry with an Oauth access token
 
 * Org Agenda Views
 ** Database/SQL Query Notebooks
 ** HTTP Query Collections
 ** Upcoming 1-1s (next 7 days?)
+
+* Ways to get arbitrary firefox tabs into emacs?
+** "Brotab"
+- pip-installed script
+- Also requires a browser extension
+** This Python Script
+#+begin_src python
+"""
+List all Firefox tabs with title and URL
+Supported input: json or jsonlz4 recovery files
+Default output: title (URL)
+Output format can be specified as argument
+"""
+
+import sys
+import pathlib
+import lz4.block
+import json
+
+path = pathlib.Path.home().joinpath('.mozilla/firefox')
+files = path.glob('*default*/sessionstore-backups/recovery.js*')
+
+try:
+    template = sys.argv[1]
+except IndexError:
+    template = '%s (%s)'
+
+for f in files:
+    b = f.read_bytes()
+    if b[:8] == b'mozLz40\0':
+        - b = lz4.block.decompress(b[8:])
+    j = json.loads(b)
+    for w in j['windows']:
+        for t in w['tabs']:
+            i = t['index'] - 1
+            print(template % (
+                t['entries'][i]['title'],
+                t['entries'][i]['url']
+                ))
+#+end_src
+** File Compression
+- Profile tabs file is lz4 encoded, but appears to take some strange lz4 invocation in bash to read
+
+** Snippets
+- authinfo entry
+- argbash script headers/templating
+
+* 1Password Credential Helper
+Pull credentials from 1Password using their CLI application
+
+Setting temporary env vars in Elisp:
+https://www.gnu.org/software/emacs/manual/html_node/elisp/System-Environment.html
+
+* Automation for 1-1 Meetings
+** Capture a topic for an upcoming meeting
+- Create 'upcoming' meeting if it doesn't already exist
+- Capture =DISCUSS= topic for that meeting
+** Capture notes for current meeting
+- Create meeting entry if it doesn't exist
+- Collect follow-up topics from previous meetings
+- Start at a new headline under that meeting
+
+* Run Jupyter Notebooks via org-mode
+** Load/Display notebooks into org-mode via Pandoc
+- Customize pandoc behavior to correctly translate JSON structure to org-mode content
+** Run notebooks via EIN (or similar)
+
+* HTTP/gRPC/SQL Notebooks
+** TODO Function to create a new notebook/Open an existing one
+** TODO Function to add an 'entry' in a notebook
+
+* TODO Capture process for TODO items such that they can be pulled up in org-agenda easily
+- Personal vs. Work TODO items
+- More specific =TODO= items for common actions
+  - Research/Followup conversation
+  - Document something (e.g. Jira ticket, Confluence page)
+
+* Popup Rule Helper Functions
+- Grow the size of the frame to accommodate new buffer to the side
+- Replace buffer if already split
