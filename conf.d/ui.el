@@ -43,7 +43,7 @@
 (add-to-list 'default-frame-alist '(height . 60))
 (add-to-list 'default-frame-alist '(width . 235))
 
-(when (boundp 'EMACS29+)
+(when (> emacs-major-version 28)
       (add-to-list 'default-frame-alist '(undecorated-round . t))
       (add-to-list 'default-frame-alist '(internal-border-width . 10)))
 
