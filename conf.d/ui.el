@@ -116,6 +116,10 @@
   :modeline t)
 
 (set-popup-rule! "\\*Messages\\*" :height 0.3 :quit nil)
+(after! which-key-posframe
+  (which-key-posframe-mode 1)
+  (setq which-key-posframe-poshandler
+        #'kdz/posframe-poshandler-frame-bottom-center-offset))
 (add-hook 'text-mode-hook (lambda ()
                             (setq-local fill-column 120)
                             (visual-fill-column-mode t)
