@@ -103,3 +103,18 @@
 
 (setq vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
       vertico-posframe-poshandler #'kdz/posframe-poshandler-frame-bottom-center-offset)
+(set-popup-rule! "^\\*format-all-errors\\*"
+  :side 'bottom
+  :height 5
+  :select nil
+  :quit t
+  :modeline nil)
+
+(set-popup-rule! "^\\*helpful .+: .+\\*"
+  :side 'right
+  :select t
+  :width 0.5
+  :quit nil
+  :modeline t)
+
+(set-popup-rule! "\\*Messages\\*" :height 0.3 :quit nil)
