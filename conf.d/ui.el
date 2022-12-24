@@ -121,6 +121,7 @@
   :modeline t)
 
 (set-popup-rule! "\\*Messages\\*" :height 0.3 :quit nil)
+(set-popup-rule! "\\*Compile-Log\\*" :ttl 0 :quit t)
 
 (after! which-key-posframe
   (which-key-posframe-mode 1)
