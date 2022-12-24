@@ -90,7 +90,6 @@
 (package! ob-mermaid)
 (package! org-appear)
 (package! org-jira)
-(package! org-jira)
 (package! org-mac-link)
 (package! org-modern)
 (package! org-ol-tree)
