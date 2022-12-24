@@ -62,10 +62,14 @@
 (after! consult
   (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) "# "))
 
-(set-face-attribute 'minibuffer-prompt nil :height 1.3 :family doom-variable-pitch-font)
+(set-face-attribute 'minibuffer-prompt
+                    nil
+                    :height 1.3
+                    :family doom-variable-pitch-font)
 
-(after! doom-modeline (size-indication-mode nil))
-
+(after! doom-modeline
+  (size-indication-mode nil)
+  (setq doom-modeline-percent-position nil))
 
 (after! persp-mode
   (advice-add 'persp-add-to-menu :after #'kdz/pin-workspaces)
