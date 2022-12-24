@@ -42,12 +42,6 @@
                                         (:tangle . "no")
                                         (:comments . "link")))
 
-  (set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$"
-    :side 'bottom
-    :height 0.5
-    :select t
-    :quit nil)
-
   (advice-add 'doom-modeline-buffer-file-name
               :around
               #'stolen/doom-modeline-buffer-file-name-roam-aware-a)

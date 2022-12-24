@@ -120,6 +120,12 @@
   :quit nil
   :modeline t)
 
+(set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$"
+  :side 'bottom
+  :height 0.5
+  :select t
+  :quit nil)
+
 (set-popup-rule! "\\*Messages\\*" :height 0.3 :quit nil)
 (set-popup-rule! "\\*Compile-Log\\*" :ttl 0 :quit t)
 
