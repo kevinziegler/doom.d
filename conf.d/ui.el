@@ -66,15 +66,9 @@
 
 (after! doom-modeline (size-indication-mode nil))
 
-(defvar kdz--notes-persp-name "Notes")
-
-(defun kdz/notes-to-first-persp ()
-  "Move the notes perspective to the first position"
-  (setq persp-names-cache
-        (cons kdz--notes-persp-name
-              (delete kdz--notes-persp-name persp-names-cache))))
 
 (after! persp-mode
+  (advice-add 'persp-add-to-menu :after #'kdz/pin-workspaces)
   (persp-def-auto-persp kdz--notes-persp-name
                         :mode 'org-mode
                         :file-name (regexp-quote (file-truename org-directory))
