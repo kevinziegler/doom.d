@@ -21,6 +21,8 @@
         org-list-allow-alphabetical t
         org-modern-hide-stars t
         org-fontify-quote-and-verse-blocks t
+        org-appear-autolinks t
+        org-appear-autokeywords t
         doom-themes-org-fontify-special-tags nil
         org-list-demote-modify-bullet '(("+" . "-")
                                         ("-" . "+")
@@ -30,6 +32,7 @@
                         ("@work" . ?w)
                         ("@personal" . ?p)
                         (:endgroup . nil))
+        org-hidden-keywords '(title)
         org-babel-default-header-args '((:session . "none")
                                         (:results . "replace")
                                         (:exports . "code")
@@ -55,6 +58,17 @@
 
   (global-org-modern-mode)
 
+  ;; Adjust org-appear behavior so that elements only apepar in insert mode
+  (setq org-appear-trigger 'manual)
+  (add-hook 'org-mode-hook (lambda ()
+                             (add-hook 'evil-insert-state-entry-hook
+                                       #'org-appear-manual-start
+                                       nil
+                                       t)
+                             (add-hook 'evil-insert-state-exit-hook
+                                       #'org-appear-manual-stop
+                                       nil
+                                       t)))
   (after! ox
     (add-to-list 'org-export-filter-final-output-functions
                  #'+org-export-remove-zero-width-space t)))
