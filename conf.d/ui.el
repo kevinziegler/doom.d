@@ -39,8 +39,6 @@
         (:eval (kdz/frame-title-segment (kdz/frame-title-buffer-name)))
         (:eval (kdz/frame-title-segment (kdz/frame-title-project-name)))))
 
-(setq vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8)))
-
 ;; Set default window size
 (add-to-list 'default-frame-alist '(height . 60))
 (add-to-list 'default-frame-alist '(width . 235))
