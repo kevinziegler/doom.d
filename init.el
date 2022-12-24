@@ -148,7 +148,7 @@
         ;;+jupyter         ; ipython/jupyter support for babel
         +pandoc            ; export-with-pandoc support
         ;;+pomodoro        ; be fruitful with the tomato technique
-        +pretty
+        ;; +pretty
         +present          ; using org-mode for presentations
         +roam2)
        ;;perl              ; write code no one else can comprehend
