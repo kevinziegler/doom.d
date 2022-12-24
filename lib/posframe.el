@@ -1,0 +1,18 @@
+(defvar kdz-posframe-top-offset 50)
+(defvar kdz-posframe-bottom-offset 50)
+
+(defun kdz/posframe-poshandler-frame-top-center-offset (info)
+  (cons (/ (- (plist-get info :parent-frame-width)
+              (plist-get info :posframe-width))
+           2)
+        kdz-posframe-top-offset))
+
+(defun kdz/posframe-poshandler-frame-bottom-center-offset (info)
+   (cons (/ (- (plist-get info :parent-frame-width)
+              (plist-get info :posframe-width))
+           2)
+        (- (plist-get info :parent-frame-height)
+           (plist-get info :posframe-height)
+           (plist-get info :mode-line-height)
+           (plist-get info :minibuffer-height)
+           kdz-posframe-bottom-offset)))
