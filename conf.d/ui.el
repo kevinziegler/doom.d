@@ -142,3 +142,12 @@
                    (propertize "» " 'face 'vertico-current)
                  "  ")
                cand)))
+
+(add-hook! 'treemacs-select-functions #'kdz/treemacs-init-grow-frame)
+(add-hook! 'treemacs-quit-hook #'kdz/treemacs-quit-shrink-frame)
+
+;; Doom's +treemacs/toggle function uses delete-window to remove the treemacs
+;; window, which doesn't call the quit hooks.  To resize the frame when using
+;; the 'SPC o p' toggle we have to advise this function to trigger the resize
+;; explicitly.
+(advice-add '+treemacs/toggle :around #'kdz/treemacs-toggle-resize-advice)
