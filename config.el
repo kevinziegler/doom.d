@@ -12,17 +12,14 @@
       global-subword-mode 1
       undo-limit 80000000
       enable-local-variables t
-      ;; Show numbers by completions; accessible via M-<number>
       company-show-quick-access  t
-      ;; Reduce time to show which-key popup
       which-key-idle-delay 0.1
       which-key-idle-secondary-delay 0.05
       evil-want-fine-undo t
       evil-kill-on-visual-paste nil
       evil-vsplit-window-right t
       evil-split-window-below t
-      ;; Silence compiler warnings as they can be pretty disruptive
-      comp-async-report-warnings-errors nil
+      native-comp-async-report-warnings-errors nil
       page-break-lines-max-width fill-column
       bookmark-version-control t
       projectile-ignored-projects '("~/" "/tmp" "~/.emacs.d/.local/straight/repos/")
