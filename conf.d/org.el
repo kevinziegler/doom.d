@@ -20,6 +20,7 @@
         org-fold-catch-invisible-edits t
         org-list-allow-alphabetical t
         org-modern-hide-stars t
+        org-startup-indented nil
         org-fontify-quote-and-verse-blocks t
         org-appear-autolinks t
         org-appear-autokeywords t
