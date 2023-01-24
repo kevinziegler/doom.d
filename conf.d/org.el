@@ -4,9 +4,7 @@
       org-hide-emphasis-markers t
       org-default-notes-file "~/notes/notes.org"
       org-roam-directory "~/notes/roam"
-      org-insert-heading-respect-content t
-      deft-recursive t
-      deft-directory "~/notes")
+      org-insert-heading-respect-content t)
 
 (after! org
   (require 'ox-gfm nil t)
