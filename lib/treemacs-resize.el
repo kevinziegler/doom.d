@@ -22,6 +22,7 @@
                         (cdr (frame-position)))))
 
 (defun kdz/treemacs-toggle-resize-advice (original-fn &rest args)
+  (require 'treemacs)
   (let ((treemacs-visibility (treemacs-current-visibility)))
     (apply original-fn args)
     (when (eq treemacs-visibility 'visible) (kdz/treemacs-quit-shrink-frame))))
