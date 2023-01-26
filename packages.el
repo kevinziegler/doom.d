@@ -127,7 +127,6 @@
 (package! madhat2r-theme)
 (package! material-theme)
 (package! mbo70s-theme)
-(package! noctilux-theme)
 (package! obsidian-theme)
 (package! omtose-phellack-theme)
 (package! overcast-theme)
