@@ -121,12 +121,14 @@
   (setq which-key-posframe-poshandler
         #'kdz/posframe-poshandler-frame-bottom-center-offset))
 
-(add-hook 'text-mode-hook (lambda ()
-                            (setq-local fill-column 120)
-                            (visual-fill-column-mode t)
-                            (mixed-pitch-mode t)
-                            (display-fill-column-indicator-mode -1)
-                            (display-line-numbers-mode -1)))
+(defun kdz/writing-mode-enhancements ()
+  (mixed-pitch-mode t)
+  (visual-line-mode t)
+  (display-fill-column-indicator-mode -1)
+  (display-line-numbers-mode -1))
+
+(add-hook 'org-mode-hook #'kdz/writing-mode-enhancements)
+(add-hook 'markdown-mode-hook #'kdz/writing-mode-enhancements)
 
 (advice-add #'vertico--format-candidate :around
             (lambda (orig cand prefix suffix index _start)
