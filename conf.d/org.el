@@ -71,3 +71,5 @@
 
 ;; Smart Parens config for org-mode
 (sp-local-pair '(org-mode) "<<" ">>" :actions '(insert))
+;; Prevent automatic line wrapping when exporting via Pandoc
+(after! 'ox-pandoc (add-to-list org-pandoc-options '(wrap . "none")))
