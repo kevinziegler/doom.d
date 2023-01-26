@@ -33,11 +33,7 @@
       doom-modeline-major-mode-icon t
       doom-themes-treemacs-theme 'kaolin
       fancy-splash-image (expand-file-name "modern-sexy-v2_128.png" doom-user-dir)
-      display-line-numbers-type t
-      frame-title-format
-      '((:eval (kdz/frame-title-segment (kdz/frame-title-save-state) t))
-        (:eval (kdz/frame-title-segment (kdz/frame-title-buffer-name)))
-        (:eval (kdz/frame-title-segment (kdz/frame-title-project-name)))))
+      display-line-numbers-type t)
 
 ;; Set default window size
 (add-to-list 'default-frame-alist '(height . 60))

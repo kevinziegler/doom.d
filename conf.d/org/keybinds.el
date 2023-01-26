@@ -15,8 +15,6 @@
 
   (map! :map org-mode-map
         :leader
-        (:prefix "b"
-         :desc "New empty ORG buffer" "o" #'evil-buffer-org-new)
         (:prefix "i"
          :desc "Heading" "h" #'org-insert-heading
          :desc "Parent Heading" "H" #'kdz/org-insert-heading-up

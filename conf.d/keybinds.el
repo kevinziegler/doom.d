@@ -8,16 +8,12 @@
 
       (:prefix "b"
        :desc "Messages" "m" #'switch-to-message-buffer
+       :desc "New empty ORG buffer" "o" #'evil-buffer-org-new
        :desc "Copy Buffer" "y" #'doom/copy-buffer-contents)
 
       (:prefix "c"
        :desc "Show Documentation" "h" #'lsp-ui-doc-show
        :desc "Glance Documentation" "g" #'lsp-ui-doc-glance)
-
-      ;; (:prefix ("e" . "Errors")
-      ;;  :desc "Error List" "l" #'flycheck-list-errors
-      ;;  :desc "Next Error" "n" #'next-error
-      ;;  :desc "Previous Error" "p" #'previous-error)
 
       (:prefix "i"
        :desc "Insert UUID" "U" #'uuidgen)

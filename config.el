@@ -60,23 +60,3 @@
 (load! "conf.d/treemacs")
 (load! "conf.d/smerge")
 (load! "conf.d/local" nil t)
-
-;; Use Ispell for completion in text/markdown modes
-;; (set-company-backend!
-;;   '(text-mode
-;;     markdown-mode
-;;     gfm-mode)
-;;   '(:seperate
-;;     company-ispell
-;;     company-files
-;;     company-yasnippet))
-
-;; Show ANSI color codes in text-mode
-;; TODO See how this plays with magit process buffers?
-;; (after! text-mode
-;;   (add-hook! 'text-mode-hook
-;;              ;; Apply ANSI color codes
-;;              (with-silent-modifications
-;;                (ansi-color-apply-on-region (point-min) (point-max) t))))
-
-;; (bookmark-load (concat doom-private-dir "bookmarks"))
