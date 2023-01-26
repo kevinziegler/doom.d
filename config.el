@@ -1,5 +1,8 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+(use-package! page-break-lines)
+(use-package! which-key-posframe)
+(use-package! org-modern)
 (setq user-full-name "Kevin Ziegler"
       projectile-project-search-path '("~/dev")
       delete-by-moving-to-trash t
