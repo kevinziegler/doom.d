@@ -81,6 +81,17 @@
 (setq vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
       vertico-posframe-poshandler #'kdz/posframe-poshandler-frame-bottom-center-offset)
 
+;; https://www.reddit.com/r/emacs/comments/e7h3qw/how_to_make_open_repl_window_behavior_in_doom/
+
+(defun kdz/popup-display-buffer-side-by-size (buffer &optional alist)
+  (+popup-display-buffer-stacked-side-window-fn
+   buffer
+   (append `((side . ,(if (> (frame-pixel-height)
+                             (frame-pixel-width))
+                          'bottom
+                        'right)))
+           alist)))
+
 (set-popup-rule! "^\\*format-all-errors\\*"
   :side 'bottom
   :height 5
@@ -89,8 +100,9 @@
   :modeline nil)
 
 (set-popup-rule! "^\\*helpful .+: .+\\*"
-  :side 'right
+  :actions '(kdz/popup-display-buffer-side-by-size)
   :select t
+  :height 0.5
   :width 0.5
   :quit nil
   :modeline t)
