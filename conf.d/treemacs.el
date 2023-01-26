@@ -2,12 +2,12 @@
 (setq +treemacs-git-mode 'deferred)
 
 (after! treemacs
-  (setq treemacs-collapse-dirs 7)
-  (setq treemacs-width 45)
-  (setq treemacs-follow-mode t)
-  (setq treemacs-project-follow-mode t)
-  (setq treemacs-recenter-after-file-follow t)
-  (setq treemacs-project-follow-cleanup t)
+  (setq treemacs-collapse-dirs 7
+        treemacs-width 45
+        treemacs-follow-mode t
+        treemacs-project-follow-mode t
+        treemacs-recenter-after-file-follow t
+        treemacs-project-follow-cleanup t)
   (kaolin-treemacs-theme)
   (setq lsp-treemacs-theme 'kaolin)
   (treemacs-modify-theme "kaolin"
