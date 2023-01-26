@@ -71,7 +71,6 @@
 (package! string-inflection)
 ;; (package! topspace)
 (package! uuidgen)
-(package! valign)
 (package! websocket) ; dependency of `org-roam-ui'
 (package! which-key-posframe)
 
