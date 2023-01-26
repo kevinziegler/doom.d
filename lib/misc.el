@@ -1,4 +1,6 @@
 ;;;###autoload
+(require 'string-inflection)
+
 (defun unpackaged/magit-status ()
   "Open a `magit-status' buffer and close the other window so only Magit is visible.
 If a file was visited in the buffer that was active when this
