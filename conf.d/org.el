@@ -60,16 +60,11 @@
                              (add-hook 'evil-insert-state-exit-hook
                                        #'org-appear-manual-stop
                                        nil
-                                       t)))
-  (after! ox
-    (add-to-list 'org-export-filter-final-output-functions
-                 #'+org-export-remove-zero-width-space t)))
+                                       t))))
 
 ;; (org-add-link-type "gh" #'kdz/org-github-link)
 ;; (org-add-link-type "gl" #'kdz/org-gitlab-link)
 ;; (org-add-link-type "jira" #'kdz/org-jira-link)
 
-;; Smart Parens config for org-mode
-(sp-local-pair '(org-mode) "<<" ">>" :actions '(insert))
 ;; Prevent automatic line wrapping when exporting via Pandoc
 (after! 'ox-pandoc (add-to-list org-pandoc-options '(wrap . "none")))
