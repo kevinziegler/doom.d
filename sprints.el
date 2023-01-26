@@ -1,34 +1,50 @@
 ;;; sprints.el -*- lexical-binding: t; -*-
 ;;;
-(defvar sprints/cadence-weeks 2)
-(defvar sprints/start-day 2) ;; Day of the week the sprint starts on
-(defvar sprints/start-on-week 1) ;; Week number of the first sprint of the year
+(defvar sprints/initial-start-date nil)
+(defvar sprints/duration-weeks 2)
+(defvar sprints/planning-offset "mon")
+(defvar sprints/refinement-offset "++mon")
+(defvar sprints/retro-offset "++2mon")
 
-(defun sprints/sprint-calendar-days ()
-  (* sprints/cadence-weeks 7))
+(setq sprints/initial-start-date "2022-07-18")
 
-(defun sprints/current-sprint-number ()
-  (/ (calendar-day-number (calendar-current-date))
-     (sprints/sprint-calendar-days)))
+(defun sprints/get-offset-date (from-string date-string)
+  (org-read-date nil nil from-string nil (org-time-string-to-time date-string)))
 
-(defun sprints/current-sprint-start ()
-  (* (sprints/current-sprint-number) (sprints/sprint-days)))
+(defun sprints//current-date ()
+    (org-time-string-to-absolute (org-read-date nil nil "+0")))
 
-(defun sprints/current-sprint-end ()
-  (+ (sprints/current-sprint-start) (sprints/sprint-calendar-days)))
+(defun sprints/sprint-start (&optional sprint-offset)
+  "Compute the start date of a sprint."
+  (let* ((start-date (org-time-string-to-absolute sprints/initial-start-date))
+         (current-date
+          (org-time-string-to-absolute (org-read-date nil nil "+0")))
+         (elapsed-weeks-since-initial (/ (- current-date start-date) 7))
+         (sprint-number (/ elapsed-weeks-since-initial sprints/duration-weeks))
+         (sprint-extra-offset (or sprint-offset 0))
+         (sprint-offset-weeks
+          (* (+ sprint-number sprint-extra-offset) sprints/duration-weeks)))
+    (sprints/get-offset-date (format "++%dw" sprint-offset-weeks)
+                              sprints/initial-start-date)))
 
-(defun sprints/org-date-string-to-calendar (date-as-string)
-  (let* ((org-date-parsed (org-parse-time-string
-                           (org-read-date nil nil date-as-string)))
-         (day (nth 3 org-date-parsed))
-         (month (nth 4 org-date-parsed))
-         (year (nth 5 org-date-parsed)))
-        (list month day year)))
+(defun sprints/sprint-end-date (&optional sprint-offset)
+  (sprints/get-offset-date (format "++%dw" sprints/duration-weeks)
+                            (sprints/sprint-start sprint-offset)))
 
-(defun sprints/sprint-file (sprint-number))
+(defun sprints/refinement-date (&optional sprint-offset)
+  (sprints/get-offset-date sprints/refinement-offset
+                            (sprints/sprint-start sprint-offset)))
 
-(defun sprints/days-between (start-date end-date)
-  (let ((parsed-start (calendar-absolute-from-gregorian start-date))
-        (parsed-end (calendar-absolute-from-gregorian end-date)))
-    (- parsed-end parsed-start)))
+(defun sprints/planning-date (&optional sprint-offset)
+  (sprints/get-offset-date sprints/planning-offset
+                            (sprints/sprint-start sprint-offset)))
 
+(defun sprints/retro-date (&optional sprint-offset)
+  (sprints/get-offset-date sprints/retro-offset
+                            (sprints/sprint-start sprint-offset)))
+
+(defun sprints/upcoming-refinement-date ()
+  "Get the next refinement meeting date in the future")
+
+(defun sprints/last-refinement-date ()
+  "Get the last refinement meeting date")
