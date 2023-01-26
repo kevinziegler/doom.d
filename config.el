@@ -4,30 +4,30 @@
 (use-package! which-key-posframe)
 (use-package! org-modern)
 (setq user-full-name "Kevin Ziegler"
-      projectile-project-search-path '("~/dev")
-      delete-by-moving-to-trash t
-      window-combination-resize t
-      x-stretch-cursor t
-      scroll-margin 2
       auto-save-default t
-      truncate-string-ellipsis "…"
-      password-cache-expiry nil
-      global-subword-mode 1
-      undo-limit 80000000
-      enable-local-variables t
+      bookmark-version-control t
       company-show-quick-access  t
-      which-key-idle-delay 0.1
-      which-key-idle-secondary-delay 0.05
-      evil-want-fine-undo t
+      delete-by-moving-to-trash t
+      enable-local-variables t
       evil-kill-on-visual-paste nil
-      evil-vsplit-window-right t
       evil-split-window-below t
+      evil-vsplit-window-right t
+      evil-want-fine-undo t
+      global-subword-mode 1
+      ispell-dictionary "en"
+      ispell-personal-dictionary (expand-file-name ".ispell_personal" doom-user-dir)
       native-comp-async-report-warnings-errors nil
       page-break-lines-max-width fill-column
-      bookmark-version-control t
+      password-cache-expiry nil
       projectile-ignored-projects '("~/" "/tmp" "~/.emacs.d/.local/straight/repos/")
-      ispell-dictionary "en"
-      ispell-personal-dictionary (expand-file-name ".ispell_personal" doom-user-dir))
+      projectile-project-search-path '("~/dev")
+      scroll-margin 2
+      truncate-string-ellipsis "…"
+      undo-limit 80000000
+      which-key-idle-delay 0.5
+      which-key-idle-secondary-delay 0.05
+      window-combination-resize t
+      x-stretch-cursor t)
 
 (setq-default history-length 1000
               prescient-history-length 1000)

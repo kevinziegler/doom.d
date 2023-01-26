@@ -1,21 +1,22 @@
 ;;; $DOOMDIR/config-org.el -*- lexical-binding: t; -*-
 
-(setq org-directory "~/notes/"
-      org-hide-emphasis-markers t
-      org-default-notes-file "~/notes/notes.org"
-      org-roam-directory "~/notes/roam"
-      org-insert-heading-respect-content t)
-
 (after! org
   (require 'ox-gfm nil t)
   (require 'org-expiry)
 
-  (setq org-ellipsis (all-the-icons-material "unfold_more")
-        valign-fancy-bar t
+  (global-org-modern-mode)
+
+  (setq org-ellipsis " •••"
         org-hide-leading-stars t
         org-use-property-inheritance t
         ;; Not sure on this one - should check back later and see if it's useful
         org-fold-catch-invisible-edits t
+        org-hide-emphasis-markers t
+        org-insert-heading-respect-content t
+        org-directory "~/notes/"
+        org-default-notes-file "~/notes/notes.org"
+
+        org-roam-directory "~/notes/roam"
         org-list-allow-alphabetical t
         org-modern-hide-stars t
         org-startup-indented nil
@@ -48,8 +49,6 @@
   (advice-add 'org-babel-get-src-block-info
               :around
               #'stolen/org-babel-get-src-block-info-eager-async-a)
-
-  (global-org-modern-mode)
 
   ;; Adjust org-appear behavior so that elements only apepar in insert mode
   (setq org-appear-trigger 'manual)
