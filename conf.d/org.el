@@ -68,4 +68,4 @@
 ;; (org-add-link-type "jira" #'kdz/org-jira-link)
 
 ;; Prevent automatic line wrapping when exporting via Pandoc
-(after! 'ox-pandoc (add-to-list org-pandoc-options '(wrap . "none")))
+(after! 'ox-pandoc (add-to-list 'org-pandoc-options '(wrap . "none")))
