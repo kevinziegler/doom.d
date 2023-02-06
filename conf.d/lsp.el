@@ -21,11 +21,23 @@
   (when (boundp 'lsp-java-vmargs)
     (setq lsp-java-vmargs (append lsp-java-vmargs lsp-java-lombok-args))))
 
-(defun kdz/pyright-prefer-asdf-python (origin-fn &rest args)
-  (or (kdz/asdf-which "python") (apply origin-fn args)))
+(defun kdz/lsp-pyright-path-advice (origin-fn &rest args)
+  "Advice to determine Python venv/executable values for lsp-pyright"
+  (let* ((poetry-specified-venv
+          (condition-case nil (poetry-venv-exist-p) (error nil)))
+         (lsp-pyright-venv-path (or poetry-specified-venv
+                                    lsp-pyright-venv-path))
+         (asdf-specified-python (kdz/asdf-which "python")))
+    ;; Our first preference is to use whatever poetry-specified environment
+    ;; is detected, if one is detected at all.
+    ;;
+    ;; Failing that, we'll at least look for an ASDF-specified Python
+    ;; executable.
+    ;;
+    ;; Lastly, we'll just fall back to allow lsp-pyright to find python and
+    ;; venv values as it sees fit
+    (if (and (not poetry-specified-venv) asdf-specified-python)
+        asdf-specified-python
+      (apply origin-fn args))))
 
-;; When using lsp-pyright, check if we have an asdf-managed python and prefer
-;; that when specifying a python binary for the LSP server.  This addresses
-;; issues where the pyright server process picks up the wrong python version
-;; because it runs the ASDF shim in a directory that isn't the project root
-(advice-add 'lsp-pyright-locate-python :around #'kdz/pyright-prefer-asdf-python)
+(advice-add 'lsp-pyright-locate-python :around #'kdz/lsp-pyright-path-advice)
