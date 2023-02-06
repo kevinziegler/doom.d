@@ -46,11 +46,6 @@
               :around
               #'stolen/doom-modeline-buffer-file-name-roam-aware-a)
 
-  (set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$"
-    :side 'bottom
-    :height 0.5
-    :select t
-    :quit nil)
 
   (advice-add 'org-babel-get-src-block-info
               :around

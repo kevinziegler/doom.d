@@ -82,20 +82,18 @@
 ;; https://www.reddit.com/r/emacs/comments/e7h3qw/how_to_make_open_repl_window_behavior_in_doom/
 
 (defun kdz/popup-display-buffer-side-by-size (buffer &optional alist)
+  "Dynamically display popup buffers to either the right side or bottom"
   (+popup-display-buffer-stacked-side-window-fn
    buffer
-   (append `((side . ,(if (> (frame-pixel-height)
-                             (frame-pixel-width))
-                          'bottom
-                        'right)))
+   (append `((side . ,(if (> (frame-pixel-height) (frame-pixel-width))
+                          'bottom 'right)))
            alist)))
 
-(set-popup-rule! "^\\*format-all-errors\\*"
-  :side 'bottom
-  :height 5
-  :select nil
-  :quit t
-  :modeline nil)
+(set-popup-rules!
+  '(("^\\*format-all-errors\\*" :height 5 :select nil :modeline nil)
+    ("^\\*Capture\\*$\\|CAPTURE-.*$" :height 0.5 :select t :quit nil)
+    ("\\*Messages\\*" :height 0.3 :quit nil)
+    ("\\*Compile-Log\\*" :ttl 0.01 :quit t)))
 
 (set-popup-rule! "^\\*helpful .+: .+\\*"
   :actions '(kdz/popup-display-buffer-side-by-size)
@@ -105,14 +103,6 @@
   :quit nil
   :modeline t)
 
-(set-popup-rule! "^\\*Capture\\*$\\|CAPTURE-.*$"
-  :side 'bottom
-  :height 0.5
-  :select t
-  :quit nil)
-
-(set-popup-rule! "\\*Messages\\*" :height 0.3 :quit nil)
-(set-popup-rule! "\\*Compile-Log\\*" :ttl 0 :quit t)
 
 (after! which-key-posframe
   (which-key-posframe-mode 1)
