@@ -54,20 +54,10 @@
         kaolin-themes-underline-wave nil))
 
 (after! vterm (setq vterm-shell (brew-bin "zsh")))
-
-(modern-fringes-mode t)
+(after! doom-modeline (setq doom-modeline-percent-position nil))
 
 (after! consult
   (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) "# "))
-
-(set-face-attribute 'minibuffer-prompt
-                    nil
-                    :height 1.3
-                    :family doom-variable-pitch-font)
-
-(after! doom-modeline
-  (size-indication-mode nil)
-  (setq doom-modeline-percent-position nil))
 
 (after! persp-mode
   (advice-add 'persp-add-to-menu :after #'kdz/pin-workspaces)
@@ -79,9 +69,6 @@
                         :mode 'org-mode
                         :file-name (expand-file-name doom-emacs-dir)
                         :switch 'frame))
-
-(setq vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
-      vertico-posframe-poshandler #'kdz/posframe-poshandler-frame-bottom-center-offset)
 
 ;; https://www.reddit.com/r/emacs/comments/e7h3qw/how_to_make_open_repl_window_behavior_in_doom/
 (defun kdz/popup-display-buffer-side-by-size (buffer &optional alist)
@@ -133,3 +120,6 @@
 ;; the 'SPC o p' toggle we have to advise this function to trigger the resize
 ;; explicitly.
 (advice-add '+treemacs/toggle :around #'kdz/treemacs-toggle-resize-advice)
+
+(modern-fringes-mode t)
+(pixel-scroll-precision-mode)
