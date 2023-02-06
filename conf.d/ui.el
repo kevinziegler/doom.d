@@ -20,21 +20,25 @@
 ;;       ;; doom-theme 'doom-one ;; NOTE Set by local.el
 ;;       )
 
-(setq doom-font (font-spec :family "Iosevka Comfy" :size 13)
-      doom-big-font (font-spec :family "Iosevka Comfy" :size 14)
-      doom-variable-pitch-font (font-spec :family "Overpass" :size 13)
-      doom-unicode-font (font-spec :family "Iosevka Term")
+(setq doom-big-font (font-spec :family "Iosevka Comfy" :size 14)
+      doom-font (font-spec :family "Iosevka Comfy" :size 13)
       doom-serif-font (font-spec :family "Overpass" :weight 'light :size 13)
-      doom-modeline-buffer-encoding nil
+      doom-unicode-font (font-spec :family "Iosevka Term")
+      doom-variable-pitch-font (font-spec :family "Overpass" :size 13))
+
+(setq doom-modeline-buffer-encoding nil
       doom-modeline-buffer-file-name-style 'relative-to-project
       doom-modeline-display-default-persp-name t
       doom-modeline-hud t
-      doom-modeline-persp-name t
+      doom-modeline-persp-name t)
+
+(setq display-line-numbers-type t
       doom-themes-treemacs-theme 'kaolin
-      evil-goggles-pulse t
       evil-goggles-duration 1.0
+      evil-goggles-pulse t
       fancy-splash-image (expand-file-name "modern-sexy-v2_128.png" doom-user-dir)
-      display-line-numbers-type t)
+      vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
+      vertico-posframe-poshandler #'kdz/posframe-poshandler-frame-bottom-center-offset)
 
 ;; Set default window size
 (add-to-list 'default-frame-alist '(height . 60))
