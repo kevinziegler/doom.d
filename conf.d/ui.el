@@ -84,7 +84,6 @@
       vertico-posframe-poshandler #'kdz/posframe-poshandler-frame-bottom-center-offset)
 
 ;; https://www.reddit.com/r/emacs/comments/e7h3qw/how_to_make_open_repl_window_behavior_in_doom/
-
 (defun kdz/popup-display-buffer-side-by-size (buffer &optional alist)
   "Dynamically display popup buffers to either the right side or bottom"
   (+popup-display-buffer-stacked-side-window-fn
@@ -107,14 +106,18 @@
   :quit nil
   :modeline t)
 
-(defun kdz/writing-mode-enhancements ()
+(defun kdz/writing-minor-modes ()
   (mixed-pitch-mode t)
   (visual-line-mode t)
   (display-fill-column-indicator-mode -1)
   (display-line-numbers-mode -1))
 
-(add-hook 'org-mode-hook #'kdz/writing-mode-enhancements)
-(add-hook 'markdown-mode-hook #'kdz/writing-mode-enhancements)
+(add-hook 'org-mode-hook #'kdz/writing-minor-modes)
+(add-hook 'markdown-mode-hook #'kdz/writing-minor-modes)
+(add-hook 'treemacs-select-functions #'kdz/treemacs-init-grow-frame)
+(add-hook 'treemacs-quit-hook #'kdz/treemacs-quit-shrink-frame)
+(add-hook 'Info-selection-hook 'info-colors-fontify-node)
+(add-hook! 'size-indication-mode-hook (setq size-indication-mode nil))
 
 (advice-add #'vertico--format-candidate :around
             (lambda (orig cand prefix suffix index _start)
@@ -124,9 +127,6 @@
                    (propertize "» " 'face 'vertico-current)
                  "  ")
                cand)))
-
-(add-hook! 'treemacs-select-functions #'kdz/treemacs-init-grow-frame)
-(add-hook! 'treemacs-quit-hook #'kdz/treemacs-quit-shrink-frame)
 
 ;; Doom's +treemacs/toggle function uses delete-window to remove the treemacs
 ;; window, which doesn't call the quit hooks.  To resize the frame when using

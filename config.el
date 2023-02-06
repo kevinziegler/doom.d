@@ -3,6 +3,10 @@
 (use-package! page-break-lines)
 (use-package! which-key-posframe)
 (use-package! org-modern)
+
+(mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))
+      (directory-files (expand-file-name "lib" doom-user-dir) nil "\\.el$"))
+
 (setq user-full-name "Kevin Ziegler"
       auto-save-default t
       bookmark-version-control t
@@ -40,11 +44,6 @@
 (add-to-list 'auto-mode-alist '("/Tiltfile.*\\'" . bazel-starlark-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
-
-(add-hook 'Info-selection-hook 'info-colors-fontify-node)
-
-(mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))
-      (directory-files (expand-file-name "lib" doom-user-dir) nil "\\.el$"))
 
 (load! "conf.d/emoji")
 (load! "conf.d/git")
