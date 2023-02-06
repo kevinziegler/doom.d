@@ -32,6 +32,8 @@
       doom-modeline-persp-name t
       doom-modeline-major-mode-icon t
       doom-themes-treemacs-theme 'kaolin
+      evil-goggles-pulse t
+      evil-goggles-duration 1.0
       fancy-splash-image (expand-file-name "modern-sexy-v2_128.png" doom-user-dir)
       display-line-numbers-type t)
 
