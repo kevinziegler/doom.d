@@ -72,3 +72,9 @@
           "C-<down>"   #'+evil/window-move-down
           "C-<up>"     #'+evil/window-move-up
           "C-<right>"  #'+evil/window-move-right))
+
+(after! wordel
+  (evil-make-intercept-map wordel-mode-map)
+  (evil-make-intercept-map wordel-select-mode-map)
+  (evil-set-initial-state  'wordel-mode 'insert)
+  (evil-set-initial-state  'wordel-select-mode 'insert))

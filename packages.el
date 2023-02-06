@@ -73,6 +73,7 @@
 (package! uuidgen)
 (package! websocket) ; dependency of `org-roam-ui'
 (package! which-key-posframe)
+(package! wordel)
 
 ;; NOTE This needs an 'openscad' binary in emac's path, but the Homebrew cask
 ;;      does not install such a binary.  This can be fixed by linking 'openscad'
