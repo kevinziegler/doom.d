@@ -103,12 +103,6 @@
   :quit nil
   :modeline t)
 
-
-(after! which-key-posframe
-  (which-key-posframe-mode 1)
-  (setq which-key-posframe-poshandler
-        #'kdz/posframe-poshandler-frame-bottom-center-offset))
-
 (defun kdz/writing-mode-enhancements ()
   (mixed-pitch-mode t)
   (visual-line-mode t)
