@@ -16,9 +16,9 @@
   (map! :map org-mode-map
         :leader
         (:prefix "i"
-         :desc "Heading" "h" #'org-insert-heading
+         :desc "Heading" "h" #'evil-org-org-insert-heading-respect-content-below
          :desc "Parent Heading" "H" #'kdz/org-insert-heading-up
-         :desc "Subheading" "s" #'org-insert-subheading
+         :desc "Subheading" "s" #'kdz/org-insert-subheading
          :desc "Link" "l" #'org-insert-link)
         (:prefix ("ia" . "Application Links")
          :desc "Active Firefox Tab" "f" #'org-mac-link-firefox-insert-frontmost-url

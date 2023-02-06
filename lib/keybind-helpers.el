@@ -23,7 +23,14 @@
   (interactive "p")
   (save-excursion
     (outline-up-heading arg)
-    (org-insert-heading-after-current)))
+    (org-insert-heading-after-current)
+    (evil-insert nil)))
+
+(defun kdz/org-insert-subheading ()
+  (interactive)
+  (end-of-visible-line)
+  (call-interactively #'org-insert-subheading)
+  (evil-insert nil))
 
 (evil-define-command evil-buffer-org-new (count file)
   "Creates a new ORG buffer replacing the current window, optionally
@@ -36,4 +43,3 @@
       (set-window-buffer nil buffer)
       (with-current-buffer buffer
         (org-mode)))))
-
