@@ -46,11 +46,6 @@
               :around
               #'stolen/doom-modeline-buffer-file-name-roam-aware-a)
 
-
-  (advice-add 'org-babel-get-src-block-info
-              :around
-              #'stolen/org-babel-get-src-block-info-eager-async-a)
-
   ;; Adjust org-appear behavior so that elements only apepar in insert mode
   (setq org-appear-trigger 'manual)
   (add-hook 'org-mode-hook (lambda ()
