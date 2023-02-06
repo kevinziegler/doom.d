@@ -30,7 +30,6 @@
       doom-modeline-display-default-persp-name t
       doom-modeline-hud t
       doom-modeline-persp-name t
-      doom-modeline-major-mode-icon t
       doom-themes-treemacs-theme 'kaolin
       evil-goggles-pulse t
       evil-goggles-duration 1.0
