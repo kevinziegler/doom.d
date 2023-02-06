@@ -20,10 +20,10 @@
 ;;       ;; doom-theme 'doom-one ;; NOTE Set by local.el
 ;;       )
 
-(setq doom-font (font-spec :family "Iosevka Comfy" :size 12.5)
+(setq doom-font (font-spec :family "Iosevka Comfy" :size 13)
       doom-big-font (font-spec :family "Iosevka Comfy" :size 14)
       doom-variable-pitch-font (font-spec :family "Overpass" :size 13)
-      doom-unicode-font (font-spec :family "Symbols Nerd Font")
+      doom-unicode-font (font-spec :family "Iosevka Term")
       doom-serif-font (font-spec :family "Overpass" :weight 'light :size 13)
       doom-modeline-buffer-encoding nil
       doom-modeline-buffer-file-name-style 'relative-to-project
