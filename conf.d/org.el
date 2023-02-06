@@ -5,34 +5,41 @@
   (require 'org-expiry)
 
   (global-org-modern-mode)
-
-  (setq org-ellipsis " •••"
-        org-hide-leading-stars t
-        org-use-property-inheritance t
-        ;; Not sure on this one - should check back later and see if it's useful
-        org-fold-catch-invisible-edits t
-        org-hide-emphasis-markers t
-        org-insert-heading-respect-content t
-        org-directory "~/notes/"
+  (add-hook 'org-mode-hook #'valign-mode)
+  (setq doom-themes-org-fontify-special-tags nil
+        org-appear-autokeywords t
+        org-appear-autolinks t
+        org-appear-trigger 'manual
+        org-auto-align-tags nil
         org-default-notes-file "~/notes/notes.org"
-
-        org-roam-directory "~/notes/roam"
+        org-directory "~/notes/"
+        org-ellipsis " ⋯"
+        org-fold-catch-invisible-edits 'show-and-error
+        org-fontify-quote-and-verse-blocks t
+        org-hidden-keywords '(title)
+        org-hide-emphasis-markers t
+        org-hide-leading-stars t
+        org-insert-heading-respect-content t
         org-list-allow-alphabetical t
         org-modern-hide-stars t
+        org-modern-table nil
+        org-modern-table-horizontal 3
+        org-pretty-entities t
+        org-roam-directory "~/notes/roam"
         org-startup-indented nil
-        org-fontify-quote-and-verse-blocks t
-        org-appear-autolinks t
-        org-appear-autokeywords t
-        doom-themes-org-fontify-special-tags nil
+        org-use-property-inheritance t
+        valign-fancy-bar t
+
         org-list-demote-modify-bullet '(("+" . "-")
                                         ("-" . "+")
                                         ("*" . "-")
                                         ("1." . "a."))
+
         org-tag-alist '((:startgroup . nil)
                         ("@work" . ?w)
                         ("@personal" . ?p)
                         (:endgroup . nil))
-        org-hidden-keywords '(title)
+
         org-babel-default-header-args '((:session . "none")
                                         (:results . "replace")
                                         (:exports . "code")
@@ -46,8 +53,6 @@
               :around
               #'stolen/doom-modeline-buffer-file-name-roam-aware-a)
 
-  ;; Adjust org-appear behavior so that elements only apepar in insert mode
-  (setq org-appear-trigger 'manual)
   (add-hook 'org-mode-hook (lambda ()
                              (add-hook 'evil-insert-state-entry-hook
                                        #'org-appear-manual-start
