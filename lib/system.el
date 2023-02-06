@@ -1,3 +1,4 @@
+(require 'f)
 
 (defun kdz/bin-available (bin)
   "Check if a BIN is available via 'which'."
