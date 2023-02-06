@@ -12,6 +12,7 @@
       bookmark-version-control t
       company-show-quick-access  t
       delete-by-moving-to-trash t
+      emojify-emoji-set "twemoji-v2"
       enable-local-variables t
       evil-kill-on-visual-paste nil
       evil-split-window-below t
@@ -20,6 +21,8 @@
       global-subword-mode 1
       ispell-dictionary "en"
       ispell-personal-dictionary (expand-file-name ".ispell_personal" doom-user-dir)
+      magit-git-executable (brew-bin "git")
+      magit-repository-directories '(("~/dev" . 2) ("~/.dotfiles" . 0))
       native-comp-async-report-warnings-errors nil
       page-break-lines-max-width fill-column
       password-cache-expiry nil
@@ -40,13 +43,23 @@
 (after! python (set-ligatures! 'python-mode nil))
 (after! vertico (setq orderless-matching-styles '(orderless-prefixes
                                                   orderless-regexp)))
+(after! hydra
+  (defhydra hydra-git-timemachine ()
+    "Git Time Machine"
+    ("b" git-timemachine-blame "Show git blame")
+    ("c" git-timemachine-show-commit "Show commit")
+    ("p" git-timemachine-show-previous-revision "Previous revision")
+    ("n" git-timemachine-show-next-revision "Next revision"))
+  (add-hook! git-timemachine-mode #'hydra-git-timemachine/body))
+
+(after! magit
+  (magit-org-todos-autoinsert)
+  (magit-delta-mode +1))
 
 (add-to-list 'auto-mode-alist '("/Tiltfile.*\\'" . bazel-starlark-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
 
-(load! "conf.d/emoji")
-(load! "conf.d/git")
 (load! "conf.d/lsp")
 (load! "conf.d/keybinds")
 (load! "conf.d/markdown")

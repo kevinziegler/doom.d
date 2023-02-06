@@ -15,6 +15,8 @@
        :desc "Show Documentation" "h" #'lsp-ui-doc-show
        :desc "Glance Documentation" "g" #'lsp-ui-doc-glance)
 
+      (:prefix "g"
+       :desc "Worktrees" "w" #'magit-worktree)
       (:prefix "i"
        :desc "Insert UUID" "U" #'uuidgen)
 
