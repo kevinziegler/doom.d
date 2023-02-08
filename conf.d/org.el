@@ -63,9 +63,15 @@
                                        nil
                                        t))))
 
-;; (org-add-link-type "gh" #'kdz/org-github-link)
-;; (org-add-link-type "gl" #'kdz/org-gitlab-link)
-;; (org-add-link-type "jira" #'kdz/org-jira-link)
+(org-link-set-parameters "gh" :follow (kdz/follow-suffix-link "https://github.com"))
+(org-link-set-parameters "gl" :follow (kdz/follow-suffix-link "https://gitlab.com"))
+(when hosted-gitlab-host
+  (org-link-set-parameters "hgl"
+                           :follow (kdz/follow-suffix-link hosted-gitlab-host)))
+(when jira-host
+  (org-link-set-parameters "jira"
+                           :follow (kdz/follow-suffix-link (format "%s/browse"
+                                                                   jira-host))))
 
 ;; Prevent automatic line wrapping when exporting via Pandoc
 (after! 'ox-pandoc (add-to-list 'org-pandoc-options '(wrap . "none")))
