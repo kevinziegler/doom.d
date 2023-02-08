@@ -25,6 +25,9 @@
        :desc "Symbol Browser" "s" #'kdz/toggle-lsp-symbols
        :desc "Connect to Jupyter Notebook" "s" #'ein:notebooklist-login)
 
+      (:prefix "t"
+       :desc "Light/Dark Theme" "t" #'kdz/toggle-light-theme)
+
       (:prefix "w"
        :desc "Swap Window" "a" #'ace-swap-window)
 

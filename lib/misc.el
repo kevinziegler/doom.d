@@ -66,3 +66,14 @@ command was called, go to its unstaged changes section."
     (org-goto))
   (org-narrow-to-subtree)
   (org-show-todo-tree))
+
+(defun kdz/toggle-light-theme ()
+  (interactive)
+  (if-let ((doom-light-theme doom-light-theme)
+           (doom-dark-theme doom-dark-theme)
+           (toggle-to (if (eq doom-theme doom-dark-theme)
+                          doom-light-theme doom-dark-theme)))
+      (progn
+        (setq doom-theme toggle-to)
+        (load-theme doom-theme :no-confirm))
+    (message "Must define values for 'doom-dark-theme and 'doom-light-theme")))
