@@ -64,6 +64,36 @@
         markdown-xwidget-mermaid-theme "default"
         markdown-xwidget-code-block-theme "default"))
 
+(after! treemacs
+  (kaolin-treemacs-theme)
+
+  (setq +treemacs-git-mode 'deferred
+        lsp-treemacs-theme 'kaolin
+        treemacs-collapse-dirs 7
+        treemacs-width 45
+        treemacs-follow-mode t
+        treemacs-project-follow-mode t
+        treemacs-recenter-after-file-follow t
+        treemacs-project-follow-cleanup t)
+
+  (treemacs-modify-theme "kaolin"
+    :config
+    (progn
+      (kdz/treemacs-all-the-icons (package) "material" "archive")
+      (kdz/treemacs-all-the-icons (namespace) "material" "widgets" :valign 0.9)
+      (kdz/treemacs-all-the-icons (class) "material" "class" :face 'font-lock-keyword-face)
+      (kdz/treemacs-all-the-icons (function) "material" "code" :face 'font-lock-keyword-face)
+      (kdz/treemacs-all-the-icons (method) "faicon" "code" :face 'font-lock-keyword-face)
+      (kdz/treemacs-all-the-icons (enum) "faicon" "tags" :face 'font-lock-keyword-face)
+      (kdz/treemacs-all-the-icons (enumerator) "faicon" "tags" :face 'font-lock-keyword-face)
+      (kdz/treemacs-all-the-icons (enum-item) "faicon" "tag" :face 'font-lock-keyword-face)
+      (kdz/treemacs-all-the-icons (enum-member) "faicon" "tag" :face 'font-lock-keyword-face)
+      (kdz/treemacs-all-the-icons (property) "material" "info_outline" :face 'font-lock-keyword-face)
+      (kdz/treemacs-all-the-icons (constant) "material" "info_outline" :face 'font-lock-keyword-face)
+      (kdz/treemacs-all-the-icons ("json") "fileicon" "jsonld")
+      (kdz/treemacs-all-the-icons ("csv") "faicon" "table")
+      (kdz/treemacs-all-the-icons ("editorconfig" "envrc" "envrc.local") "faicon" "table"))))
+
 (add-to-list 'auto-mode-alist '("/Tiltfile.*\\'" . bazel-starlark-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
@@ -79,6 +109,5 @@
 (load! "conf.d/org/ligatures")
 (load! "conf.d/org/pretty-capture")
 (load! "conf.d/ui")
-(load! "conf.d/treemacs")
 (load! "conf.d/smerge")
 (load! "conf.d/local" nil t)

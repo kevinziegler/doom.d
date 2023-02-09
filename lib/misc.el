@@ -56,3 +56,13 @@
         (setq doom-theme toggle-to)
         (load-theme doom-theme :no-confirm))
     (message "Must define values for 'doom-dark-theme and 'doom-light-theme")))
+
+(defmacro kdz/treemacs-all-the-icons (extensions iconset icon &rest icon-params)
+  `(treemacs-create-icon
+       :icon (format " %s "
+                     ,(append (list (intern (concat "all-the-icons-" iconset))
+                                    icon
+                                    :size 0.9)
+                              icon-params))
+       :extensions ,extensions
+       :fallback 'same-as-icon))
