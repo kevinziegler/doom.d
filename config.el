@@ -23,6 +23,8 @@
       ispell-personal-dictionary (expand-file-name ".ispell_personal" doom-user-dir)
       magit-git-executable (brew-bin "git")
       magit-repository-directories '(("~/dev" . 2) ("~/.dotfiles" . 0))
+      markdown-header-scaling t
+      markdown-fontify-code-blocks-natively t
       native-comp-async-report-warnings-errors nil
       page-break-lines-max-width fill-column
       password-cache-expiry nil
@@ -56,13 +58,18 @@
   (magit-org-todos-autoinsert)
   (magit-delta-mode +1))
 
+(after! markdown-xwidget
+  (setq markdown-xwidget-command "pandoc"
+        markdown-xwidget-github-theme "light"
+        markdown-xwidget-mermaid-theme "default"
+        markdown-xwidget-code-block-theme "default"))
+
 (add-to-list 'auto-mode-alist '("/Tiltfile.*\\'" . bazel-starlark-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
 
 (load! "conf.d/lsp")
 (load! "conf.d/keybinds")
-(load! "conf.d/markdown")
 (load! "conf.d/org")
 ;; (load! "conf.d/org/capture-templates")
 (load! "conf.d/org/capture-inbox")
