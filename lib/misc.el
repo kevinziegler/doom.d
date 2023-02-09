@@ -44,7 +44,7 @@
         (org-goto-max-level 1))
     (org-goto))
   (org-narrow-to-subtree)
-  (org-show-todo-tree))
+  (org-show-todo-tree nil))
 
 (defun kdz/toggle-light-theme ()
   (interactive)

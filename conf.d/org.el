@@ -35,11 +35,6 @@
                                         ("*" . "-")
                                         ("1." . "a."))
 
-        org-tag-alist '((:startgroup . nil)
-                        ("@work" . ?w)
-                        ("@personal" . ?p)
-                        (:endgroup . nil))
-
         org-babel-default-header-args '((:session . "none")
                                         (:results . "replace")
                                         (:exports . "code")
