@@ -30,7 +30,7 @@
         org-use-property-inheritance t
         valign-fancy-bar t
 
-        org-list-demote-modify-bullet '(("+" . "-")
+        org-list-demote-modify-bullet '(("+" . "*")
                                         ("-" . "+")
                                         ("*" . "-")
                                         ("1." . "a."))
