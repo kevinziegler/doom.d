@@ -48,6 +48,25 @@
               :around
               #'stolen/doom-modeline-buffer-file-name-roam-aware-a)
 
+  (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'prepend)
+  (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'prepend)
+  (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'prepend)
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (custom-set-faces!
+    '(outline-1 :weight extra-bold :height 1.50 :underline t)
+    '(outline-2 :weight bold :height 1.40)
+    '(outline-3 :weight bold :height 1.30)
+    '(outline-4 :weight semi-bold :height 1.20)
+    '(outline-5 :weight semi-bold :height 1.15)
+    '(outline-6 :weight semi-bold :height 1.15)
+    '(outline-8 :weight semi-bold)
+    '(outline-9 :weight semi-bold)
+    '(org-document-title :height 1.9))
+
+  (add-transient-hook! #'org-babel-execute-src-block (require 'ob-async))
+
+  (add-hook 'org-mode-hook #'org-appear-mode)
+  (add-hook 'org-mode-hook #'org-modern-mode)
   (add-hook 'org-mode-hook (lambda ()
                              (add-hook 'evil-insert-state-entry-hook
                                        #'org-appear-manual-start
@@ -57,6 +76,48 @@
                                        #'org-appear-manual-stop
                                        nil
                                        t))))
+
+  (appendq! +ligatures-extra-symbols
+            `(:checkbox      ""
+              :pending       ""
+              :checkedbox    ""
+              :created       ""
+              :closed        ""
+              :list_property "∷"
+              :em_dash       "—"
+              :ellipses      "…"
+              :arrow_right   "→"
+              :arrow_left    "←"
+              :property      ""
+              :header        "›"
+              :properties    ""
+              :end           ""
+              :scheduled     ""
+              :deadline      ""))
+
+  (set-ligatures! 'org-mode
+    :merge t
+    :checkbox      "[ ]"
+    :pending       "[-]"
+    :checkedbox    "[X]"
+    :list_property "::"
+    :em_dash       "---"
+    :ellipsis      "..."
+    :arrow_right   "->"
+    :arrow_left    "<-"
+    :created       ":created:"
+    :closed        "CLOSED:"
+    :closed        "closed:"
+    :properties    ":PROPERTIES:"
+    :properties    ":properties:"
+    :end           ":END:"
+    :end           ":end:"
+    :filetags      "#+filetags:"
+    :scheduled     "SCHEDULED:"
+    :scheduled     "scheduled:"
+    :deadline      "DEADLINE:"
+    :deadline      "deadline:")
+  (plist-put +ligatures-extra-symbols :name "⁍")
 
 (org-link-set-parameters "gh" :follow (kdz/follow-suffix-link "https://github.com"))
 (org-link-set-parameters "gl" :follow (kdz/follow-suffix-link "https://gitlab.com"))
