@@ -94,11 +94,33 @@
       (kdz/treemacs-all-the-icons ("csv") "faicon" "table")
       (kdz/treemacs-all-the-icons ("editorconfig" "envrc" "envrc.local") "faicon" "table"))))
 
+(after! lsp-mode
+  (setq lsp-headerline-breadcrumb-enable t
+        lsp-headerline-breadcrumb-segments '(symbols)
+        lsp-pyright-multi-root nil
+        lsp-idle-delay 0.8)
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\__pycache__\\'"))
+
+(after! lsp-java
+  ;; (require 'lsp-java-boot)
+  ;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
+  ;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+  (setq lsp-java-maven-download-sources t
+        lsp-java-import-maven-enabled t)
+  (setq lombok-jar-path
+        (expand-file-name
+         "~/.m2/repository/org/projectlombok/lombok/1.18.16/lombok-1.18.16.jar"))
+  (setq lsp-java-lombok-args
+    (list (concat "-javaagent:" lombok-jar-path)))
+  (when (boundp 'lsp-java-vmargs)
+    (setq lsp-java-vmargs (append lsp-java-vmargs lsp-java-lombok-args))))
+
+(advice-add 'lsp-pyright-locate-python :around #'kdz/lsp-pyright-path-advice)
+
 (add-to-list 'auto-mode-alist '("/Tiltfile.*\\'" . bazel-starlark-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
 
-(load! "conf.d/lsp")
 (load! "conf.d/keybinds")
 (load! "conf.d/org")
 ;; (load! "conf.d/org/capture-templates")

@@ -66,3 +66,22 @@
                               icon-params))
        :extensions ,extensions
        :fallback 'same-as-icon))
+
+(defun kdz/lsp-pyright-path-advice (origin-fn &rest args)
+  "Advice to determine Python venv/executable values for lsp-pyright"
+  (let* ((poetry-specified-venv
+          (condition-case nil (poetry-venv-exist-p) (error nil)))
+         (lsp-pyright-venv-path (or poetry-specified-venv
+                                    lsp-pyright-venv-path))
+         (asdf-specified-python (kdz/asdf-which "python")))
+    ;; Our first preference is to use whatever poetry-specified environment
+    ;; is detected, if one is detected at all.
+    ;;
+    ;; Failing that, we'll at least look for an ASDF-specified Python
+    ;; executable.
+    ;;
+    ;; Lastly, we'll just fall back to allow lsp-pyright to find python and
+    ;; venv values as it sees fit
+    (if (and (not poetry-specified-venv) asdf-specified-python)
+        asdf-specified-python
+      (apply origin-fn args))))
