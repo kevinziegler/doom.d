@@ -56,6 +56,7 @@
 (package! copy-as-format)
 (package! dirvish)
 (package! doct)
+(package! fwb-cmds)
 (package! git-link)
 (package! info-colors)
 (package! jq-mode)
