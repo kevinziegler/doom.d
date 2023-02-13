@@ -41,6 +41,7 @@
 (setq-default history-length 1000
               prescient-history-length 1000)
 
+(after! which-key (setq which-key-ellipsis "»"))
 (after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
 (after! python (set-ligatures! 'python-mode nil))
 (after! vertico (setq orderless-matching-styles '(orderless-prefixes
