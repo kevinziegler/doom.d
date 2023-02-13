@@ -13,9 +13,13 @@ Lisp programs can force the template by setting KEYS to a string."
       (org-mks org-capture-templates
                "Select a capture template\n━━━━━━━━━━━━━━━━━━━━━━━━━"
                "Template key: "
-               `(("q" ,(concat (all-the-icons-octicon "stop" :face 'all-the-icons-red :v-adjust 0.01) "\tAbort")))))))
-(advice-add 'org-capture-select-template :override #'org-capture-select-template-prettier)
+               `(("q" ,(concat (all-the-icons-octicon "stop"
+                                                      :face 'all-the-icons-red
+                                                      :v-adjust 0.01)
+                               "\tAbort")))))))
 
+(advice-add 'org-capture-select-template
+            :override #'org-capture-select-template-prettier)
 
 (defun org-mks-pretty (table title &optional prompt specials)
 
@@ -50,18 +54,30 @@ Lisp programs can force the template by setting KEYS to a string."
                          (if (member k tab-alternatives)
                              (push "\t" allowed-keys)
                            (push k allowed-keys))
-                         (insert (propertize prefix 'face 'font-lock-comment-face) (propertize k 'face 'bold) (propertize "›" 'face 'font-lock-comment-face) "  " desc "…" "\n")))
+                         (insert (propertize prefix 'face 'font-lock-comment-face)
+                                 (propertize k 'face 'bold)
+                                 (propertize "›" 'face 'font-lock-comment-face)
+                                 "  "
+                                 desc
+                                 "…"
+                                 "\n")))
                       ;; Usable entry.
                       (`(,(and key (pred (string-match re))) ,desc . ,_)
                        (let ((k (match-string 1 key)))
-                         (insert (propertize prefix 'face 'font-lock-comment-face) (propertize k 'face 'bold) "   " desc "\n")
+                         (insert (propertize prefix 'face 'font-lock-comment-face)
+                                 (propertize k 'face 'bold)
+                                 "   "
+                                 desc
+                                 "\n")
                          (push k allowed-keys)))
                       (_ nil))))
                 ;; Insert special entries, if any.
                 (when specials
                   (insert "─────────────────────────\n")
                   (pcase-dolist (`(,key ,description) specials)
-                    (insert (format "%s   %s\n" (propertize key 'face '(bold all-the-icons-red)) description))
+                    (insert (format "%s   %s\n"
+                                    (propertize key 'face '(bold all-the-icons-red))
+                                    description))
                     (push key allowed-keys)))
                 ;; Display UI and let user select an entry or
                 ;; a sub-level prefix.
@@ -83,6 +99,7 @@ Lisp programs can force the template by setting KEYS to a string."
                    ((assoc current specials) (throw 'exit current))
                    (t (error "No entry available")))))))
         (when buffer (kill-buffer buffer))))))
+
 (advice-add 'org-mks :override #'org-mks-pretty)
 
 (setf (alist-get 'height +org-capture-frame-parameters) 15)
