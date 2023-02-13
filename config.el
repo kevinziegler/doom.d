@@ -23,6 +23,7 @@
       ispell-personal-dictionary (expand-file-name ".ispell_personal" doom-user-dir)
       magit-git-executable (brew-bin "git")
       magit-repository-directories '(("~/dev" . 2) ("~/.dotfiles" . 0))
+      marginalia-align 'right
       markdown-header-scaling t
       markdown-fontify-code-blocks-natively t
       native-comp-async-report-warnings-errors nil
