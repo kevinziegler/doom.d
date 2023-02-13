@@ -57,7 +57,6 @@
 (package! dirvish)
 (package! doct)
 (package! git-link)
-;; (package! good-scroll) ;; Disabled because it clearly has performance issues
 (package! info-colors)
 (package! jq-mode)
 (package! jupyter)
@@ -92,7 +91,6 @@
 (package! org-jira)
 (package! org-mac-link)
 (package! org-modern)
-(package! org-ol-tree)
 (package! org-sticky-header)
 ;; (package! org-super-agenda)
 (package! ox-clip)
@@ -101,7 +99,6 @@
 
 ;; Extra org-mode packages (Github)
 
-;; (package! ob-grpc :recipe (:host github :repo "shsms/ob-grpc"))
 (package! org-ol-tree :recipe (:host github :repo "Townk/org-ol-tree"))
 
 (package! org-pandoc-import
@@ -130,7 +127,6 @@
 (package! material-theme)
 (package! mbo70s-theme)
 (package! obsidian-theme)
-(package! omtose-phellack-theme)
 (package! overcast-theme)
 (package! planet-theme)
 (package! reykjavik-theme)
