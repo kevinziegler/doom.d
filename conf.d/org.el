@@ -131,3 +131,18 @@
 
 ;; Prevent automatic line wrapping when exporting via Pandoc
 (after! 'ox-pandoc (add-to-list 'org-pandoc-options '(wrap . "none")))
+
+(advice-add 'org-capture-select-template
+            :override #'org-capture-select-template-prettier)
+
+(advice-add 'org-mks :override #'org-mks-pretty)
+
+(setf (alist-get 'height +org-capture-frame-parameters) 15)
+;; (alist-get 'name +org-capture-frame-parameters) "❖ Capture") ;; ATM hardcoded in other places, so changing breaks stuff
+(setq +org-capture-fn
+      (lambda ()
+        (interactive)
+        (set-window-parameter nil 'mode-line-format 'none)
+        (org-capture)))
+
+(setq doct-after-conversion-functions '(+doct-iconify-capture-templates))

@@ -18,9 +18,6 @@ Lisp programs can force the template by setting KEYS to a string."
                                                       :v-adjust 0.01)
                                "\tAbort")))))))
 
-(advice-add 'org-capture-select-template
-            :override #'org-capture-select-template-prettier)
-
 (defun org-mks-pretty (table title &optional prompt specials)
 
   (save-window-excursion
@@ -100,16 +97,6 @@ Lisp programs can force the template by setting KEYS to a string."
                    (t (error "No entry available")))))))
         (when buffer (kill-buffer buffer))))))
 
-(advice-add 'org-mks :override #'org-mks-pretty)
-
-(setf (alist-get 'height +org-capture-frame-parameters) 15)
-;; (alist-get 'name +org-capture-frame-parameters) "❖ Capture") ;; ATM hardcoded in other places, so changing breaks stuff
-(setq +org-capture-fn
-      (lambda ()
-        (interactive)
-        (set-window-parameter nil 'mode-line-format 'none)
-        (org-capture)))
-
 (defun +doct-icon-declaration-to-icon (declaration)
   "Convert :icon declaration to icon"
   (let ((name (pop declaration))
@@ -129,5 +116,3 @@ Lisp programs can force the template by setting KEYS to a string."
                                                                     (nth 1 template))))
                                    template)
                                  templates))))
-
-(setq doct-after-conversion-functions '(+doct-iconify-capture-templates))
