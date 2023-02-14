@@ -213,8 +213,8 @@
         vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
         vertico-posframe-poshandler #'kdz/posframe-poshandler-frame-bottom-center-offset)
   (advice-add #'vertico--format-candidate :around
-            (lambda (orig cand prefix suffix index _start)
-              (setq cand (funcall orig cand prefix suffix index _start))
+            (lambda (orig cand prefix suffix index start)
+              (setq cand (funcall orig cand prefix suffix index start))
               (concat
                (if (= vertico--index index)
                    (propertize "» " 'face 'vertico-current)
