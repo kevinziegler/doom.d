@@ -85,3 +85,45 @@
     (if (and (not poetry-specified-venv) asdf-specified-python)
         asdf-specified-python
       (apply origin-fn args))))
+
+(defmacro kdz/doom-run-in-workspace (workspace function)
+  `(advice-add ,function
+    :before (lambda (&rest _)
+              (when `(modulep! :ui workspaces)
+                (+workspace-switch ,workspace t)))))
+
+(defun kdz/concat-path (&rest components)
+  (string-join components (f-path-separator)))
+
+(defun kdz/lsp-java-enable-lombok-support (lombok-version)
+  (let* ((mvn-base "~/.m2")
+         (lombok-package "org.projectlombok.lombok")
+         (lombok-jar-fmtstr "lombok-%s.jar"))
+    (when (and lombok-version (boundp 'lsp-java-vmargs))
+      (let ((lombok-jar-path
+             (string-join (list
+                           mvn-base
+                           "repository"
+                           (string-replace "."
+                                           (f-path-separator)
+                                           lombok-package)
+                           lombok-version
+                           (format lombok-jar-fmtstr lombok-version))
+                          (f-path-separator))))
+        (add-to-list 'lsp-java-vmargs (concat "-javaagent:" lombok-jar-path))))))
+
+;; https://www.reddit.com/r/emacs/comments/e7h3qw/how_to_make_open_repl_window_behavior_in_doom/
+(defun kdz/popup-display-buffer-side-by-size (buffer &optional alist)
+  "Dynamically display popup buffers to either the right side or bottom"
+  (+popup-display-buffer-stacked-side-window-fn
+   buffer
+   (append `((side . ,(if (> (frame-pixel-height) (frame-pixel-width))
+                          'bottom 'right)))
+           alist)))
+
+(defun kdz/writing-minor-modes ()
+  "Adjust various minor modes for writing quality-of-life"
+  (mixed-pitch-mode t)
+  (visual-line-mode t)
+  (display-fill-column-indicator-mode -1)
+  (display-line-numbers-mode -1))

@@ -7,22 +7,54 @@
 (mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))
       (directory-files (expand-file-name "lib" doom-user-dir) nil "\\.el$"))
 
+;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
+;; are the three important ones:
+;;
+;; + `doom-font'
+;; + `doom-variable-pitch-font'
+;; + `doom-big-font' -- used for `doom-big-font-mode'
+;;
+;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
+;; font string. You generally only need these two:
+;; (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 13)
+;;       doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13)
+;;       doom-big-font (font-spec :family "Fira Sans" :size 16))
+;;
+;; There are two ways to load a theme. Both assume the theme is installed and
+;; available. You can either set `doom-theme' or manually load a theme with the
+;; `load-theme' function. These are the defaults.
+;; (setq doom-font (font-spec :family "JetBrains Mono" :size 12)
+;;       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12)
+;;       doom-big-font (font-spec :family "JetBrains Mono" :size 12)
+;;       ;; doom-theme 'doom-one ;; NOTE Set by local.el
+;;       )
+
+(setq doom-big-font (font-spec :family "Iosevka Comfy" :size 14)
+      doom-font (font-spec :family "Iosevka Comfy" :size 13)
+      doom-serif-font (font-spec :family "Overpass" :weight 'light :size 13)
+      doom-unicode-font (font-spec :family "Iosevka Term")
+      doom-variable-pitch-font (font-spec :family "Overpass" :size 13))
+
 (setq user-full-name "Kevin Ziegler"
+
       auto-save-default t
       bookmark-version-control t
       company-show-quick-access  t
       delete-by-moving-to-trash t
+      display-line-numbers-type t
+      doom-themes-treemacs-theme 'kaolin
       emojify-emoji-set "twemoji-v2"
       enable-local-variables t
+      evil-goggles-duration 1.0
+      evil-goggles-pulse t
       evil-kill-on-visual-paste nil
       evil-split-window-below t
       evil-vsplit-window-right t
       evil-want-fine-undo t
+      fancy-splash-image (expand-file-name "modern-sexy-v2_128.png" doom-user-dir)
       global-subword-mode 1
       ispell-dictionary "en"
       ispell-personal-dictionary (expand-file-name ".ispell_personal" doom-user-dir)
-      magit-git-executable (brew-bin "git")
-      magit-repository-directories '(("~/dev" . 2) ("~/.dotfiles" . 0))
       marginalia-align 'right
       markdown-header-scaling t
       markdown-fontify-code-blocks-natively t
@@ -42,11 +74,43 @@
 (setq-default history-length 1000
               prescient-history-length 1000)
 
-(after! which-key (setq which-key-ellipsis "»"))
-(after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
-(after! python (set-ligatures! 'python-mode nil))
-(after! vertico (setq orderless-matching-styles '(orderless-prefixes
-                                                  orderless-regexp)))
+;; Set default frame properties
+(add-to-list 'default-frame-alist '(height . 60))
+(add-to-list 'default-frame-alist '(width . 235))
+(add-to-list 'default-frame-alist '(undecorated-round . t))
+(add-to-list 'default-frame-alist '(internal-border-width . 10))
+
+;; Customize popup rules
+(set-popup-rules!
+  '(("^\\*format-all-errors\\*" :height 5 :select nil :modeline nil)
+    ("^\\*Capture\\*$\\|CAPTURE-.*$" :height 0.5 :select t :quit nil)
+    ("\\*Messages\\*" :height 0.3 :quit nil)
+    ("\\*Compile-Log\\*" :ttl 0.01 :quit t)))
+
+(set-popup-rule! "^\\*helpful .+: .+\\*"
+  :actions '(kdz/popup-display-buffer-side-by-size)
+  :select t
+  :height 0.5
+  :width 0.5
+  :quit nil
+  :modeline t)
+
+;; Activate pixel-precision scrolling
+(pixel-scroll-precision-mode)
+
+;; Configurations to run after various packages load
+
+;; (after! consult
+;;   (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) ";"))
+
+(after! doom-modeline
+  (setq doom-modeline-percent-position nil
+        doom-modeline-buffer-encoding nil
+        doom-modeline-buffer-file-name-style 'relative-to-project
+        doom-modeline-display-default-persp-name t
+        doom-modeline-hud t
+        doom-modeline-persp-name t))
+
 (after! hydra
   (defhydra hydra-git-timemachine ()
     "Git Time Machine"
@@ -56,15 +120,54 @@
     ("n" git-timemachine-show-next-revision "Next revision"))
   (add-hook! git-timemachine-mode #'hydra-git-timemachine/body))
 
+(after! kaolin-themes
+  (setq kaolin-themes-bold t
+        kaolin-themes-distinct-company-scrollbar t
+        kaolin-themes-italic t
+        kaolin-themes-italic-comments t
+        kaolin-themes-underline-wave nil))
+
+(after! lsp-mode
+  (setq lsp-headerline-breadcrumb-enable t
+        lsp-headerline-breadcrumb-segments '(symbols)
+        lsp-pyright-multi-root nil
+        lsp-idle-delay 0.8)
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\__pycache__\\'"))
+
+(after! lsp-java
+  (setq lsp-java-maven-download-sources t
+        lsp-java-import-maven-enabled t)
+  ;; NOTE Supply a lombok version to add the appropriate JVM args
+  (kdz/lsp-java-enable-lombok-support nil))
+
+(after! lsp-pyright
+  (advice-add 'lsp-pyright-locate-python :around #'kdz/lsp-pyright-path-advice))
+
 (after! magit
   (magit-org-todos-autoinsert)
-  (magit-delta-mode +1))
+  (magit-delta-mode +1)
+  (setq magit-git-executable (brew-bin "git")
+        magit-repository-directories '(("~/dev" . 2) ("~/.dotfiles" . 0))))
 
 (after! markdown-xwidget
   (setq markdown-xwidget-command "pandoc"
         markdown-xwidget-github-theme "light"
         markdown-xwidget-mermaid-theme "default"
         markdown-xwidget-code-block-theme "default"))
+
+(after! modern-fringes (modern-fringes-mode t))
+
+(after! persp-mode
+  ;; Set up dedicated workspaces for Org-mode notes and Doom documentation
+  (kdz/doom-run-in-workspace "*Notes*" #'+default/find-in-notes)
+  (kdz/doom-run-in-workspace "*Doom Documentation*" #'+doom/help-modules)
+
+  ;; Pin workspaces to the front of our workspace list
+  (advice-add 'persp-add-to-menu :after #'kdz/pin-workspaces))
+
+
+(after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
+(after! python (set-ligatures! 'python-mode nil))
 
 (after! treemacs
   (kaolin-treemacs-theme)
@@ -77,6 +180,12 @@
         treemacs-project-follow-mode t
         treemacs-recenter-after-file-follow t
         treemacs-project-follow-cleanup t)
+
+  ;; Doom's +treemacs/toggle function uses delete-window to remove the treemacs
+  ;; window, which doesn't call the quit hooks.  To resize the frame when using
+  ;; the 'SPC o p' toggle we have to advise this function to trigger the resize
+  ;; explicitly.
+  (advice-add '+treemacs/toggle :around #'kdz/treemacs-toggle-resize-advice)
 
   (treemacs-modify-theme "kaolin"
     :config
@@ -94,40 +203,44 @@
       (kdz/treemacs-all-the-icons (constant) "material" "info_outline" :face 'font-lock-keyword-face)
       (kdz/treemacs-all-the-icons ("json") "fileicon" "jsonld")
       (kdz/treemacs-all-the-icons ("csv") "faicon" "table")
-      (kdz/treemacs-all-the-icons ("editorconfig" "envrc" "envrc.local") "faicon" "table"))))
+      (kdz/treemacs-all-the-icons ("editorconfig" "envrc" "envrc.local") "faicon" "table")))
 
-(after! lsp-mode
-  (setq lsp-headerline-breadcrumb-enable t
-        lsp-headerline-breadcrumb-segments '(symbols)
-        lsp-pyright-multi-root nil
-        lsp-idle-delay 0.8)
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\__pycache__\\'"))
+  (add-hook 'treemacs-select-functions #'kdz/treemacs-init-grow-frame)
+  (add-hook 'treemacs-quit-hook #'kdz/treemacs-quit-shrink-frame))
 
-(after! lsp-java
-  ;; (require 'lsp-java-boot)
-  ;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
-  ;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
-  (setq lsp-java-maven-download-sources t
-        lsp-java-import-maven-enabled t)
-  (setq lombok-jar-path
-        (expand-file-name
-         "~/.m2/repository/org/projectlombok/lombok/1.18.16/lombok-1.18.16.jar"))
-  (setq lsp-java-lombok-args
-    (list (concat "-javaagent:" lombok-jar-path)))
-  (when (boundp 'lsp-java-vmargs)
-    (setq lsp-java-vmargs (append lsp-java-vmargs lsp-java-lombok-args))))
+(after! vertico
+  (setq orderless-matching-styles '(orderless-prefixes orderless-regexp)
+        vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
+        vertico-posframe-poshandler #'kdz/posframe-poshandler-frame-bottom-center-offset)
+  (advice-add #'vertico--format-candidate :around
+            (lambda (orig cand prefix suffix index _start)
+              (setq cand (funcall orig cand prefix suffix index _start))
+              (concat
+               (if (= vertico--index index)
+                   (propertize "» " 'face 'vertico-current)
+                 "  ")
+               cand))))
 
-(advice-add 'lsp-pyright-locate-python :around #'kdz/lsp-pyright-path-advice)
+(after! vterm (setq vterm-shell (brew-bin "zsh")))
 
+(after! which-key (setq which-key-ellipsis "»"))
+
+;; Explicitly specify modes for certain file types
 (add-to-list 'auto-mode-alist '("/Tiltfile.*\\'" . bazel-starlark-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
+
+;; Apply hooks for various modes
+(add-hook 'org-mode-hook #'kdz/writing-minor-modes)
+(add-hook 'markdown-mode-hook #'kdz/writing-minor-modes)
+(add-hook 'Info-selection-hook 'info-colors-fontify-node)
+(add-hook! 'size-indication-mode (setq size-indication-mode nil))
+(add-hook! (gfm-mode markdown-mode) #'visual-line-mode #'turn-off-auto-fill)
 
 (load! "conf.d/keybinds")
 (load! "conf.d/org")
 ;; (load! "conf.d/org/capture-templates")
 (load! "conf.d/org/capture-inbox")
 (load! "conf.d/org/pretty-capture")
-(load! "conf.d/ui")
 (load! "conf.d/smerge")
 (load! "conf.d/local" nil t)
