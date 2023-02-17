@@ -25,7 +25,6 @@
         org-modern-table nil
         org-modern-table-horizontal 3
         org-pretty-entities t
-        org-roam-directory "~/notes/roam"
         org-startup-indented nil
         org-use-property-inheritance t
         valign-fancy-bar t
