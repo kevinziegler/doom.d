@@ -1,8 +1,3 @@
-;; Enabling scrolling via the trackpad
-(setq mouse-wheel-tilt-scroll t)
-;; Make the direction sane on an apple trackpad
-(setq mouse-wheel-flip-direction t)
-
 (map! :leader
       :desc "Command" "SPC" #'execute-extended-command
 
