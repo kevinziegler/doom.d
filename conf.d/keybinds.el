@@ -53,11 +53,11 @@
         :localleader
         :desc "Outline" "O" #'org-ol-tree
         (:prefix ("s" . "Subtrees")
-        :desc "Cut subtree" "d" #'org-cut-subtree
-        :desc "Promote subtree" "h" #'org-promote-subtree
-        :desc "Demote subtree" "l" #'org-demote-subtree
-        :desc "Move Subtree Up" "k" #'org-move-subtree-up
-        :desc "Move Subtree Down" "j" #'org-move-subtree-down))
+         :desc "Cut subtree" "d" #'org-cut-subtree
+         :desc "Promote subtree" "h" #'org-promote-subtree
+         :desc "Demote subtree" "l" #'org-demote-subtree
+         :desc "Move Subtree Up" "k" #'org-move-subtree-up
+         :desc "Move Subtree Down" "j" #'org-move-subtree-down))
 
   (map! :map org-mode-map
         :leader
