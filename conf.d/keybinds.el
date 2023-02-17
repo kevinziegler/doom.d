@@ -11,18 +11,12 @@
        :desc "New empty ORG buffer" "o" #'evil-buffer-org-new
        :desc "Copy Buffer" "y" #'doom/copy-buffer-contents)
 
-      (:prefix "c"
-       :desc "Show Documentation" "h" #'lsp-ui-doc-show
-       :desc "Glance Documentation" "g" #'lsp-ui-doc-glance)
-
       (:prefix "g"
        :desc "Worktrees" "w" #'magit-worktree)
       (:prefix "i"
        :desc "Insert UUID" "U" #'uuidgen)
 
       (:prefix "o"
-       :desc "Project Errors" "e" #'kdz/toggle-lsp-errors-list
-       :desc "Symbol Browser" "s" #'kdz/toggle-lsp-symbols
        :desc "Connect to Jupyter Notebook" "s" #'ein:notebooklist-login)
 
       (:prefix "t"
@@ -101,6 +95,20 @@
           "C-<down>"   #'+evil/window-move-down
           "C-<up>"     #'+evil/window-move-up
           "C-<right>"  #'+evil/window-move-right))
+
+(after! lsp
+  (map! :map lsp-mode-map
+        :leader
+        (:prefix "c"
+         :desc "Show Documentation" "h" #'lsp-ui-doc-show
+         :desc "Glance Documentation" "g" #'lsp-ui-doc-glance)
+
+        (:prefix "o"
+         :desc "Project Errors" "e" #'kdz/toggle-lsp-errors-list
+         :desc "Symbol Browser" "s" #'kdz/toggle-lsp-symbols)
+
+        (:prefix t
+         :desc "Toggle LSP Sideline Symbols" "S" #'lsp-ui-sideline-toggle-symbols-info)))
 
 (after! wordel
   (evil-make-intercept-map wordel-mode-map)
