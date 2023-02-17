@@ -256,7 +256,6 @@
 
 (load! "conf.d/keybinds")
 (load! "conf.d/org")
-;; (load! "conf.d/org/capture-templates")
-(load! "conf.d/org/capture-inbox")
+(load! "conf.d/org/capture")
 (load! "conf.d/smerge")
 (load! "conf.d/local" nil t)
