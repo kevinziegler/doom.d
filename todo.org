@@ -1,11 +1,5 @@
 #+title: Doom Configuration TODOs
 
-* TODO Figure out how to get 'main' workspace to be persistent/always open
-* TODO Set up dedicated notes workspace
-* DONE See if popup defaults is better than all
-https://github.com/hlissner/doom-emacs/blob/develop/modules/ui/popup/README.org
-* DONE Set up org-mode to show format characters on mouseover
-https://github.com/awth13/org-appear
 * TODO See if this regexp feels more natural
 https://github.com/benma/visual-regexp-steroids.el
 * TODO Consider using mono-spaced fonts for indentation/whitespace in org mode?
@@ -46,7 +40,6 @@ https://github.com/benma/visual-regexp-steroids.el
   - [[https://github.com/ahungry/org-jira][ahungry/org-jira: Bring Jira and OrgMode together]]
   - https://melpa.org/#/org-download
   - https://github.com/gizmomogwai/org-kanban
-  - https://github.com/minad/org-modern
 
 ** Rejected
   - https://github.com/ryuslash/mode-icons :: Doesn't look particularly useful with doom's modeline
@@ -57,6 +50,7 @@ https://github.com/benma/visual-regexp-steroids.el
   - https://github.com/ianpan870102/tron-legacy-emacs-theme
   - https://github.com/casouri/valign
   - https://github.com/jordonbiondo/ample-theme
+  - https://github.com/minad/org-modern
 
 * Enable running with AWS roles enabled
 - Get AWS login creds from 1Password (MFA Token)
