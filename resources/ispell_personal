@@ -1,4 +1,4 @@
-personal_ws-1.1 en 78
+personal_ws-1.1 en 80
 Configurator
 Integrations
 Kubernetes
@@ -19,6 +19,7 @@ codebase
 codebases
 databricks
 datadog
+datalake
 deepak
 deliverables
 denormalize
@@ -74,6 +75,7 @@ uma
 usr
 wenkus
 whitespace
+workspaces
 youngblood
 yu
 zsh

@@ -27,3 +27,6 @@
            (list (call-process "asdf" nil (current-buffer) nil "which" bin)
                  (substring (buffer-string) 0 -1))))
       (if (eq 0 (pop asdf-lookup)) (pop asdf-lookup)))))
+
+(defun kdz/config-resource (name)
+  (expand-file-name name (expand-file-name "resources" doom-user-dir)))

@@ -51,15 +51,13 @@
       evil-split-window-below t
       evil-vsplit-window-right t
       evil-want-fine-undo t
-      fancy-splash-image (expand-file-name "resources/modern-sexy-v2_128.png"
-                                           doom-user-dir)
+      fancy-splash-image (kdz/config-resource "modern-sexy-v2_128.png")
       global-subword-mode 1
       ispell-dictionary "en"
-      ispell-personal-dictionary (expand-file-name "resources/ispell_personal"
-                                                   doom-user-dir)
       marginalia-align 'right
       markdown-header-scaling t
       markdown-fontify-code-blocks-natively t
+      ispell-personal-dictionary (kdz/config-resource "ispell_personal")
       mouse-wheel-flip-direction t
       mouse-wheel-tilt-scroll t
       native-comp-async-report-warnings-errors nil
