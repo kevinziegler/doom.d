@@ -55,7 +55,6 @@
 (package! bookmark+)
 (package! copy-as-format)
 (package! dirvish)
-(package! doct)
 (package! fwb-cmds)
 (package! git-link)
 (package! info-colors)
@@ -86,6 +85,7 @@
            :files (:defaults "resources")))
 
 ;; Extra org-mode packages (MELPA)
+(package! doct)
 (package! ob-http)
 (package! ob-mermaid)
 (package! org-appear)
