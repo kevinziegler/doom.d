@@ -45,31 +45,18 @@
       doom-themes-treemacs-theme 'kaolin
       emojify-emoji-set "twemoji-v2"
       enable-local-variables t
-      evil-goggles-duration 1.0
-      evil-goggles-pulse t
-      evil-kill-on-visual-paste nil
-      evil-split-window-below t
-      evil-vsplit-window-right t
-      evil-want-fine-undo t
       fancy-splash-image (kdz/config-resource "modern-sexy-v2_128.png")
       global-subword-mode 1
       ispell-dictionary "en"
-      marginalia-align 'right
-      markdown-header-scaling t
-      markdown-fontify-code-blocks-natively t
       ispell-personal-dictionary (kdz/config-resource "ispell_personal")
       mouse-wheel-flip-direction t
       mouse-wheel-tilt-scroll t
       native-comp-async-report-warnings-errors nil
       page-break-lines-max-width fill-column
       password-cache-expiry nil
-      projectile-ignored-projects '("~/" "/tmp" "~/.emacs.d/.local/straight/repos/")
-      projectile-project-search-path '("~/dev")
       scroll-margin 2
       truncate-string-ellipsis "…"
       undo-limit 80000000
-      which-key-idle-delay 0.5
-      which-key-idle-secondary-delay 0.05
       window-combination-resize t
       x-stretch-cursor t)
 
@@ -113,6 +100,16 @@
         doom-modeline-hud t
         doom-modeline-persp-name t))
 
+(after! evil
+  (setq evil-kill-on-visual-paste nil
+        evil-split-window-below t
+        evil-vsplit-window-right t
+        evil-want-fine-undo t))
+
+(after! evil-goggles
+  (setq evil-goggles-duration 1.0
+        evil-goggles-pulse t))
+
 (after! hydra
   (defhydra hydra-git-timemachine ()
     "Git Time Machine"
@@ -120,6 +117,7 @@
     ("c" git-timemachine-show-commit "Show commit")
     ("p" git-timemachine-show-previous-revision "Previous revision")
     ("n" git-timemachine-show-next-revision "Next revision"))
+
   (add-hook! git-timemachine-mode #'hydra-git-timemachine/body))
 
 (after! kaolin-themes
@@ -134,11 +132,13 @@
         lsp-headerline-breadcrumb-segments '(symbols)
         lsp-pyright-multi-root nil
         lsp-idle-delay 0.8)
+
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\__pycache__\\'"))
 
 (after! lsp-java
   (setq lsp-java-maven-download-sources t
         lsp-java-import-maven-enabled t)
+
   ;; NOTE Supply a lombok version to add the appropriate JVM args
   (kdz/lsp-java-enable-lombok-support nil))
 
@@ -148,8 +148,15 @@
 (after! magit
   (magit-org-todos-autoinsert)
   (magit-delta-mode +1)
+
   (setq magit-git-executable (brew-bin "git")
         magit-repository-directories '(("~/dev" . 2) ("~/.dotfiles" . 0))))
+
+(after! marginalia (setq marginalia-align 'right))
+
+(after! markdown-mode
+  (setq markdown-header-scaling t
+        markdown-fontify-code-blocks-natively t))
 
 (after! markdown-xwidget
   (setq markdown-xwidget-command "pandoc"
@@ -169,6 +176,11 @@
 
 
 (after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
+
+(after! projectile
+  (setq projectile-ignored-projects '("~/" "/tmp" "~/.emacs.d/.local/straight/repos/")
+        projectile-project-search-path '("~/dev")))
+
 (after! python (set-ligatures! 'python-mode nil))
 
 (after! treemacs
@@ -225,7 +237,10 @@
 
 (after! vterm (setq vterm-shell (brew-bin "zsh")))
 
-(after! which-key (setq which-key-ellipsis "»"))
+(after! which-key
+  (setq which-key-ellipsis "»"
+        which-key-idle-delay 0.5
+        which-key-idle-secondary-delay 0.05))
 
 ;; Explicitly specify modes for certain file types
 (add-to-list 'auto-mode-alist '("/Tiltfile.*\\'" . bazel-starlark-mode))
