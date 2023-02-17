@@ -30,3 +30,6 @@
 
 (defun kdz/config-resource (name)
   (expand-file-name name (expand-file-name "resources" doom-user-dir)))
+
+(defun kdz/concat-path (&rest components)
+  (string-join components (f-path-separator)))

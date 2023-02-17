@@ -92,8 +92,6 @@
               (when `(modulep! :ui workspaces)
                 (+workspace-switch ,workspace t)))))
 
-(defun kdz/concat-path (&rest components)
-  (string-join components (f-path-separator)))
 
 (defun kdz/lsp-java-enable-lombok-support (lombok-version)
   (let* ((mvn-base "~/.m2")
