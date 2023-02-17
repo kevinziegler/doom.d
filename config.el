@@ -23,20 +23,14 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
-;; (setq doom-font (font-spec :family "JetBrains Mono" :size 12)
-;;       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12)
-;;       doom-big-font (font-spec :family "JetBrains Mono" :size 12)
-;;       ;; doom-theme 'doom-one ;; NOTE Set by local.el
-;;       )
-
 (setq doom-big-font (font-spec :family "Iosevka Comfy" :size 14)
       doom-font (font-spec :family "Iosevka Comfy" :size 13)
-      doom-serif-font (font-spec :family "Overpass" :weight 'light :size 13)
+      doom-serif-font (font-spec :family "Iosevka Comfy Motion" :size 13)
       doom-unicode-font (font-spec :family "Iosevka Term")
       doom-variable-pitch-font (font-spec :family "Overpass" :size 13))
 
+;; Set variables native to emacs
 (setq user-full-name "Kevin Ziegler"
-
       auto-save-default t
       bookmark-version-control t
       company-show-quick-access  t
