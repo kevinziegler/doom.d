@@ -55,6 +55,7 @@
 (package! bookmark+)
 (package! copy-as-format)
 (package! dirvish)
+(package! evil-args)
 (package! fwb-cmds)
 (package! git-link)
 (package! info-colors)
