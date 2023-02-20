@@ -5,6 +5,7 @@ Kubernetes
 Minikube
 Postgres
 Socure
+adobo
 alexenko
 analytics
 archiver
@@ -14,6 +15,7 @@ authinfo
 backend
 backfill
 backfills
+chipotles
 clickids
 codebase
 codebases
@@ -39,6 +41,7 @@ iac
 idempotentcy
 inferrer
 infutor
+iterm
 jira
 json
 jupyter
@@ -72,6 +75,7 @@ templating
 terraform
 todos
 uma
+ultrawide
 usr
 wenkus
 whitespace
