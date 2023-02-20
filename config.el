@@ -27,7 +27,7 @@
       doom-font (font-spec :family "Iosevka Comfy" :size 13)
       doom-serif-font (font-spec :family "Iosevka Comfy Motion" :size 13)
       doom-unicode-font (font-spec :family "Iosevka Term")
-      doom-variable-pitch-font (font-spec :family "Overpass" :size 13))
+      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 13))
 
 ;; Set variables native to emacs
 (setq user-full-name "Kevin Ziegler"
