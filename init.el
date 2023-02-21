@@ -43,7 +43,7 @@
        (evil +everywhere)
        file-templates
        fold
-       (format +onsave)
+       format
        rotate-text
        snippets
        ;;word-wrap         ; soft wrapping with language-aware indent
