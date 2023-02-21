@@ -51,6 +51,7 @@
       scroll-margin 2
       truncate-string-ellipsis "…"
       undo-limit 80000000
+      uniquify-buffer-name-style 'post-forward
       window-combination-resize t
       x-stretch-cursor t)
 
