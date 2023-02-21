@@ -29,23 +29,6 @@
 (defun user-team-tag ()
   (when (boundp 'user-team) (string-as-tag user-team)))
 
-(defun kdz/org-goto-top-level ()
-  (interactive)
-  (let ((org-goto-interface 'outline-path-completion)
-        (org-goto-max-level 1))
-    (org-goto)
-    (org-narrow-to-subtree)))
-
-(defun kdz/org-open-one-on-one ()
-  (interactive)
-  (find-file "~/notes/one-on-one-discussions.org")
-  (when (buffer-narrowed-p) (widen))
-  (let ((org-goto-interface 'outline-path-completion)
-        (org-goto-max-level 1))
-    (org-goto))
-  (org-narrow-to-subtree)
-  (org-show-todo-tree nil))
-
 (defun kdz/toggle-light-theme ()
   (interactive)
   (if-let ((doom-light-theme doom-light-theme)
