@@ -58,10 +58,11 @@
               prescient-history-length 1000)
 
 ;; Set default frame properties
-(add-to-list 'default-frame-alist '(height . 60))
-(add-to-list 'default-frame-alist '(width . 235))
-(add-to-list 'default-frame-alist '(undecorated-round . t))
-(add-to-list 'default-frame-alist '(internal-border-width . 10))
+(kdz/add-all-to-list 'default-frame-alist
+                     '(height . 60)
+                     '(width . 235)
+                     '(undecorated-round . t)
+                     '(internal-border-width . 10))
 
 ;; Customize popup rules
 (set-popup-rules!
@@ -232,9 +233,10 @@
         which-key-idle-secondary-delay 0.05))
 
 ;; Explicitly specify modes for certain file types
-(add-to-list 'auto-mode-alist '("/Tiltfile.*\\'" . bazel-starlark-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
-(add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
+(kdz/add-all-to-list 'auto-mode-alist
+                     '("/Tiltfile.*\\'" . bazel-starlark-mode)
+                     '("\\.tsx\\'" . typescript-tsx-mode)
+                     '("\\.jq$" . jq-mode))
 
 ;; Apply hooks for various modes
 (add-hook 'org-mode-hook #'kdz/writing-minor-modes)

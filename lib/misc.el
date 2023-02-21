@@ -116,3 +116,7 @@
               (propertize "» " 'face 'vertico-current)
             "  ")
           cand))
+
+(defun kdz/add-all-to-list (list &rest items)
+  (dolist (item items)
+    (add-to-list list item)))
