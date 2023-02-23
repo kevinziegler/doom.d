@@ -90,7 +90,8 @@
               :properties    ""
               :end           ""
               :scheduled     ""
-              :deadline      ""))
+              :deadline      ""
+              :name          "⁍"))
 
   (set-ligatures! 'org-mode
     :merge t
@@ -114,7 +115,6 @@
     :scheduled     "scheduled:"
     :deadline      "DEADLINE:"
     :deadline      "deadline:")
-  (plist-put +ligatures-extra-symbols :name "⁍")
 
   (org-link-set-parameters "gh" :follow (kdz/follow-suffix-link "https://github.com"))
   (org-link-set-parameters "gl" :follow (kdz/follow-suffix-link "https://gitlab.com"))
