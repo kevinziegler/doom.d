@@ -5,7 +5,6 @@
   (require 'org-expiry)
 
   (global-org-modern-mode)
-  (add-hook 'org-mode-hook #'valign-mode)
   (setq doom-themes-org-fontify-special-tags nil
         org-appear-autokeywords t
         org-appear-autolinks t
@@ -64,6 +63,8 @@
 
   (add-transient-hook! #'org-babel-execute-src-block (require 'ob-async))
 
+  (add-hook 'org-mode-hook #'kdz/writing-minor-modes)
+  (add-hook 'org-mode-hook #'valign-mode)
   (add-hook 'org-mode-hook #'org-appear-mode)
   (add-hook 'org-mode-hook #'org-modern-mode)
   (add-hook 'org-mode-hook #'org-autolist-mode)

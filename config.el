@@ -241,7 +241,6 @@
                      '("\\.jq$" . jq-mode))
 
 ;; Apply hooks for various modes
-(add-hook 'org-mode-hook #'kdz/writing-minor-modes)
 (add-hook 'markdown-mode-hook #'kdz/writing-minor-modes)
 (add-hook 'Info-selection-hook 'info-colors-fontify-node)
 (add-hook! 'size-indication-mode (setq size-indication-mode nil))
