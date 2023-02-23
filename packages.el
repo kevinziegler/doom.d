@@ -90,6 +90,7 @@
 (package! ob-http)
 (package! ob-mermaid)
 (package! org-appear)
+(package! org-autolist)
 (package! org-jira)
 (package! org-mac-link)
 (package! org-modern)

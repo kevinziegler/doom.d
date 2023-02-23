@@ -66,6 +66,7 @@
 
   (add-hook 'org-mode-hook #'org-appear-mode)
   (add-hook 'org-mode-hook #'org-modern-mode)
+  (add-hook 'org-mode-hook #'org-autolist-mode)
   (add-hook 'org-mode-hook (lambda ()
                              (add-hook 'evil-insert-state-entry-hook
                                        #'org-appear-manual-start

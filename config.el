@@ -3,6 +3,7 @@
 (use-package! page-break-lines)
 (use-package! which-key-posframe)
 (use-package! org-modern)
+(use-package! org-autolist)
 
 (mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))
       (directory-files (expand-file-name "lib" doom-user-dir) nil "\\.el$"))
