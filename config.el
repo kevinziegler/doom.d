@@ -220,14 +220,9 @@
   (setq orderless-matching-styles '(orderless-prefixes orderless-regexp)
         vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
         vertico-posframe-poshandler (kdz/posframe-interior-bottom 100))
-  (advice-add #'vertico--format-candidate :around
-            (lambda (orig cand prefix suffix index start)
-              (setq cand (funcall orig cand prefix suffix index start))
-              (concat
-               (if (= vertico--index index)
-                   (propertize "» " 'face 'vertico-current)
-                 "  ")
-               cand))))
+  (advice-add #'vertico--format-candidate
+              :around
+              #'kdz/vertico--format-candiate-marker-advice))
 
 (after! vterm (setq vterm-shell (brew-bin "zsh")))
 
