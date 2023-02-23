@@ -166,7 +166,7 @@
 (after! persp-mode
   ;; Set up dedicated workspaces for Org-mode notes and Doom documentation
   (kdz/doom-run-in-workspace "*Notes*" #'+default/find-in-notes)
-  (kdz/doom-run-in-workspace "*Doom Documentation*" #'+doom/help-modules)
+  (kdz/doom-run-in-workspace "*Doom Documentation*" #'doom/help-modules))
 
   ;; Pin workspaces to the front of our workspace list
   (advice-add 'persp-add-to-menu :after #'kdz/pin-workspaces))
