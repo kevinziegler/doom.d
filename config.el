@@ -219,7 +219,7 @@
 (after! vertico
   (setq orderless-matching-styles '(orderless-prefixes orderless-regexp)
         vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
-        vertico-posframe-poshandler #'kdz/posframe-poshandler-frame-bottom-center-offset)
+        vertico-posframe-poshandler (kdz/posframe-interior-bottom 100))
   (advice-add #'vertico--format-candidate :around
             (lambda (orig cand prefix suffix index start)
               (setq cand (funcall orig cand prefix suffix index start))
