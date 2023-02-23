@@ -42,10 +42,6 @@
                                         (:tangle . "no")
                                         (:comments . "link")))
 
-  (advice-add 'doom-modeline-buffer-file-name
-              :around
-              #'stolen/doom-modeline-buffer-file-name-roam-aware-a)
-
   (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'prepend)
   (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'prepend)
   (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'prepend)
