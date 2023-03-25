@@ -75,11 +75,6 @@
 (package! which-key-posframe)
 (package! wordel)
 
-;; NOTE This needs an 'openscad' binary in emac's path, but the Homebrew cask
-;;      does not install such a binary.  This can be fixed by linking 'openscad'
-;;      in '$HOME/.bin' to the installed 'OpenSCAD.app'
-(package! scad-preview)
-
 (package! markdown-xwidget
   :recipe (:host github
            :repo "cfclrk/markdown-xwidget"
