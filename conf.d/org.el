@@ -28,6 +28,9 @@
         org-modern-table-horizontal 3
         org-plantuml-exec-mode 'executable
         org-pretty-entities t
+        org-re-reveal-subtree-with-title-slide t
+        org-re-reveal-transition "slide"
+        org-re-reveal-title-slide "<h1>%t</h1><p>%a | %d</p>"
         org-startup-indented nil
         org-use-property-inheritance t
         valign-fancy-bar t
