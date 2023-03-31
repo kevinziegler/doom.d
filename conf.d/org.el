@@ -24,6 +24,7 @@
         org-modern-hide-stars t
         org-modern-table nil
         org-modern-table-horizontal 3
+        org-plantuml-exec-mode 'executable
         org-pretty-entities t
         org-startup-indented nil
         org-use-property-inheritance t
