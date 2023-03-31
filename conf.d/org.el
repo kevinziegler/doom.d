@@ -19,6 +19,8 @@
         org-hidden-keywords '(title)
         org-hide-emphasis-markers t
         org-hide-leading-stars t
+        org-html-html5-fancy t
+        org-html-doctype "html5"
         org-insert-heading-respect-content t
         org-list-allow-alphabetical t
         org-modern-hide-stars t
