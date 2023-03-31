@@ -60,3 +60,21 @@
     (org-goto))
   (org-narrow-to-subtree)
   (org-show-todo-tree nil))
+
+(defun kdz/org-babel-plantuml-format-var (var-value)
+  (cond ((numberp var-value) (number-to-string var-value))
+        ((booleanp var-value) (if var-value "true" "false"))
+        (t (format "\"%s\"" var-value))))
+
+(defun kdz/org-babel-variable-assignments:plantuml (params)
+  "Return a list of PlantUML statements assigning the block's variables.
+PARAMS is a property list of source block parameters, which may
+contain multiple entries for the key `:var'.  `:var' entries in PARAMS
+are expected to be scalar variables."
+  (mapcar
+   (lambda (pair)
+     (format "!$%s=%s"
+	     (car pair)
+	     (kdz/org-babel-plantuml-format-var (cdr pair))))
+   (org-babel--get-vars params)))
+

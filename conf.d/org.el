@@ -123,8 +123,13 @@
     :deadline      "DEADLINE:"
     :deadline      "deadline:")
 
+  (advice-add #'org-babel-variable-assignments:plantuml
+              :override
+              #'kdz/org-babel-variable-assignments:plantuml)
+
   (org-link-set-parameters "gh" :follow (kdz/follow-suffix-link "https://github.com"))
   (org-link-set-parameters "gl" :follow (kdz/follow-suffix-link "https://gitlab.com"))
+
   (when hosted-gitlab-host
     (org-link-set-parameters "hgl"
                              :follow (kdz/follow-suffix-link hosted-gitlab-host)))
