@@ -127,6 +127,10 @@
               :override
               #'kdz/org-babel-variable-assignments:plantuml)
 
+  (advice-add #'org-babel-plantuml-make-body
+              :override
+              #'kdz/org-babel-plantuml-make-body)
+
   (org-link-set-parameters "gh" :follow (kdz/follow-suffix-link "https://github.com"))
   (org-link-set-parameters "gl" :follow (kdz/follow-suffix-link "https://gitlab.com"))
 

@@ -78,3 +78,24 @@ are expected to be scalar variables."
 	     (kdz/org-babel-plantuml-format-var (cdr pair))))
    (org-babel--get-vars params)))
 
+(defun kdz/ob-plantuml-directive-theme (params)
+  (let ((theme (cdr (assq :theme params)))
+        (theme-from (cdr (assq :theme-from params))))
+    (cond ((and theme theme-from) (format "!theme %s from %s"
+                                          theme
+                                          (expand-file-name theme-from)))
+          (theme (format "!theme %s" theme))
+          (t ""))))
+
+(defun kdz/org-babel-plantuml-make-body (body params)
+  (let ((theme-directive (kdz/ob-plantuml-directive-theme params))
+        (type (or (cdr (assq :type params)) "uml"))
+        (full-body
+         (org-babel-expand-body:generic
+	  body params (org-babel-variable-assignments:plantuml params))))
+    (if (string-prefix-p "@start" body t) full-body
+      (string-join (list (concat "@start" type)
+                         theme-directive
+                         full-body
+                         (concat "@end" type))
+                   "\n"))))
