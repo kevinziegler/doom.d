@@ -1,4 +1,4 @@
-personal_ws-1.1 en 80
+personal_ws-1.1 en 91
 Configurator
 Integrations
 Kubernetes
@@ -22,6 +22,9 @@ codebases
 databricks
 datadog
 datalake
+datasets
+decrypt
+decrypted
 deepak
 deliverables
 denormalize
@@ -52,6 +55,7 @@ mouseover
 namespace
 newrelic
 nginx
+noexport
 oauth
 observability
 openapi
@@ -65,6 +69,8 @@ readmes
 rollout
 runbook
 runtime
+runtimes
+secretsmanager
 skaffold
 src
 standup
@@ -73,6 +79,7 @@ tatiana
 tatiana's
 templating
 terraform
+terraformed
 todos
 uma
 ultrawide
