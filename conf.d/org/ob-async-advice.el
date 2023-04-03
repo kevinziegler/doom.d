@@ -19,8 +19,8 @@
 ;;; the "override" advice can be removed.  Finally, once doom's own module code
 ;;; is updated as well we should be able to remove this adivce entirely.
 
-(defun kdz/ob-async-org-babel-execute-src-block (&optional orig-fun arg info params
-                                                 &rest other-args)
+(defun kdz/ob-async-org-babel-execute-src-block
+    (&optional orig-fun arg info params &rest other-args)
   "Like org-babel-execute-src-block, but run asynchronously.
 
 Original docstring for org-babel-execute-src-block:
@@ -170,18 +170,9 @@ block."
                                  (org-babel-insert-result result ',result-params ',info ',new-hash ',lang))))
                             (run-hooks 'org-babel-after-execute-hook)))))))))))))))))
 
-(after! ob
-  (defun kdz/+org-babel-init-h ()
-    (advice-remove 'ob-async-org-babel-execute-src-block
-                   #'+org-babel-disable-async-maybe-a)
-
-    (advice-add 'ob-async-org-babel-execute-src-block
-                :override
-                kdz/ob-async-org-babel-execute-src-block)
-
-    (defadvice! kdz/+org-babel-disable-async-maybe-a
-      (fn &optional orig-fn arg info params &rest other-args)
-    "Use ob-comint where supported, disable async altogether where it isn't.
+(defun kdz/+org-babel-disable-async-maybe-a
+    (fn &optional orig-fn arg info params &rest other-args)
+  "Use ob-comint where supported, disable async altogether where it isn't.
 
 We have access to two async backends: ob-comint or ob-async, which have
 different requirements. This advice tries to pick the best option between them,
@@ -192,28 +183,34 @@ Note: ob-comint support will only kick in for languages listed in
 `+org-babel-native-async-langs'.
 
 Also adds support for a `:sync' parameter to override `:async'."
-    :around #'ob-async-org-babel-execute-src-block
-    (if (null orig-fn)
-        (apply fn orig-fn arg info params other-args)
-      (let* ((info (or info (org-babel-get-src-block-info)))
-             (params (org-babel-merge-params (nth 2 info) params)))
-        (if (or (assq :sync params)
-                (not (assq :async params))
-                (member (car info) ob-async-no-async-languages-alist)
-                ;; ob-comint requires a :session, ob-async does not, so fall
-                ;; back to ob-async if no :session is provided.
-                (unless (member (alist-get :session params) '("none" nil))
-                  (unless (memq (let* ((lang (nth 0 info))
-                                       (lang (cond ((symbolp lang) lang)
-                                                   ((stringp lang) (intern lang)))))
-                                  (or (alist-get lang +org-babel-mode-alist)
-                                      lang))
-                                +org-babel-native-async-langs)
-                    (message "Org babel: %s :session is incompatible with :async. Executing synchronously!"
-                             (car info))
-                    (sleep-for 0.2))
-                  t))
-            (apply orig-fn arg info params other-args)
-          (apply fn orig-fn arg info params other-args))))))
+  (if (null orig-fn)
+      (apply fn orig-fn arg info params other-args)
+    (let* ((info (or info (org-babel-get-src-block-info)))
+           (params (org-babel-merge-params (nth 2 info) params)))
+      (if (or (assq :sync params)
+              (not (assq :async params))
+              (member (car info) ob-async-no-async-languages-alist)
+              ;; ob-comint requires a :session, ob-async does not, so fall
+              ;; back to ob-async if no :session is provided.
+              (unless (member (alist-get :session params) '("none" nil))
+                (unless (memq (let* ((lang (nth 0 info))
+                                     (lang (cond ((symbolp lang) lang)
+                                                 ((stringp lang) (intern lang)))))
+                                (or (alist-get lang +org-babel-mode-alist)
+                                    lang))
+                              +org-babel-native-async-langs)
+                  (message "Org babel: %s :session is incompatible with :async. Executing synchronously!"
+                           (car info))
+                  (sleep-for 0.2)) t))
+          (apply orig-fn arg info params other-args)
+        (apply fn orig-fn arg info params other-args)))))
 
-  (add-hook! 'org-load-hook :append #'kdz/+org-init-babel-h))
+(after! org
+  (advice-remove 'ob-async-org-babel-execute-src-block
+                 #'+org-babel-disable-async-maybe-a)
+  (advice-add 'ob-async-org-babel-execute-src-block
+              :override
+              #'kdz/ob-async-org-babel-execute-src-block)
+  (advice-add 'ob-async-org-babel-execute-src-block
+              :around
+              #'kdz/+org-babel-disable-async-maybe-a))
