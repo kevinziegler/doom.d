@@ -31,12 +31,11 @@
        modeline
        nav-flash
        ophints
-       (popup
-        +defaults)
+       (popup +defaults)
        (treemacs +lsp)
        vc-gutter
        window-select
-       (workspaces +per-project)
+       workspaces
        zen
 
        :editor
