@@ -101,9 +101,6 @@
 (package! valign)
 
 ;; Extra org-mode packages (Github)
-
-(package! org-ol-tree :recipe (:host github :repo "Townk/org-ol-tree"))
-
 (package! org-pandoc-import
   :recipe (:host github
            :repo "tecosaur/org-pandoc-import"

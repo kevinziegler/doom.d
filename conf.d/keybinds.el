@@ -46,7 +46,6 @@
 
   (map! :map org-mode-map
         :localleader
-        :desc "Outline" "O" #'org-ol-tree
         (:prefix ("s" . "Subtrees")
          :desc "Cut subtree" "d" #'org-cut-subtree
          :desc "Promote subtree" "h" #'org-promote-subtree
