@@ -69,9 +69,7 @@
 (package! page-break-lines)
 (package! protobuf-mode)
 (package! string-inflection)
-;; (package! topspace)
 (package! uuidgen)
-(package! websocket) ; dependency of `org-roam-ui'
 (package! which-key-posframe)
 (package! wordel)
 
@@ -94,7 +92,6 @@
 (package! org-jira)
 (package! org-mac-link)
 (package! org-modern)
-(package! org-sticky-header)
 ;; (package! org-super-agenda)
 (package! ox-clip)
 (package! ox-gfm)
@@ -105,9 +102,6 @@
   :recipe (:host github
            :repo "tecosaur/org-pandoc-import"
            :files ("*.el" "filters" "preprocessors")))
-
-(package! org-roam-ui
-  :recipe (:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
 
 ;; Themes.  Lots of themes.
 (package! arc-dark-theme)
