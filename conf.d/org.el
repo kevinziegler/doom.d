@@ -31,6 +31,7 @@
         org-re-reveal-subtree-with-title-slide t
         org-re-reveal-transition "slide"
         org-re-reveal-title-slide "<h1>%t</h1><p>%a | %d</p>"
+        org-re-reveal-plugins '(highlight markdown notes search zoom)
         org-startup-indented nil
         org-use-property-inheritance t
         valign-fancy-bar t
