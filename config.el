@@ -236,6 +236,7 @@
 
 ;; Explicitly specify modes for certain file types
 (kdz/add-all-to-list 'auto-mode-alist
+                     '("\\.puml$" . plantuml-mode)
                      '("/Tiltfile.*\\'" . bazel-starlark-mode)
                      '("\\.tsx\\'" . typescript-tsx-mode)
                      '("\\.jq$" . jq-mode))
