@@ -58,6 +58,7 @@
 (package! evil-args)
 (package! fwb-cmds)
 (package! git-link)
+(package! gnuplot)
 (package! info-colors)
 (package! jq-mode)
 (package! jupyter)
