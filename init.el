@@ -49,7 +49,7 @@
 
        :emacs (dired +icons) electric undo vc
        :term vterm
-       :checkers syntax spell
+       :checkers syntax
 
        :tools
        (debugger +lsp)

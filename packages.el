@@ -60,6 +60,7 @@
 (package! git-link)
 (package! gnuplot)
 (package! info-colors)
+(package! jinx)
 (package! jq-mode)
 (package! jupyter)
 (package! lorem-ipsum)

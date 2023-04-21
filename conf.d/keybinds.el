@@ -8,6 +8,7 @@
 
       (:prefix "g"
        :desc "Worktrees" "w" #'magit-worktree)
+
       (:prefix "i"
        :desc "Insert UUID" "U" #'uuidgen)
 
@@ -123,3 +124,5 @@
   (evil-make-intercept-map wordel-select-mode-map)
   (evil-set-initial-state  'wordel-mode 'insert)
   (evil-set-initial-state  'wordel-select-mode 'insert))
+
+(define-key evil-normal-state-map "z=" (cons "Correct Spelling" #'jinx-correct))
