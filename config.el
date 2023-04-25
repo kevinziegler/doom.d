@@ -195,12 +195,6 @@
         treemacs-recenter-after-file-follow t
         treemacs-project-follow-cleanup t)
 
-  ;; Doom's +treemacs/toggle function uses delete-window to remove the treemacs
-  ;; window, which doesn't call the quit hooks.  To resize the frame when using
-  ;; the 'SPC o p' toggle we have to advise this function to trigger the resize
-  ;; explicitly.
-  (advice-add '+treemacs/toggle :around #'kdz/treemacs-toggle-resize-advice)
-
   (treemacs-modify-theme "kaolin"
     :config
     (progn
@@ -217,18 +211,15 @@
       (kdz/treemacs-all-the-icons (constant) "material" "info_outline" :face 'font-lock-keyword-face)
       (kdz/treemacs-all-the-icons ("json") "fileicon" "jsonld")
       (kdz/treemacs-all-the-icons ("csv") "faicon" "table")
-      (kdz/treemacs-all-the-icons ("editorconfig" "envrc" "envrc.local") "faicon" "table")))
-
-  (add-hook 'treemacs-select-functions #'kdz/treemacs-init-grow-frame)
-  (add-hook 'treemacs-quit-hook #'kdz/treemacs-quit-shrink-frame))
+      (kdz/treemacs-all-the-icons ("editorconfig" "envrc" "envrc.local") "faicon" "table"))))
 
 (after! vertico
   (setq orderless-matching-styles '(orderless-prefixes orderless-regexp)
         vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
         vertico-posframe-poshandler (kdz/posframe-interior-top 200))
+
   (advice-add #'vertico--format-candidate
-              :around
-              #'kdz/vertico--format-candiate-marker-advice))
+              :around #'kdz/vertico--format-candiate-marker-advice))
 
 (after! vterm (setq vterm-shell (brew-bin "zsh")))
 
