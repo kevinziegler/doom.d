@@ -244,6 +244,5 @@
 (load! "conf.d/keybinds")
 (load! "conf.d/org")
 (load! "conf.d/org/capture")
-(load! "conf.d/smerge")
 (load! "conf.d/org/ob-async-advice")
 (load! "conf.d/local" nil t)
