@@ -96,7 +96,6 @@
 (package! org-modern)
 ;; (package! org-super-agenda)
 (package! ox-clip)
-(package! ox-gfm)
 (package! valign)
 
 ;; Extra org-mode packages (Github)
