@@ -140,6 +140,8 @@
 
   ;; ATM hardcoded in other places, so changing breaks stuff
   ;; (alist-get 'name +org-capture-frame-parameters) "❖ Capture")
+
+  ;; Disable modeline in Capture buffer window
   (setq +org-capture-fn
         (lambda ()
           (interactive)
