@@ -1,7 +1,6 @@
 ;;; $DOOMDIR/config-org.el -*- lexical-binding: t; -*-
 
 (after! org
-  (require 'ox-gfm nil t)
   (require 'org-expiry)
 
   (global-org-modern-mode)
@@ -50,8 +49,6 @@
                                         (:tangle . "no")
                                         (:comments . "link")))
 
-  (add-transient-hook! #'org-babel-execute-src-block (require 'ob-async))
-
   (add-hook 'org-mode-hook #'kdz/writing-minor-modes)
   (add-hook 'org-mode-hook #'valign-mode)
   (add-hook 'org-mode-hook #'org-appear-mode)
@@ -66,48 +63,6 @@
                                        #'org-appear-manual-stop
                                        nil
                                        t)))
-
-  (appendq! +ligatures-extra-symbols
-            `(:checkbox      ""
-              :pending       ""
-              :checkedbox    ""
-              :created       ""
-              :closed        ""
-              :list_property "∷"
-              :em_dash       "—"
-              :ellipses      "…"
-              :arrow_right   "→"
-              :arrow_left    "←"
-              :property      ""
-              :header        "›"
-              :properties    ""
-              :end           ""
-              :scheduled     ""
-              :deadline      ""
-              :name          "⁍"))
-
-  (set-ligatures! 'org-mode
-    :merge t
-    :checkbox      "[ ]"
-    :pending       "[-]"
-    :checkedbox    "[X]"
-    :list_property "::"
-    :em_dash       "---"
-    :ellipsis      "..."
-    :arrow_right   "->"
-    :arrow_left    "<-"
-    :created       ":created:"
-    :closed        "CLOSED:"
-    :closed        "closed:"
-    :properties    ":PROPERTIES:"
-    :properties    ":properties:"
-    :end           ":END:"
-    :end           ":end:"
-    :filetags      "#+filetags:"
-    :scheduled     "SCHEDULED:"
-    :scheduled     "scheduled:"
-    :deadline      "DEADLINE:"
-    :deadline      "deadline:")
 
   (advice-add #'org-babel-variable-assignments:plantuml
               :override
