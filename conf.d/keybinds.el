@@ -21,6 +21,9 @@
       (:prefix "w"
        :desc "Swap Window" "a" #'ace-swap-window)
 
+      (:prefix "n"
+       :desc "Jump to Notes Workspace" "w" #'kdz/switch-to-notes)
+
       (:prefix-map ("y" . "Copy as Format")
        :desc "Copy for Slack" "s" #'copy-as-format-slack
        :desc "Copy for Jira"  "j" #'copy-as-format-jira
