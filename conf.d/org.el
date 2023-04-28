@@ -10,7 +10,6 @@
         org-appear-trigger 'manual
         org-auto-align-tags nil
         org-babel-results-keyword "results"
-        org-default-notes-file "~/notes/notes.org"
         org-directory "~/notes/"
         org-ellipsis " ⋯"
         org-fold-catch-invisible-edits 'show-and-error
