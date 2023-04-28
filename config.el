@@ -245,8 +245,8 @@
 (add-to-list 'global-display-fill-column-indicator-modes '(not markdown-mode))
 (global-display-fill-column-indicator-mode)
 
+(load! "conf.d/local" nil t)
 (load! "conf.d/keybinds")
 (load! "conf.d/org")
 (load! "conf.d/org/capture")
 (load! "conf.d/org/ob-async-advice")
-(load! "conf.d/local" nil t)
