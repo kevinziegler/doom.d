@@ -69,13 +69,6 @@
         asdf-specified-python
       (apply origin-fn args))))
 
-(defmacro kdz/doom-run-in-workspace (workspace function)
-  `(advice-add ,function
-    :before (lambda (&rest _)
-              (when `(modulep! :ui workspaces)
-                (+workspace-switch ,workspace t)))))
-
-
 (defun kdz/lsp-java-enable-lombok-support (lombok-version)
   (let* ((mvn-base "~/.m2")
          (lombok-package "org.projectlombok.lombok")
