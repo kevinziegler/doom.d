@@ -241,6 +241,10 @@
 (add-hook! 'size-indication-mode (setq size-indication-mode nil))
 (add-hook! (gfm-mode markdown-mode) #'visual-line-mode #'turn-off-auto-fill)
 
+(add-to-list 'global-display-fill-column-indicator-modes '(not org-mode))
+(add-to-list 'global-display-fill-column-indicator-modes '(not markdown-mode))
+(global-display-fill-column-indicator-mode)
+
 (load! "conf.d/keybinds")
 (load! "conf.d/org")
 (load! "conf.d/org/capture")
