@@ -172,7 +172,7 @@
   (kdz/doom-run-in-workspace "*Doom Documentation*" #'doom/help-modules))
 
   ;; Pin workspaces to the front of our workspace list
-  (advice-add 'persp-add-to-menu :after #'kdz/pin-workspaces))
+  ;; (kdz/pin-workspaces! "*Notes*" "*Doom Documentation*"))
 
 
 (after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
