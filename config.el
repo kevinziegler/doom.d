@@ -229,20 +229,20 @@
         which-key-idle-secondary-delay 0.05))
 
 ;; Explicitly specify modes for certain file types
-(kdz/add-all-to-list 'auto-mode-alist
-                     '("\\.puml$" . plantuml-mode)
-                     '("/Tiltfile.*\\'" . bazel-starlark-mode)
-                     '("\\.tsx\\'" . typescript-tsx-mode)
-                     '("\\.jq$" . jq-mode))
+(push '(("\\.puml$" . plantuml-mode)
+        ("/Tiltfile.*\\'" . bazel-starlark-mode)
+        ("\\.tsx\\'" . typescript-tsx-mode)
+        ("\\.jq$" . jq-mode))
+      auto-mode-alist)
 
 ;; Apply hooks for various modes
 (add-hook 'markdown-mode-hook #'kdz/writing-minor-modes)
 (add-hook 'Info-selection-hook 'info-colors-fontify-node)
-(add-hook! 'size-indication-mode (setq size-indication-mode nil))
 (add-hook! (gfm-mode markdown-mode) #'visual-line-mode #'turn-off-auto-fill)
 
-(add-to-list 'global-display-fill-column-indicator-modes '(not org-mode))
-(add-to-list 'global-display-fill-column-indicator-modes '(not markdown-mode))
+(push '((not org-mode) (not markdown-mode))
+      global-display-fill-column-indicator-modes)
+
 (global-display-fill-column-indicator-mode)
 
 (load! "conf.d/local" nil t)
