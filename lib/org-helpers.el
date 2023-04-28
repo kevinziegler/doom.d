@@ -61,3 +61,9 @@
   (org-narrow-to-subtree)
   (org-show-todo-tree nil))
 
+(defmacro kdz/org-appear-hook-evil-state (evil-state)
+  `(lambda ()
+     (add-hook ',(intern (concat "evil-" evil-state "-entry-hook"))
+               #'org-appear-manual-start)
+     (add-hook ',(intern (concat "evil-" evil-state "-exit-hook"))
+               #'org-appear-manual-stop)))
