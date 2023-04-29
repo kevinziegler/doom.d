@@ -53,9 +53,9 @@
   (add-hook 'org-mode-hook #'org-appear-mode)
   (add-hook 'org-mode-hook #'org-modern-mode)
   (add-hook 'org-mode-hook #'org-autolist-mode)
-  (add-hook 'org-mode-hook (kdz/org-appear-hook-evil-state "insert-state"))
-  (add-hook 'org-mode-hook (kdz/org-appear-hook-evil-state "visual-state"))
-  (add-hook 'org-mode-hook (kdz/org-appear-hook-evil-state "motion-state"))
+  (add-hook 'org-mode-hook #'(kdz/org-appear-hook-evil-state "insert-state"))
+  (add-hook 'org-mode-hook #'(kdz/org-appear-hook-evil-state "visual-state"))
+  (add-hook 'org-mode-hook #'(kdz/org-appear-hook-evil-state "motion-state"))
 
   (advice-add #'org-babel-variable-assignments:plantuml
               :override
