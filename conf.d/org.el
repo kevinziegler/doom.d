@@ -68,6 +68,9 @@
   (org-link-set-parameters "gh" :follow (kdz/follow-suffix-link "https://github.com"))
   (org-link-set-parameters "gl" :follow (kdz/follow-suffix-link "https://gitlab.com"))
 
+  (after! ox
+    (add-to-list 'org-export-filter-link-functions
+                 #'kdz/ox-filter-git-file-link))
   (when hosted-gitlab-host
     (org-link-set-parameters "hgl"
                              :follow (kdz/follow-suffix-link hosted-gitlab-host)))

@@ -228,6 +228,9 @@
         which-key-idle-delay 0.5
         which-key-idle-secondary-delay 0.05))
 
+(after! git-link
+  (advice-add #'git-link--branch :after-until #'kdz/git-link--tag))
+
 ;; Explicitly specify modes for certain file types
 (kdz/add-all-to-list 'auto-mode-alist
                      '("\\.puml$" . plantuml-mode)
