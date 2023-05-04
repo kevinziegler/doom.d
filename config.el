@@ -93,6 +93,7 @@
 ;;   (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) ";"))
 
 (after! doom-modeline
+  (remove-hook 'doom-modeline-mode-hook #'size-indication-mode)
   (setq doom-modeline-percent-position nil
         doom-modeline-buffer-encoding nil
         doom-modeline-buffer-file-name-style 'relative-to-project
