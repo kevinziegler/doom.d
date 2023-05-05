@@ -48,6 +48,12 @@
                                         (:tangle . "no")
                                         (:comments . "link")))
 
+  (setf (alist-get 'height +org-capture-frame-parameters) 15)
+  (setf (alist-get 'name +org-capture-frame-parameters) "❖ Capture")
+
+  (setq +org-capture-fn #'kdz/org-capture-no-modeline)
+  (setq doct-after-conversion-functions '(+doct-iconify-capture-templates))
+
   (add-hook 'org-mode-hook #'kdz/writing-minor-modes)
   (add-hook 'org-mode-hook #'valign-mode)
   (add-hook 'org-mode-hook #'org-appear-mode)
@@ -73,6 +79,7 @@
   (after! ox
     (add-to-list 'org-export-filter-link-functions
                  #'kdz/ox-filter-git-file-link))
+
   (after! ox-pandoc (add-to-list 'org-pandoc-options '(wrap . "none")))
   (when hosted-gitlab-host
     (org-link-set-parameters "hgl"
@@ -80,19 +87,4 @@
   (when jira-host
     (org-link-set-parameters "jira"
                              :follow (kdz/follow-suffix-link (format "%s/browse"
-                                                                     jira-host))))
-
-
-  (setf (alist-get 'height +org-capture-frame-parameters) 15)
-
-  ;; ATM hardcoded in other places, so changing breaks stuff
-  ;; (alist-get 'name +org-capture-frame-parameters) "❖ Capture")
-
-  ;; Disable modeline in Capture buffer window
-  (setq +org-capture-fn
-        (lambda ()
-          (interactive)
-          (set-window-parameter nil 'mode-line-format 'none)
-          (org-capture)))
-
-  (setq doct-after-conversion-functions '(+doct-iconify-capture-templates)))
+                                                                     jira-host)))))

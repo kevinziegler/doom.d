@@ -116,3 +116,9 @@ Lisp programs can force the template by setting KEYS to a string."
                                                                     (nth 1 template))))
                                    template)
                                  templates))))
+
+(defun kdz/org-capture-no-modeline ()
+  "Disable modeline when launching org-capture"
+  (interactive)
+  (set-window-parameter nil 'mode-line-format 'none)
+  (org-capture))
