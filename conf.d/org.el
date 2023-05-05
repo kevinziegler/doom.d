@@ -57,13 +57,15 @@
   (add-hook 'org-mode-hook #'(kdz/org-appear-hook-evil-state "visual-state"))
   (add-hook 'org-mode-hook #'(kdz/org-appear-hook-evil-state "motion-state"))
 
-  (advice-add #'org-babel-variable-assignments:plantuml
-              :override
-              #'kdz/org-babel-variable-assignments:plantuml)
 
-  (advice-add #'org-babel-plantuml-make-body
-              :override
-              #'kdz/org-babel-plantuml-make-body)
+  (advice-add 'org-babel-variable-assignments:plantuml
+              :override #'kdz/org-babel-variable-assignments:plantuml)
+  (advice-add 'org-babel-plantuml-make-body
+              :override #'kdz/org-babel-plantuml-make-body)
+  (advice-add 'org-mks
+              :override #'org-mks-pretty)
+  (advice-add 'org-capture-select-template
+              :override #'org-capture-select-template-prettier)
 
   (org-link-set-parameters "gh" :follow (kdz/follow-suffix-link "https://github.com"))
   (org-link-set-parameters "gl" :follow (kdz/follow-suffix-link "https://gitlab.com"))
@@ -81,11 +83,6 @@
 
   ;; Prevent automatic line wrapping when exporting via Pandoc
   (after! 'ox-pandoc (add-to-list 'org-pandoc-options '(wrap . "none")))
-
-  (advice-add 'org-capture-select-template
-              :override #'org-capture-select-template-prettier)
-
-  (advice-add 'org-mks :override #'org-mks-pretty)
 
   (setf (alist-get 'height +org-capture-frame-parameters) 15)
 
