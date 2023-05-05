@@ -45,7 +45,6 @@
       enable-local-variables t
       fancy-splash-image (kdz/config-resource "modern-sexy-v2_128.png")
       global-subword-mode 1
-      ispell-dictionary "en"
       ispell-personal-dictionary (kdz/config-resource "ispell_personal")
       mouse-wheel-flip-direction t
       mouse-wheel-tilt-scroll t
