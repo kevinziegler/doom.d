@@ -64,6 +64,6 @@
 (defmacro kdz/org-appear-hook-evil-state (evil-state)
   `(lambda ()
      (add-hook ',(intern (concat "evil-" evil-state "-entry-hook"))
-               #'org-appear-manual-start)
+               #'org-appear-manual-start nil t)
      (add-hook ',(intern (concat "evil-" evil-state "-exit-hook"))
-               #'org-appear-manual-stop)))
+               #'org-appear-manual-stop nil t)))
