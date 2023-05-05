@@ -73,6 +73,7 @@
   (after! ox
     (add-to-list 'org-export-filter-link-functions
                  #'kdz/ox-filter-git-file-link))
+  (after! ox-pandoc (add-to-list 'org-pandoc-options '(wrap . "none")))
   (when hosted-gitlab-host
     (org-link-set-parameters "hgl"
                              :follow (kdz/follow-suffix-link hosted-gitlab-host)))
@@ -81,8 +82,6 @@
                              :follow (kdz/follow-suffix-link (format "%s/browse"
                                                                      jira-host))))
 
-  ;; Prevent automatic line wrapping when exporting via Pandoc
-  (after! 'ox-pandoc (add-to-list 'org-pandoc-options '(wrap . "none")))
 
   (setf (alist-get 'height +org-capture-frame-parameters) 15)
 
