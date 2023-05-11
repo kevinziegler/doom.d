@@ -83,9 +83,6 @@
   :quit nil
   :modeline t)
 
-;; Activate pixel-precision scrolling
-(pixel-scroll-precision-mode)
-
 ;; Configurations to run after various packages load
 
 ;; (after! consult
@@ -100,6 +97,13 @@
         doom-modeline-hud t
         doom-modeline-persp-name t))
 
+(after! display-fill-column-indicator
+  (kdz/add-all-to-list 'global-display-fill-column-indicator-modes
+                       '(not org-mode)
+                       '(not markdown-mode))
+
+  (global-display-fill-column-indicator-mode))
+
 (after! evil
   (setq evil-kill-on-visual-paste nil
         evil-split-window-below t
@@ -110,6 +114,9 @@
   (setq evil-goggles-duration 1.0
         evil-goggles-pulse t))
 
+(after! git-link
+  (advice-add #'git-link--branch :after-until #'kdz/git-link--tag))
+
 (after! hydra
   (defhydra hydra-git-timemachine ()
     "Git Time Machine"
@@ -119,6 +126,9 @@
     ("n" git-timemachine-show-next-revision "Next revision"))
 
   (add-hook! git-timemachine-mode #'hydra-git-timemachine/body))
+
+(after! info-colors
+  (add-hook 'Info-selection-hook 'info-colors-fontify-node))
 
 (after! kaolin-themes
   (setq kaolin-themes-bold t
@@ -156,7 +166,9 @@
 
 (after! markdown-mode
   (setq markdown-header-scaling t
-        markdown-fontify-code-blocks-natively t))
+        markdown-fontify-code-blocks-natively t)
+  (add-hook 'markdown-mode-hook #'kdz/writing-minor-modes)
+  (add-hook! (gfm-mode markdown-mode) #'visual-line-mode #'turn-off-auto-fill))
 
 (after! markdown-xwidget
   (setq markdown-xwidget-command "pandoc"
@@ -171,9 +183,7 @@
   (kdz/doom-run-in-workspace "*Notes*" #'+default/find-in-notes)
   (kdz/doom-run-in-workspace "*Doom Documentation*" #'doom/help-modules))
 
-  ;; Pin workspaces to the front of our workspace list
-  ;; (kdz/pin-workspaces! "*Notes*" "*Doom Documentation*"))
-
+(after! pixel-scroll (pixel-scroll-precision-mode))
 
 (after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
 
@@ -228,26 +238,12 @@
         which-key-idle-delay 0.5
         which-key-idle-secondary-delay 0.05))
 
-(after! git-link
-  (advice-add #'git-link--branch :after-until #'kdz/git-link--tag))
-
 ;; Explicitly specify modes for certain file types
 (kdz/add-all-to-list 'auto-mode-alist
                      '("\\.puml$" . plantuml-mode)
                      '("/Tiltfile.*\\'" . bazel-starlark-mode)
                      '("\\.tsx\\'" . typescript-tsx-mode)
                      '("\\.jq$" . jq-mode))
-
-;; Apply hooks for various modes
-(add-hook 'markdown-mode-hook #'kdz/writing-minor-modes)
-(add-hook 'Info-selection-hook 'info-colors-fontify-node)
-(add-hook! (gfm-mode markdown-mode) #'visual-line-mode #'turn-off-auto-fill)
-
-(kdz/add-all-to-list 'global-display-fill-column-indicator-modes
-                     '(not org-mode)
-                     '(not markdown-mode))
-
-(global-display-fill-column-indicator-mode)
 
 (load! "conf.d/local" nil t)
 (load! "conf.d/keybinds")
