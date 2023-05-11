@@ -188,8 +188,12 @@
 (after! plantuml-mode (setq plantuml-default-exec-mode 'executable))
 
 (after! projectile
-  (setq projectile-ignored-projects '("~/" "/tmp" "~/.emacs.d/.local/straight/repos/")
-        projectile-project-search-path '("~/dev")))
+  (setq projectile-ignored-projects '("~/"
+                                      "/tmp"
+                                      "~/.emacs.d/.local/straight/repos/")
+        projectile-project-search-path '(("~/.doom.d" . 0)
+                                         ("~/.dotfiles" . 0)
+                                         ("~/dev" . 5))))
 
 (after! python (set-ligatures! 'python-mode nil))
 
