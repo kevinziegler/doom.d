@@ -66,7 +66,7 @@
                      '(height . 60)
                      '(width . 235)
                      '(undecorated-round . t)
-                     '(internal-border-width . 10))
+                     '(internal-border-width . 8))
 
 ;; Customize popup rules
 (set-popup-rules!
