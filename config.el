@@ -138,24 +138,6 @@
         kaolin-themes-italic-comments t
         kaolin-themes-underline-wave nil))
 
-(after! lsp-mode
-  (setq lsp-headerline-breadcrumb-enable t
-        lsp-headerline-breadcrumb-segments '(symbols)
-        lsp-pyright-multi-root nil
-        lsp-idle-delay 0.8)
-
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\__pycache__\\'"))
-
-(after! lsp-java
-  (setq lsp-java-maven-download-sources t
-        lsp-java-import-maven-enabled t)
-
-  ;; NOTE Supply a lombok version to add the appropriate JVM args
-  (kdz/lsp-java-enable-lombok-support nil))
-
-(after! lsp-pyright
-  (advice-add 'lsp-pyright-locate-python :around #'kdz/lsp-pyright-path-advice))
-
 (after! magit
   (magit-org-todos-autoinsert)
   (magit-delta-mode +1)
@@ -202,7 +184,6 @@
   (kaolin-treemacs-theme)
 
   (setq +treemacs-git-mode 'deferred
-        lsp-treemacs-theme 'kaolin
         treemacs-collapse-dirs 7
         treemacs-width 45
         treemacs-follow-mode t

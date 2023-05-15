@@ -108,20 +108,6 @@
   ;; bind evil-jump-out-args
   (define-key evil-normal-state-map "K" 'evil-jump-out-args))
 
-(after! lsp
-  (map! :map lsp-mode-map
-        :leader
-        (:prefix "c"
-         :desc "Show Documentation" "h" #'lsp-ui-doc-show
-         :desc "Glance Documentation" "g" #'lsp-ui-doc-glance)
-
-        (:prefix "o"
-         :desc "Project Errors" "e" #'kdz/toggle-lsp-errors-list
-         :desc "Symbol Browser" "s" #'kdz/toggle-lsp-symbols)
-
-        (:prefix t
-         :desc "Toggle LSP Sideline Symbols" "S" #'lsp-ui-sideline-toggle-symbols-info)))
-
 (after! wordel
   (evil-make-intercept-map wordel-mode-map)
   (evil-make-intercept-map wordel-select-mode-map)

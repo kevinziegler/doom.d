@@ -59,7 +59,7 @@
        ein
        (eval +overlay)
        (lookup +docsets)
-       lsp
+       (lsp +eglot)
        magit
        pdf
        ;;prodigy           ; FIXME managing external services & code builders
