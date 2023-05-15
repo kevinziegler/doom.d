@@ -60,6 +60,7 @@
 (package! fwb-cmds)
 (package! git-link)
 (package! gnuplot)
+(package! imenu-list)
 (package! info-colors)
 (package! jinx)
 (package! jq-mode)

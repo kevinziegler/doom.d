@@ -13,7 +13,8 @@
        :desc "Insert UUID" "U" #'uuidgen)
 
       (:prefix "o"
-       :desc "Connect to Jupyter Notebook" "s" #'ein:notebooklist-login)
+       :desc "Connect to Jupyter Notebook" "s" #'ein:notebooklist-login
+       :desc "Show Symbols List" "m" #'imenu-list)
 
       (:prefix "t"
        :desc "Light/Dark Theme" "t" #'kdz/toggle-light-theme)
