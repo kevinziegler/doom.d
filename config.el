@@ -227,7 +227,9 @@
 (after! which-key
   (setq which-key-ellipsis "»"
         which-key-idle-delay 0.5
-        which-key-idle-secondary-delay 0.05))
+        which-key-idle-secondary-delay 0.05
+        which-key-prefix-prefix "⬮ "
+        which-key-sort-order #'which-key-prefix-then-key-order))
 
 ;; Explicitly specify modes for certain file types
 (kdz/add-all-to-list 'auto-mode-alist
