@@ -36,7 +36,7 @@
        vc-gutter
        window-select
        workspaces
-       zen
+       ;; zen
 
        :editor
        (evil +everywhere)
@@ -44,7 +44,7 @@
        fold
        format
        rotate-text
-       snippets
+       ;; snippets
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs (dired +icons) electric undo vc
