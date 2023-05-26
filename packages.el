@@ -70,6 +70,7 @@
 (package! magit-org-todos)
 (package! mermaid-mode)
 (package! modern-fringes)
+(package! olivetti)
 (package! page-break-lines)
 (package! protobuf-mode)
 (package! string-inflection)

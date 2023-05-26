@@ -166,6 +166,9 @@
 
 (after! modern-fringes (modern-fringes-mode t))
 
+(after! olivetti
+  (setq olivetti-body-width 122))
+
 (after! persp-mode
   ;; Set up dedicated workspaces for Org-mode notes and Doom documentation
   (kdz/doom-run-in-workspace "*Notes*" #'+default/find-in-notes)
