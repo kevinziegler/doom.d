@@ -78,7 +78,12 @@
       (setq evil-repeat-info '([?g ?~])))
 
     (define-key evil-normal-state-map
-      (kbd "g~") 'evil-operator-string-inflection)
+                (kbd "g~")
+                (cons "Cycle Inflection" #'evil-operator-string-inflection))
+
+    (define-key evil-normal-state-map
+                (kbd "z=")
+                (cons "Correct Spelling" #'jinx-correct))
 
     (evil-ex-define-cmd "W" 'evil-write)
     (evil-ex-define-cmd "Wq" 'evil-save-and-close)
@@ -115,4 +120,3 @@
   (evil-set-initial-state  'wordel-mode 'insert)
   (evil-set-initial-state  'wordel-select-mode 'insert))
 
-(define-key evil-normal-state-map "z=" (cons "Correct Spelling" #'jinx-correct))
