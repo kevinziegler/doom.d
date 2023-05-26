@@ -1,6 +1,8 @@
 (map! :leader
       :desc "Command" "SPC" #'execute-extended-command
 
+      (:prefix "TAB" :desc "Switch Workspace" "SPC" #'+workspace/switch-to)
+
       (:prefix "b"
        :desc "Messages" "m" #'switch-to-message-buffer
        :desc "New empty ORG buffer" "o" #'evil-buffer-org-new
