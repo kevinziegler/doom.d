@@ -243,6 +243,7 @@
 
 (load! "conf.d/local" nil t)
 (load! "conf.d/keybinds")
+(load! "conf.d/keybinds-removed")
 (load! "conf.d/org")
 (load! "conf.d/org/capture")
 (load! "conf.d/org/ob-async-advice")
