@@ -5,6 +5,7 @@
 
   (global-org-modern-mode)
   (setq doom-themes-org-fontify-special-tags nil
+        org-agenda-files '("~/notes")
         org-appear-autokeywords t
         org-appear-autolinks t
         org-appear-trigger 'manual
@@ -21,7 +22,6 @@
         org-html-doctype "html5"
         org-insert-heading-respect-content t
         org-list-allow-alphabetical t
-        org-modern-hide-stars t
         org-modern-table nil
         org-modern-table-horizontal 3
         org-plantuml-exec-mode 'executable
@@ -39,14 +39,16 @@
                                         ("*" . "-")
                                         ("1." . "a."))
 
-        org-babel-default-header-args '((:session . "none")
-                                        (:results . "replace")
+        org-babel-default-header-args '((:cache . "no")
+                                        (:comments . "link")
                                         (:exports . "code")
-                                        (:cache . "no")
-                                        (:noweb . "no")
                                         (:hlines . "no")
-                                        (:tangle . "no")
-                                        (:comments . "link")))
+                                        (:noweb . "no")
+                                        ;; TODO Can we make this something that evaluates per-file?
+                                        ;; (:output-dir . (concat (file-name-base) ".exports"))
+                                        (:results . "replace")
+                                        (:session . "none")
+                                        (:tangle . "no")))
 
   (setf (alist-get 'height +org-capture-frame-parameters) 15)
   (setf (alist-get 'name +org-capture-frame-parameters) "❖ Capture")
