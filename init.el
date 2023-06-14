@@ -70,19 +70,20 @@
        data
        emacs-lisp
        (go +lsp)
-       (json +lsp)
+       (json +lsp +tree-sitter)
        (java +lsp +tree-sitter)
        (javascript +lsp +tree-sitter)
        (kotlin +lsp)
-       (lua +lsp)
+       (lua +lsp +tree-sitter)
        (markdown +grip)
        (org +dragndrop +pandoc +present)
        plantuml
-       (python +lsp +pyright +poetry +tree-sitter)
+       (python +lsp +pyright +tree-sitter)
        rest
+       (scala +lsp +tree-sitter)
        (sh +lsp +tree-sitter)
        (web +lsp +tree-sitter)
-       (yaml +lsp)
+       (yaml +lsp +tree-sitter)
 
        :email
        ;;(mu4e +gmail)
