@@ -6,12 +6,18 @@
       ":"  nil ;; M-x
       "<"  nil ;; Switch buffer
       "`"  nil ;; Switch to last buffer
+
       "bO" nil ;; Kill other buffers
       "bZ" nil ;; Kill buried buffers
       "b[" nil ;; previous buffer
       "b]" nil ;; next buffer:
       "bu" nil ;; Save buffer as root
       "bz" nil ;; Bury buffer
+
+      "cc" nil ;; compile
+      "cC" nil ;; Recompile
+      "cd" nil ;; Jump to definition (mimics `gd')
+      "cD" nil ;; Jump to references (mimics `gD')
 
       ;; File-related actions
       "fc" nil ;; Edit project editorconfig
@@ -39,6 +45,8 @@
       "gb" nil ;; Magit switch branch
       "gr" nil ;; Git revert hunk at point
       "gs" nil ;; Git stage hunk at point
+      "gc" nil ;; "Create" menu
+      "g'" nil ;; "Forge" dispatch
 
       ;; Note-related actions
       "nC" nil ;; Cancel current org clock
@@ -52,6 +60,7 @@
       "oD" nil ;; Docker
       "oL" nil ;; Send to Project Launchbar
       "oU" nil ;; Send project to Transmit
+      "ou" nil ;; Send to Transmit
       "ol" nil ;; Send to Launchbar
 
 
@@ -64,6 +73,15 @@
 
       ;; Search Actions
       "sm" nil ;; Jump to bookmark
+      "sr" nil ;; Jump to mark
+      "sf" nil ;; Locate File
+      "sj" nil ;; "Jump List"
+      "se" nil ;; Search emacs.d
+      "sb" nil ;; Search current buffer
+      "sT" nil ;; Search Thesaurus
+      "sK" nil ;; Search in all docsets
+      "sB" nil ;; Search all open buffers
+      "st" nil ;; Search Dictionary
 
       ;; Window-related actions - Doom sets up A LOT by default
       "w :" nil
@@ -107,4 +125,5 @@
       "wt" nil
       "wv" nil
       "ww" nil
+
       )
