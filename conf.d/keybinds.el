@@ -8,24 +8,11 @@
        :desc "New empty ORG buffer" "o" #'evil-buffer-org-new
        :desc "Copy Buffer" "y" #'doom/copy-buffer-contents)
 
-      (:prefix "g"
-       :desc "Worktrees" "w" #'magit-worktree)
-
-      (:prefix "i"
-       :desc "Insert UUID" "U" #'uuidgen)
-
-      (:prefix "o"
-       :desc "Connect to Jupyter Notebook" "s" #'ein:notebooklist-login
-       :desc "Show Symbols List" "m" #'imenu-list)
-
-      (:prefix "t"
-       :desc "Light/Dark Theme" "t" #'kdz/toggle-light-theme)
-
-      (:prefix "w"
-       :desc "Swap Window" "a" #'ace-swap-window)
-
-      (:prefix "n"
-       :desc "Jump to Notes Workspace" "w" #'kdz/switch-to-notes)
+      (:prefix "o" :desc "Show Symbols List" "m" #'imenu-list)
+      (:prefix "t" :desc "Light/Dark Theme" "t" #'kdz/toggle-light-theme)
+      ;; TODO Make this w-w?
+      (:prefix "w" :desc "Swap Window" "a" #'ace-swap-window)
+      (:prefix "n" :desc "Jump to Notes Workspace" "w" #'kdz/switch-to-notes)
 
       (:prefix-map ("y" . "Copy as Format")
        :desc "Copy for Slack" "s" #'copy-as-format-slack
@@ -58,10 +45,7 @@
          :desc "Promote subtree" "h" #'org-promote-subtree
          :desc "Demote subtree" "l" #'org-demote-subtree
          :desc "Move Subtree Up" "k" #'org-move-subtree-up
-         :desc "Move Subtree Down" "j" #'org-move-subtree-down))
-
-  (map! :map org-mode-map
-        :leader
+         :desc "Move Subtree Down" "j" #'org-move-subtree-down)
         (:prefix "i"
          :desc "Heading" "h" #'evil-org-org-insert-heading-respect-content-below
          :desc "Parent Heading" "H" #'kdz/org-insert-heading-up
