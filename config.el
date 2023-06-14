@@ -63,11 +63,10 @@
               prescient-history-length 1000)
 
 ;; Set default frame properties
-(kdz/add-all-to-list 'default-frame-alist
-                     '(height . 60)
-                     '(width . 235)
-                     '(undecorated-round . t)
-                     '(internal-border-width . 8))
+(add-to-list 'default-frame-alist '(height . 60))
+(add-to-list 'default-frame-alist '(width . 235))
+(add-to-list 'default-frame-alist '(undecorated-round . t))
+(add-to-list 'default-frame-alist '(internal-border-width . 8))
 
 ;; Customize popup rules
 (set-popup-rules!
@@ -104,10 +103,8 @@
         doom-modeline-persp-name t))
 
 (after! display-fill-column-indicator
-  (kdz/add-all-to-list 'global-display-fill-column-indicator-modes
-                       '(not org-mode)
-                       '(not markdown-mode))
-
+  (add-to-list 'global-display-fill-column-indicator-modes '(not org-mode))
+  (add-to-list 'global-display-fill-column-indicator-modes '(not markdown-mode))
   (global-display-fill-column-indicator-mode))
 
 (after! evil
@@ -235,11 +232,10 @@
         which-key-sort-order #'which-key-prefix-then-key-order))
 
 ;; Explicitly specify modes for certain file types
-(kdz/add-all-to-list 'auto-mode-alist
-                     '("\\.puml$" . plantuml-mode)
-                     '("/Tiltfile.*\\'" . bazel-starlark-mode)
-                     '("\\.tsx\\'" . typescript-tsx-mode)
-                     '("\\.jq$" . jq-mode))
+(add-to-list 'auto-mode-alist '("\\.puml$" . plantuml-mode))
+(add-to-list 'auto-mode-alist '("/Tiltfile.*\\'" . bazel-starlark-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
+(add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
 
 (load! "conf.d/local" nil t)
 (load! "conf.d/keybinds")
