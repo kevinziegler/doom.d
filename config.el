@@ -4,6 +4,7 @@
 (use-package! which-key-posframe)
 (use-package! org-modern)
 (use-package! org-autolist)
+(use-package! chatgpt-shell)
 
 (use-package jinx
   :hook (emacs-startup . global-jinx-mode))

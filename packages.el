@@ -53,6 +53,7 @@
 
 (package! bazel)
 (package! bookmark+)
+(package! chatgpt-shell)
 (package! copy-as-format)
 (package! dirvish)
 (package! evil-args)
