@@ -74,6 +74,7 @@
 (package! modern-fringes)
 (package! olivetti)
 (package! page-break-lines)
+(package! pretty-hydra)
 (package! protobuf-mode)
 (package! string-inflection)
 (package! uuidgen)
