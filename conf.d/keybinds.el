@@ -9,8 +9,7 @@
        :desc "Copy Buffer" "y" #'doom/copy-buffer-contents)
 
       (:prefix "o" :desc "Show Symbols List" "m" #'imenu-list)
-      ;; TODO Make this w-w?
-      (:prefix "w" :desc "Swap Window" "a" #'ace-swap-window)
+      (:prefix "w" :desc "Swap Window" "w" #'ace-swap-window)
       (:prefix "n" :desc "Jump to Notes Workspace" "w" #'kdz/switch-to-notes)
 
       (:prefix-map ("y" . "Copy as Format")
