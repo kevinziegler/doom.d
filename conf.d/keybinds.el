@@ -9,7 +9,6 @@
        :desc "Copy Buffer" "y" #'doom/copy-buffer-contents)
 
       (:prefix "o" :desc "Show Symbols List" "m" #'imenu-list)
-      (:prefix "t" :desc "Light/Dark Theme" "t" #'kdz/toggle-light-theme)
       ;; TODO Make this w-w?
       (:prefix "w" :desc "Swap Window" "a" #'ace-swap-window)
       (:prefix "n" :desc "Jump to Notes Workspace" "w" #'kdz/switch-to-notes)

@@ -15,17 +15,6 @@
          (password (funcall (plist-get credentials :secret))))
     (base64-encode-string (concat user ":" password))))
 
-(defun kdz/toggle-light-theme ()
-  (interactive)
-  (if-let ((doom-light-theme doom-light-theme)
-           (doom-dark-theme doom-dark-theme)
-           (toggle-to (if (eq doom-theme doom-dark-theme)
-                          doom-light-theme doom-dark-theme)))
-      (progn
-        (setq doom-theme toggle-to)
-        (load-theme doom-theme :no-confirm))
-    (message "Must define values for 'doom-dark-theme and 'doom-light-theme")))
-
 (defmacro kdz/treemacs-all-the-icons (extensions iconset icon &rest icon-params)
   `(treemacs-create-icon
        :icon (format " %s "
