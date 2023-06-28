@@ -152,7 +152,7 @@
 (after! markdown-mode
   (setq markdown-header-scaling t
         markdown-fontify-code-blocks-natively t)
-  (add-hook 'markdown-mode-hook #'kdz/writing-minor-modes)
+  (after! mixed-pitch (add-hook 'markdown-mode-hook #'kdz/writing-minor-modes))
   (add-hook! (gfm-mode markdown-mode) #'visual-line-mode #'turn-off-auto-fill))
 
 (after! markdown-xwidget

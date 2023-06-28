@@ -53,7 +53,7 @@
 
 (defun kdz/writing-minor-modes ()
   "Adjust various minor modes for writing quality-of-life"
-  (mixed-pitch-mode t)
+  (mixed-pitch-mode)
   (visual-line-mode t)
   (display-fill-column-indicator-mode -1)
   (display-line-numbers-mode -1))

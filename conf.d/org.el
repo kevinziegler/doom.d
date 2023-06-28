@@ -56,7 +56,8 @@
   (setq +org-capture-fn #'kdz/org-capture-no-modeline)
   (setq doct-after-conversion-functions '(+doct-iconify-capture-templates))
 
-  (add-hook 'org-mode-hook #'kdz/writing-minor-modes)
+  (after! mixed-pitch
+    (add-hook 'org-mode-hook #'kdz/writing-minor-modes))
   (add-hook 'org-mode-hook #'valign-mode)
   (add-hook 'org-mode-hook #'org-appear-mode)
   (add-hook 'org-mode-hook #'org-modern-mode)
