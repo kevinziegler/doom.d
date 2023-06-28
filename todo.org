@@ -221,12 +221,6 @@ for f in files:
 - authinfo entry
 - argbash script headers/templating
 
-* 1Password Credential Helper
-Pull credentials from 1Password using their CLI application
-
-Setting temporary env vars in Elisp:
-https://www.gnu.org/software/emacs/manual/html_node/elisp/System-Environment.html
-
 * Automation for 1-1 Meetings
 ** Capture a topic for an upcoming meeting
 - Create 'upcoming' meeting if it doesn't already exist
@@ -254,3 +248,31 @@ https://www.gnu.org/software/emacs/manual/html_node/elisp/System-Environment.htm
 * Popup Rule Helper Functions
 - Grow the size of the frame to accommodate new buffer to the side
 - Replace buffer if already split
+
+* Stripping down keybindings
+- Doom keybinds a bunch of things
+- A lot of these are things that I don't use on a regular basis (or have alternatives for)
+
+** Leader Mappings (SPC) to Keep
+- SPC :: Run M-X command
+- RETURN :: Jump to Bookmark
+- x :: pop up scratch buffer
+- x :: Org Capture
+
+** Leader Mappings to remove
+- s -> m :: "Jump to bookmark"
+- o -> l :: "Send to Launchbar"
+- o -> L :: "Send project to Launchbar"
+
+* Keymapping Overview
+** Org-Mode Bindings
+*** i :: Insert Things
+- h :: Insert a heading
+- s :: Insert a sub-heading
+- t :: Insert a table
+- l :: Insert a link (=org-insert-link=)
+- p :: Insert a property (=org-set-property=)
+
+* Window Resize Hydra
+- Persistent Hydra to shrink/grow window
+- Replace most of the =<SPC>-w= bindings
