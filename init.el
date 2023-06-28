@@ -36,7 +36,6 @@
        vc-gutter
        window-select
        workspaces
-       ;; zen
 
        :editor
        (evil +everywhere)
