@@ -84,6 +84,11 @@
                  #'kdz/ox-filter-git-file-link))
 
   (after! ox-pandoc (add-to-list 'org-pandoc-options '(wrap . "none")))
+  (dolist (host gitlab-hosts-alist)
+    (let ((name (car host))
+          (url (cdr host)))
+      (org-link-set-parameters (concat "gl-" name)
+                               :follow (kdz/follow-suffix-link url))))
   (when hosted-gitlab-host
     (org-link-set-parameters "hgl"
                              :follow (kdz/follow-suffix-link hosted-gitlab-host)))
