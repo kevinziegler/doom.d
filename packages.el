@@ -69,6 +69,7 @@
 (package! magit-delta)
 (package! magit-org-todos)
 (package! mermaid-mode)
+(package! mixed-pitch)
 (package! modern-fringes)
 (package! olivetti)
 (package! page-break-lines)
