@@ -65,6 +65,7 @@
   (add-hook 'org-mode-hook (kdz/org-appear-hook-evil-state insert-state))
   (add-hook 'org-mode-hook (kdz/org-appear-hook-evil-state visual-state))
   (add-hook 'org-mode-hook (kdz/org-appear-hook-evil-state motion-state))
+  (add-hook 'org-mode-hook (lambda () (setq line-spacing 0.2)))
 
   (advice-add 'org-babel-variable-assignments:plantuml
               :override #'kdz/org-babel-variable-assignments:plantuml)
