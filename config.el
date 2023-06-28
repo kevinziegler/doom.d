@@ -91,7 +91,7 @@
 ;;   (setf (plist-get (alist-get 'perl consult-async-split-styles-alist) :initial) ";"))
 
 (after! ace-window
-  (set-face-attribute 'aw-leading-char-face nil :height 5.0))
+  (set-face-attribute 'aw-leading-char-face nil :height 3.0))
 
 (after! doom-modeline
   (remove-hook 'doom-modeline-mode-hook #'size-indication-mode)
