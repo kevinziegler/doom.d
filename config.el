@@ -1,13 +1,11 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 (use-package! page-break-lines)
-(use-package! which-key-posframe)
 (use-package! org-modern)
 (use-package! org-autolist)
 (use-package! chatgpt-shell)
 
-(use-package jinx
-  :hook (emacs-startup . global-jinx-mode))
+(use-package jinx :hook (emacs-startup . global-jinx-mode))
 
 (mapc (lambda (lib-file) (load! (concat "lib/" lib-file)))
       (directory-files (expand-file-name "lib" doom-user-dir) nil "\\.el$"))
