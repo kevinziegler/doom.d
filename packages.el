@@ -56,6 +56,7 @@
 (package! chatgpt-shell)
 (package! copy-as-format)
 (package! dirvish)
+(package! eldoc-box)
 (package! evil-args)
 (package! fwb-cmds)
 (package! git-link)
