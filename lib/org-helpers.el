@@ -67,3 +67,36 @@
                #'org-appear-manual-start nil t)
      (add-hook ',(intern (concat "evil-" (symbol-name evil-state) "-exit-hook"))
                #'org-appear-manual-stop nil t)))
+
+(defun kdz/org-output-dir ()
+  "Helper to set the default path for org babel outputs (via the :dir header)"
+  (concat (file-name-base (buffer-file-name)) ".outputs"))
+
+;; This works to insert a new line in cases where it's missing, sort of:
+;; - It still doesn't address cases where the section element has _multiple_ newlines
+;; - Need to see how it works when a section contains only newline(s)
+;;
+;; Rules for end-of-section blanks:
+;; - If a section has content, then that section should end with a blank
+;;   - "properties" an other metadata are not counted as content
+;; - If the next section in the document is at a higher level (i.e. is not a
+;;   sibling or a child), then the section should close with two blank lines
+(defun kdz/section-add-newline-maybe (section-element edit-count)
+  (when (eq 0 (org-element-property :post-blank section-element))
+    (save-excursion
+      (goto-char (+ edit-count (org-element-property :end section-element)))
+      (cl-incf edit-count)
+      (insert hard-newline))))
+
+(defun kdz/org-inject-section-blanks ()
+  (let ((edited-section-count 0))
+    (org-element-map (org-element-parse-buffer) 'section
+      (lambda (section-element)
+        (kdz/section-add-newline-maybe section-element edited-section-count)))))
+
+(defun kdz/org-export-path (file-name &optional subpath)
+  (interactive "f")
+  (concat (file-name-base file-name)
+          ".exports"
+          (when subpath "/")
+          subpath))
