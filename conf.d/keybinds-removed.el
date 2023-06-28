@@ -127,3 +127,14 @@
       "ww" nil
 
       )
+
+(map! :leader (:prefix "TAB"
+                       "N" nil ;; new named workspace
+                       "R" nil ;; restore last session
+                       "." nil ;; Switch workspace (replaces by TAB -> SPC)
+                       "[" nil ;; previous workspace
+                       "]" nil ;; next workspace
+                       "x" nil ;; delete session
+                       "s" nil ;; Save workspace to file
+                       "l" nil ;; Load workspace from file
+                       ))
