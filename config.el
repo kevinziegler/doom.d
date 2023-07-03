@@ -26,11 +26,11 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
-(setq doom-big-font (font-spec :family "Iosevka Comfy" :size 14)
-      doom-font (font-spec :family "Iosevka Comfy" :size 13)
-      doom-serif-font (font-spec :family "Iosevka Comfy Motion" :size 13)
-      doom-unicode-font (font-spec :family "Iosevka Term")
-      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 13))
+(setq doom-big-font (kdz/find-and-use-font kdz--mono-sans-font-list 14)
+      doom-font (kdz/find-and-use-font kdz--mono-sans-font-list 13)
+      doom-serif-font (kdz/find-and-use-font kdz--mono-serif-font-list 13)
+      doom-unicode-font (kdz/find-and-use-font kdz--unicode-font-list)
+      doom-variable-pitch-font (kdz/find-and-use-font kdz--variable-pitch-font-list 13))
 
 ;; Set variables native to emacs
 (setq user-full-name "Kevin Ziegler"
