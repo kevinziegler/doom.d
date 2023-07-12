@@ -108,6 +108,7 @@
 ;; Themes.  Lots of themes.
 (package! arc-dark-theme)
 (package! busybee-theme)
+(package! catppuccin-theme)
 (package! darkmine-theme)
 (package! darktooth-theme)
 (package! gotham-theme)
