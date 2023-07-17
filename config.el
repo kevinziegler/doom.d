@@ -241,3 +241,11 @@
 (load! "conf.d/org")
 (load! "conf.d/org/capture")
 (load! "conf.d/org/ob-async-advice")
+
+;; (defun my-minibuffer-setup-hook ()
+;;   (buffer-face-set 'variable-pitch)
+;;   ; NOTE The leading space character is correct in the buffer name below
+;;   (with-current-buffer (get-buffer " *Echo Area 0*")
+;;     (setq-local face-remapping-alist '((default variable-pitch)))))
+
+;; (add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook)
