@@ -1,0 +1,10 @@
+#+title: Section Newlines Test
+
+* This is a top-level section
+It has some basic content
+** This is a child heading
+It should have a newline between it and the content from the parent section
+** This is another child
+It should also have a new line before it
+* This is another top-level section
+It should have 2 blank lines between the last section's content and this section
