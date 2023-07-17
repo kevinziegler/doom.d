@@ -61,8 +61,8 @@
               prescient-history-length 1000)
 
 ;; Set default frame properties
-(add-to-list 'default-frame-alist '(height . 60))
-(add-to-list 'default-frame-alist '(width . 235))
+(add-to-list 'default-frame-alist '(height . 70))
+(add-to-list 'default-frame-alist '(width . 200))
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 (add-to-list 'default-frame-alist '(internal-border-width . 8))
 
