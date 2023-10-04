@@ -77,6 +77,11 @@
   (advice-add 'org-capture-select-template
               :override #'org-capture-select-template-prettier)
 
+  (advice-add 'org-mac-link-firefox-insert-frontmost-url
+              :around #'kdz/org-mac-link-advise-evil)
+  (advice-add 'org-mac-link-finder-insert-selected
+              :around #'kdz/org-mac-link-advise-evil)
+
   (org-link-set-parameters "gh" :follow (kdz/follow-suffix-link "https://github.com"))
   (org-link-set-parameters "gl" :follow (kdz/follow-suffix-link "https://gitlab.com"))
 

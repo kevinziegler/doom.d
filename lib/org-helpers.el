@@ -100,3 +100,13 @@
           ".exports"
           (when subpath "/")
           subpath))
+
+(defun kdz/org-mac-link-advise-evil (org-mac-link-fn &rest orig-args)
+  "Advice to org-mac-link functions to handle insertion with evil-mode"
+  (interactive)
+  (let ((char-at-insert (thing-at-point 'char)))
+    (evil-save-state
+      (evil-append 1)
+      (when (not (string-match-p "[[:space:]]" char-at-insert))
+          (insert " "))
+      (apply org-mac-link-fn orig-args))))
