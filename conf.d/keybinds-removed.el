@@ -37,6 +37,7 @@
       "g/" nil ;; Magit Dispatch
       "gD" nil ;; Magit file delete
       "gF" nil ;; Magit fetch
+      "gG" nil ;; Magit status HERE
       "gR" nil ;; Git revert file
       "gS" nil ;; Git stage file
       "gU" nil ;; Magit unstage file
