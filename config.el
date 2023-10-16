@@ -215,7 +215,7 @@
 (after! vertico
   (setq orderless-matching-styles '(orderless-prefixes orderless-regexp)
         vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
-        vertico-posframe-poshandler (kdz/posframe-interior-top 200))
+        vertico-posframe-poshandler 'kdz/posframe-offset-top)
 
   (advice-add #'vertico--format-candidate
               :around #'kdz/vertico--format-candiate-marker-advice))
