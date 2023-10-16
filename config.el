@@ -229,6 +229,14 @@
         which-key-prefix-prefix "⬮ "
         which-key-sort-order #'which-key-prefix-then-key-order))
 
+(after! which-key-posframe
+  (setq which-key-posframe-poshandler 'kdz/posframe-offset-bottom)
+  (advice-add #'which-key-posframe--show-buffer
+              :override
+              #'kdz/fixup--which-key-posframe--show-buffer)
+  (which-key-posframe-mode 1))
+
+
 ;; Explicitly specify modes for certain file types
 (add-to-list 'auto-mode-alist '("\\.puml$" . plantuml-mode))
 (add-to-list 'auto-mode-alist '("/Tiltfile.*\\'" . bazel-starlark-mode))
